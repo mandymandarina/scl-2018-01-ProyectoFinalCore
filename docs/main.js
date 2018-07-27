@@ -109,42 +109,8 @@ const seccionRegistro = document.getElementById('registroUser');
 const seccionMuro = document.getElementById('sectionMuro');
 // ==========================FUNCIONALIDAD LOGIN=====================================
 
-// LOGIN CON FACEBOOK
-const logFb = document.getElementById('loginFb');
-logFb.addEventListener('click', () => {
-  let provider = new firebase.auth.FacebookAuthProvider();
-  firebase.auth().signInWithRedirect(provider).then(function(result) {
-    let token = result.credential.accessToken; // se obtiene el token de OAuth de Facebook
-    let user = result.user; // info del usuario logado
-    console.log(user);
-    // /document.getElementById("login").style.display = "none";
-    // document.getElementById("center").style.display = "block";
-    seccionLogin.style.display = 'none';
-    seccionMuro.style.display = 'block';
-    seccionCenter.style.display = 'block';
-  }).catch(function(error) {
-    seccionLogin.style.display = 'block';
-    seccionMuro.style.display = 'none';
-    seccionCenter.style.display = 'none';
-  });
-});// fin evento click del boton login Facebook
 
-// LOGIN CON GOOGLE
-const logGoogle = document.getElementById('loginGm');
-logGoogle.addEventListener('click', () => {
-  let provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithRedirect(provider).then(function(result) {
-    let token = result.credential.accessToken; // se obtiene el token de OAuth de google
-    let user = result.user; // info del usuario logado
-  }).catch(function(error) {
-    seccionLogin.style.display = 'block';
-    seccionMuro.style.display = 'none';
-    seccionCenter.style.display = 'none';
-  });
-});// fin evento click del boton login Google  
-
-
-// LOGARSE CON EMAIL NORMAL
+// LOGARSE CON NOMBRE Y RUT
 const btnLogin = document.getElementById('btnLogin');
 btnLogin.addEventListener('click', () => {
   const emailUser = document.getElementById('inputCorreo').value;
@@ -180,6 +146,8 @@ inputPasswordUser.addEventListener('click', () => {
   const alertLogin = document.getElementById('alertPassword');
   alertLogin.innerHTML = '<div id="alertPassword"></div>';
 });
+
+
 // LINK A FORMULARIO PARA REGISTRAR NUEVO USUARIO
 const btnFormRegister = document.getElementById('registrate');
 btnFormRegister.addEventListener('click', () => {

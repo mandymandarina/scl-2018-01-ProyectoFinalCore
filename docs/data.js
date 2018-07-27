@@ -30,6 +30,7 @@ window.logout = (() => {
 });
 
 /** ********************PUBLICACIONES**********************************/
+ 
 
 // Funcion para guardar publicaciones
 function saveMessage() {
@@ -157,7 +158,7 @@ function toggleStar(event) {
 function counterLike(event) {
   event.stopPropagation();
   const likeID = event.target.getAttribute('data-like');
-  firebase.database().ref('posts/' + likeID).once('value', function (post) {
+  firebase.database().ref('posts/' + likeID).once('value', function(post) {
     let total = (post.child('starCounter').val() || 1);
     if (post) {
       firebase.database().ref('posts').child(likeID).update({
@@ -197,7 +198,7 @@ function editPost(event) {
   let menEdit = contenido.value;
   console.log('mensaje original' + menEdit);
   let editar = event.target.getAttribute('data-edit');
-  firebase.database().ref('posts/' + editar).once('value', function (edicion) {
+  firebase.database().ref('posts/' + editar).once('value', function(edicion) {
     contenido.addEventListener('keypress', () => {
       let cambio = document.getElementsByClassName('inputEdit')[0];
       editar = event.target.getAttribute('data-edit');
@@ -229,7 +230,7 @@ window.prueba = ((variable) => {
 window.addFriend = ((userTarget) => {
   console.log('verificaremos si ya esta o no en tu lista de amigos');
   const listFriends = firebase.database().ref('friends/');
-  listFriends.once('value', function (snapshot) {
+  listFriends.once('value', function(snapshot) {
     if (snapshot.val() === null) {
       console.log('aun no tienes una lista de amigos creada');
       firebase.auth().onAuthStateChanged((user) => {
@@ -258,7 +259,7 @@ window.addFriend = ((userTarget) => {
         userFriend.style.display = 'block';
         userNotFriend.style.display = 'none';
         const allUsersRegister = firebase.database().ref('users/');
-        allUsersRegister.on('value', function (snapshot) {
+        allUsersRegister.on('value', function(snapshot) {
           console.log('entró');
           let result, id, name, email;
 
@@ -315,7 +316,7 @@ window.addFriend = ((userTarget) => {
   });
 
   const allUsersRegister = firebase.database().ref('users/');
-  allUsersRegister.on('value', function (snapshot) {
+  allUsersRegister.on('value', function(snapshot) {
     let arrayUsers = Object.entries(snapshot.val());
     arrayUsers.forEach(idFirebase => {
       // console.log(idFirebase)
