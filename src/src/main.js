@@ -5,6 +5,7 @@ window.onload = (() => {
   const inputEmailUser = document.getElementById('inputCorreo');
   const sectionProfile = document.getElementById('sectionProfile');
   const sectionRecipes = document.getElementById('sectionRecipes');
+  const sectionFavorite = document.getElementById('sectionFavorite');
   inputEmailUser.value = '';
   const inputPasswordUser = document.getElementById('inputPass');
   inputPasswordUser.value = '';
@@ -69,29 +70,7 @@ window.onload = (() => {
             EmailUser: userLogued.email
           });
         }
-
-        // }
-        /*
-        arrayUsers.forEach(idFirebase => {
-          idFirebase.forEach(element => {
-            if (element.EmailUser !== userData) {
-              console.log("añadiendo usuario");
-              const newUserKey = firebase.database().ref().child('users').push().key;
-              firebase.database().ref(`users/${newUserKey}`).set({
-                idUser: userLogued.uid,
-                NameUser: userLogued.displayName,
-                EmailUser: userLogued.email
-              });
-            }else{
-              console.log("usuario ya añadido anteriormente");
-            }  
-          })
-        }) 
-        */
       });
-
-      // console.log(user.uid);
-      // console.log("user > "+JSON.stringify(user));
     } else {
       seccionLogin.style.display = 'block';
       seccionMuro.style.display = 'none';
@@ -108,53 +87,16 @@ const seccionRegistro = document.getElementById('registroUser');
 const seccionMuro = document.getElementById('sectionMuro');
 // ==========================FUNCIONALIDAD LOGIN=====================================
 
-// LOGIN CON FACEBOOK
-const logFb = document.getElementById('loginFb');
-logFb.addEventListener('click', () => {
-  let provider = new firebase.auth.FacebookAuthProvider();
-  firebase.auth().signInWithRedirect(provider).then(function(result) {
-    let token = result.credential.accessToken; // se obtiene el token de OAuth de Facebook
-    let user = result.user; // info del usuario logado
-    console.log(user);
-    // /document.getElementById("login").style.display = "none";
-    // document.getElementById("center").style.display = "block";
-    seccionLogin.style.display = 'none';
-    seccionMuro.style.display = 'block';
-    seccionCenter.style.display = 'block';
-  }).catch(function(error) {
-    seccionLogin.style.display = 'block';
-    seccionMuro.style.display = 'none';
-    seccionCenter.style.display = 'none';
-  });
-});// fin evento click del boton login Facebook
 
-// LOGIN CON GOOGLE
-const logGoogle = document.getElementById('loginGm');
-logGoogle.addEventListener('click', () => {
-  let provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithRedirect(provider).then(function(result) {
-    let token = result.credential.accessToken; // se obtiene el token de OAuth de google
-    let user = result.user; // info del usuario logado
-  }).catch(function(error) {
-    seccionLogin.style.display = 'block';
-    seccionMuro.style.display = 'none';
-    seccionCenter.style.display = 'none';
-  });
-});// fin evento click del boton login Google  
-
-
-// LOGARSE CON EMAIL NORMAL
+// LOGARSE CON NOMBRE Y RUT
 const btnLogin = document.getElementById('btnLogin');
 btnLogin.addEventListener('click', () => {
-  const emailUser = document.getElementById('inputCorreo').value;
-  const passwordUser = document.getElementById('inputPass').value;
-  firebase.auth().signInWithEmailAndPassword(emailUser, passwordUser)
+  const rutUser = document.getElementById('inputRut').value;  
+  firebase.auth().signInWithCustomToken(rutUser)
 
     .catch((error) => {
-      const inputEmailUser = document.getElementById('inputCorreo');
-      inputEmailUser.value = '';
-      const inputPasswordUser = document.getElementById('inputPass');
-      inputPasswordUser.value = '';
+      const inputEmailUser = document.getElementById('inputRut');
+      inputEmailUser.value = '';      
       const alertLogin = document.getElementById('alertPassword');
       const msjErrorFirebase = error.message;
       if (msjErrorFirebase === 'The email address is badly formatted.') {
@@ -167,24 +109,19 @@ btnLogin.addEventListener('click', () => {
     });
 }); // fin evento click del boton login normal  
 
-const inputEmailUser = document.getElementById('inputCorreo');
+const inputEmailUser = document.getElementById('inputRut');
 inputEmailUser.addEventListener('click', () => {
   inputEmailUser.value = '';
   const alertLogin = document.getElementById('alertPassword');
   alertLogin.innerHTML = '<div id="alertPassword"></div>';
 });
-const inputPasswordUser = document.getElementById('inputPass');
-inputPasswordUser.addEventListener('click', () => {
-  inputPasswordUser.value = '';
-  const alertLogin = document.getElementById('alertPassword');
-  alertLogin.innerHTML = '<div id="alertPassword"></div>';
-});
+
+
 // LINK A FORMULARIO PARA REGISTRAR NUEVO USUARIO
 const btnFormRegister = document.getElementById('registrate');
 btnFormRegister.addEventListener('click', () => {
   seccionRegistro.style.display = 'block';
   seccionLogin.style.display = 'none';
-  seccionCenter.style.display = 'none';
 });
 // LINK PARA REGRESAR A LA SECCION DE LOGIN
 const btnReturnLogin = document.getElementById('loginBack');
@@ -277,6 +214,7 @@ btnProfile.addEventListener('click', () => {
   seccionCenter.style.display = 'none';
   sectionRecipes.style.display = 'none';
   sectionProfile.style.display = 'block';
+  sectionFavorite.style.display = 'none';
 });
 
 /** ******************FIN SECCION PERFIL *********************************************/
@@ -289,6 +227,7 @@ btnArrowProfile.addEventListener('click', () => {
   seccionLogin.style.display = 'none';
   sectionRecipes.style.display = 'none';
   seccionCenter.style.display = 'block'; 
+  sectionFavorite.style.display = 'none';
 });
 
 
@@ -297,24 +236,51 @@ btnArrowProfile.addEventListener('click', () => {
 /** ******************SECCION RECETAS **************************************/
 const sectionRecipes = document.getElementById('sectionRecipes');
 
-
 const btnRecipes = document.getElementById('nameIconFooterRecipes');
 btnRecipes.addEventListener('click', () => {
   sectionProfile.style.display = 'none';
   seccionLogin.style.display = 'none';
   seccionCenter.style.display = 'none';
   sectionRecipes.style.display = 'block';
+  sectionFavorite.style.display = 'none';
 });
 /** ******************FIN SECCION RECETAS*******************************************/
 
 
 /** ******************SECCION VOLVER ATRAS RECETAS *************************/
-
+/*
 const btnArrowRecipes = document.getElementById('btnArrowRecipes');
 btnArrowRecipes.addEventListener('click', () => {
   sectionProfile.style.display = 'none';
   seccionLogin.style.display = 'none';
   seccionCenter.style.display = 'block';
   sectionRecipes.style.display = 'none';
-});
+  sectionFavorite.style.display = 'none';
+}); */
 /** ******************FIN SECCION VOLVER ATRAS RECETAS ****************************/
+
+/** ******************SECCION FAVORITOS **************************************/
+const sectionFavorite = document.getElementById('sectionFavorite');
+
+const btnFavorite = document.getElementById('nameIconFooterFavourite');
+btnFavorite.addEventListener('click', () => {
+  sectionProfile.style.display = 'none';
+  seccionLogin.style.display = 'none';
+  seccionCenter.style.display = 'none';
+  sectionRecipes.style.display = 'none';
+  sectionFavorite.style.display = 'block';
+});
+/** ******************FIN SECCION FAVORITOS****************************************/
+
+
+/** ******************SECCION VOLVER ATRAS FAVORITOS*************************/
+/*
+const btnArrowFavorite = document.getElementById('btnArrowFavorite');
+btnArrowFavorite.addEventListener('click', () => {
+  sectionProfile.style.display = 'none';
+  seccionLogin.style.display = 'none';
+  seccionCenter.style.display = 'block';
+  sectionRecipes.style.display = 'none';
+  sectionFavorite.style.display = 'none';
+}); */
+/** ******************FIN SECCION VOLVER ATRAS FAVORITOS****************************/

@@ -71,7 +71,6 @@ window.onload = (() => {
           });
         }
       });
-
     } else {
       seccionLogin.style.display = 'block';
       seccionMuro.style.display = 'none';
@@ -92,15 +91,12 @@ const seccionMuro = document.getElementById('sectionMuro');
 // LOGARSE CON NOMBRE Y RUT
 const btnLogin = document.getElementById('btnLogin');
 btnLogin.addEventListener('click', () => {
-  const emailUser = document.getElementById('inputCorreo').value;
-  const passwordUser = document.getElementById('inputPass').value;
-  firebase.auth().signInWithEmailAndPassword(emailUser, passwordUser)
+  const rutUser = document.getElementById('inputRut').value;  
+  firebase.auth().signInWithCustomToken(rutUser)
 
     .catch((error) => {
-      const inputEmailUser = document.getElementById('inputCorreo');
-      inputEmailUser.value = '';
-      const inputPasswordUser = document.getElementById('inputPass');
-      inputPasswordUser.value = '';
+      const inputEmailUser = document.getElementById('inputRut');
+      inputEmailUser.value = '';      
       const alertLogin = document.getElementById('alertPassword');
       const msjErrorFirebase = error.message;
       if (msjErrorFirebase === 'The email address is badly formatted.') {
@@ -113,15 +109,9 @@ btnLogin.addEventListener('click', () => {
     });
 }); // fin evento click del boton login normal  
 
-const inputEmailUser = document.getElementById('inputCorreo');
+const inputEmailUser = document.getElementById('inputRut');
 inputEmailUser.addEventListener('click', () => {
   inputEmailUser.value = '';
-  const alertLogin = document.getElementById('alertPassword');
-  alertLogin.innerHTML = '<div id="alertPassword"></div>';
-});
-const inputPasswordUser = document.getElementById('inputPass');
-inputPasswordUser.addEventListener('click', () => {
-  inputPasswordUser.value = '';
   const alertLogin = document.getElementById('alertPassword');
   alertLogin.innerHTML = '<div id="alertPassword"></div>';
 });
@@ -132,7 +122,6 @@ const btnFormRegister = document.getElementById('registrate');
 btnFormRegister.addEventListener('click', () => {
   seccionRegistro.style.display = 'block';
   seccionLogin.style.display = 'none';
-  
 });
 // LINK PARA REGRESAR A LA SECCION DE LOGIN
 const btnReturnLogin = document.getElementById('loginBack');

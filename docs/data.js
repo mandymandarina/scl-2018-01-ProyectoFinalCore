@@ -9,7 +9,6 @@ window.logout = (() => {
 });
 
 
-
 /** ******************************Politica de Privacidad***************************************** */
 window.privacyPolicy = (() => {
   const modal = document.getElementById('modalTerms');
