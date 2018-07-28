@@ -1,14 +1,17 @@
+
 window.onload = (() => {
   const seccionLogin = document.getElementById('sectionLogin');
   const seccionCenter = document.getElementById('sectionCenter');
   const seccionMuro = document.getElementById('sectionMuro');
-  const inputEmailUser = document.getElementById('inputCorreo');
+  const inputRutUser = document.getElementById('inputRut');
   const sectionProfile = document.getElementById('sectionProfile');
   const sectionRecipes = document.getElementById('sectionRecipes');
   const sectionFavorite = document.getElementById('sectionFavorite');
-  inputEmailUser.value = '';
-  const inputPasswordUser = document.getElementById('inputPass');
-  inputPasswordUser.value = '';
+  inputRutUser.value = '';
+  const inputPersonUser = document.getElementById('inputPerson');
+  inputPersonUser.value = '';
+  const inputPatenteUser = document.getElementById('inputPatente');
+  inputPatenteUser.value = '';
   // Limpiar el textarea
  
   document.getElementsByTagName('input').value = '';
@@ -30,7 +33,7 @@ window.onload = (() => {
       // guardamos el usuario que se ha logado en una coleccion de firebase
       // declaramos el usuario actual, el que se logó
       const userLogued = firebase.auth().currentUser;
-      const userData = userLogued.email; // acá sacamos el email del usuario logado
+      const userData = userLogued.rut; // acá sacamos el email del usuario logado
       let userId = userLogued.uid;
       // llamamos a la coleccion que tiene los usuarios
       const allUsersRegister = firebase.database().ref('users/');
@@ -67,7 +70,7 @@ window.onload = (() => {
           firebase.database().ref(`users/${newUserKey}`).set({
             idUser: userLogued.uid,
             NameUser: userLogued.displayName,
-            EmailUser: userLogued.email
+            RutUser: userLogued.rut
           });
         }
       });
@@ -92,26 +95,17 @@ const seccionMuro = document.getElementById('sectionMuro');
 const btnLogin = document.getElementById('btnLogin');
 btnLogin.addEventListener('click', () => {
   const rutUser = document.getElementById('inputRut').value;  
-  firebase.auth().signInWithCustomToken(rutUser)
-
-    .catch((error) => {
-      const inputEmailUser = document.getElementById('inputRut');
-      inputEmailUser.value = '';      
-      const alertLogin = document.getElementById('alertPassword');
-      const msjErrorFirebase = error.message;
-      if (msjErrorFirebase === 'The email address is badly formatted.') {
-        alertLogin.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert"> Error: Por favor ingresa un correo eléctronico válido</div>';
-      } else if (msjErrorFirebase === 'The password is invalid or the user does not have a password.') {
-        alertLogin.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert"> Error: Password Invalido, Ingrese un password de 6 o más caracteres </div>';
-      }
-      console.log('Error de Firebase > ' + error.code);
-      console.log('Error de Firebase > mensaje' + error.message);
-    });
+  firebase.auth().signInWithCustomToken(rutUser).catch(function(error) {
+  // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  // ...
+  });
 }); // fin evento click del boton login normal  
 
-const inputEmailUser = document.getElementById('inputRut');
-inputEmailUser.addEventListener('click', () => {
-  inputEmailUser.value = '';
+const inputRutUser = document.getElementById('inputRut');
+inputRutUser.addEventListener('click', () => {
+  inputRutUser.value = '';
   const alertLogin = document.getElementById('alertPassword');
   alertLogin.innerHTML = '<div id="alertPassword"></div>';
 });

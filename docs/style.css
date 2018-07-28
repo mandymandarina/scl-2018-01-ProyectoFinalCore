@@ -29,6 +29,14 @@
 	margin-left: 17%;
 	margin-top: 2%;
 }
+.custom-select{
+	border-radius: 0%;
+  border: 0px;  
+	height: 6vh;
+	display: block;
+	margin-left: 17%;
+	margin-top: 2%;
+}
 .btnLogIn{
 	background-color: #22B4BD;
 	border: 0px;

@@ -8,6 +8,29 @@ window.logout = (() => {
     .catch();
 });
 
+function saveData() {
+  const rutText = inputRut.value;
+  if (rutText === '') {
+    errorTxt.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert" id="errorTxt"> Error: Debes ingresar un rut </div>';
+    // Limpiar el textarea
+    document.getElementById('inputRut').value = '';
+  } else {
+    const currentUser = firebase.auth().currentUser;
+    const rutText = inputRut.value;
+    const newVisitKey = firebase.database().ref().child('visits').push().key;
+    firebase.database().ref(`visits/${newVisitKey}`).set({
+      creator: currentUser.uid,
+      creatorName: currentUser.displayName || currentUser.email,
+      rut: rutText,
+      email: currentUser.email,
+      name: 0,
+      Patente: 0,
+    });
+    // Limpiar el textarea
+    document.getElementById('inputRut').value = '';   
+  }
+}
+
 
 /** ******************************Politica de Privacidad***************************************** */
 window.privacyPolicy = (() => {

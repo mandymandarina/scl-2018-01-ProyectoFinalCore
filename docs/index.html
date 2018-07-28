@@ -22,7 +22,7 @@
   <!--Vinculación Hojas de Estilo Propias-->
   <link rel="stylesheet" href="style.css">
 
-  <title>EasyFood</title>
+  <title>MyVisitor</title>
   <!-- link de icono parte superior de pestaña -->
   <link rel="icon" type="image/jpg" href="img/LogoGorro.png" />
 
@@ -35,10 +35,22 @@
         <div class="col-12 colLogo">
           <img src="img/logo.png" id="logo" alt="Responsive image">
         </div>
-        <input class="form-control inputLogin" type="email" placeholder="Email address" id="inputRut">
-        <input class="form-control inputLogin" type="password" placeholder="Password" id="inputPass">
+        <input class="form-control inputLogin" type="token" placeholder="Ingrese su rut" id="inputRut">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+           
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Opciones...</option>
+            <option value="1">Visitante</option>
+            <option value="2">Encomienda</option>
+            <option value="3">Otros</option>
+          </select>
+        </div>
+        <input class="form-control inputLogin" type="password" placeholder="Ingrese nombre" id="inputPerson">
+        <input class="form-control inputLogin" type="password" placeholder="Ingrese número de patente" id="inputPatente">
         <div class="alertConteiner" id="alertPassword"></div>
-        <button type="button" id="btnLogin" class="btn-md btnLogIn">ENTRAR</button>        
+        <button type="button" id="btnLogin" class="btn-md btnLogIn">OK</button>        
         <p class="textLogin">¿Aún no tienes Cuenta?</p>
         <p class="textLogin" id="registrate">Registrate</p>
       </div>
