@@ -19,17 +19,28 @@ function saveData() {
     const rutText = inputRut.value;
     const newVisitKey = firebase.database().ref().child('visits').push().key;
     firebase.database().ref(`visits/${newVisitKey}`).set({
-      creator: currentUser.uid,
-      creatorName: currentUser.displayName || currentUser.email,
-      rut: rutText,
-      email: currentUser.email,
+      creator: currentUser,      
+      Rut: rutText,
+      Option: optionVis,
+      email: 0,
       name: 0,
       Patente: 0,
     });
     // Limpiar el textarea
     document.getElementById('inputRut').value = '';   
   }
-}
+  options();
+};
+
+function options() {
+  event.stopPropagation();
+  const optionVis = document.getElementById('inputGroupSelect01');
+  firebase.database().ref('visits/' + optionVis).once('value', function(post) {   
+    firebase.database().ref('visits/').child(optionVis).update({
+      option: optionVis,
+    });
+  });
+};
 
 
 /** ******************************Politica de Privacidad***************************************** */

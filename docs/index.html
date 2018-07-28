@@ -47,10 +47,21 @@
             <option value="3">Otros</option>
           </select>
         </div>
+        <a class="textLogin">
+          <input id="aceptTerm" type="checkbox" value="off">
+          <span class="space"></span>
+          <p id="terminos" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" onclick="privacyPolicy()">¿A quién vienes a ver?</p>
+        </a>
         <input class="form-control inputLogin" type="password" placeholder="Ingrese nombre" id="inputPerson">
+        <a class="textLogin">
+          <input id="aceptTerm" type="checkbox" value="off">
+          <span class="space"></span>
+          <p id="terminos" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" onclick="privacyPolicy()">¿Vienes en vehículo?</p>
+        </a>
+        
         <input class="form-control inputLogin" type="password" placeholder="Ingrese número de patente" id="inputPatente">
         <div class="alertConteiner" id="alertPassword"></div>
-        <button type="button" id="btnLogin" class="btn-md btnLogIn">OK</button>        
+        <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveData()">OK</button>        
         <p class="textLogin">¿Aún no tienes Cuenta?</p>
         <p class="textLogin" id="registrate">Registrate</p>
       </div>
