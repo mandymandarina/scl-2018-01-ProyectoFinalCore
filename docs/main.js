@@ -3,9 +3,7 @@ window.onload = (() => {
   const seccionCenter = document.getElementById('sectionCenter');
   const seccionMuro = document.getElementById('sectionMuro');
   const inputEmailUser = document.getElementById('inputCorreo');
-  const sectionProfile = document.getElementById('sectionProfile');
-  const sectionRecipes = document.getElementById('sectionRecipes');
-  const sectionFavorite = document.getElementById('sectionFavorite');
+
   inputEmailUser.value = '';
   const inputPasswordUser = document.getElementById('inputPass');
   inputPasswordUser.value = '';
@@ -18,15 +16,7 @@ window.onload = (() => {
       seccionMuro.style.display = 'block';
       seccionCenter.style.display = 'block';
 
-      /*
-      const userLogued = firebase.auth().currentUser;
-      const newUserKey = firebase.database().ref().child('users').push().key;
-              firebase.database().ref(`users/${newUserKey}`).set({
-                idUser: userLogued.uid,
-                NameUser: userLogued.displayName,
-                EmailUser: userLogued.email
-              }); 
-              */
+     
       // guardamos el usuario que se ha logado en una coleccion de firebase
       // declaramos el usuario actual, el que se logó
       const userLogued = firebase.auth().currentUser;
@@ -148,38 +138,43 @@ btnReturnLogin.addEventListener('click', () => {
 const btnRegister = document.getElementById('btnRegistrarse');
 
 btnRegister.addEventListener('click', () => {
-  const checkbox = document.getElementById('aceptTerm');
-  console.log(checkbox.value);
-  const alertReg = document.getElementById('alertRegister');
-  alertReg.innerHTML = '<div id="alertPassword"></div>';
 
-  const nombreNewUser = document.getElementById('inputName').value;
-  const emailNewUser = document.getElementById('inputEmailUser').value;
-  const passNewUser = document.getElementById('inputPassUser').value;
+  const rutVisitor = document.getElementById('inputRut').value;
+  const nameVisitor = document.getElementById('inputName').value;
+  const emailVisitor = document.getElementById('inputEmail').value;
+  const cargoVisitor = document.getElementById('inputCargo').value;
 
-  const inputNombreNewUser = document.getElementById('inputName');
-  inputNombreNewUser.value = '';
-  const inputEmailNewUser = document.getElementById('inputEmailUser');
-  inputEmailNewUser.value = '';
-  const inputPassNewUser = document.getElementById('inputPassUser');
-  inputPassNewUser.value = '';
+  const inputRutVisitor = document.getElementById('inputRut');
+  inputRutVisitor.value = '';
+  const inputNameVisitor = document.getElementById('inputName');
+  inputNameVisitor.value = '';
+  const inputEmailVisitor = document.getElementById('inputEmail');
+  inputEmailVisitor.value = '';
+  const inputCargoVisitor = document.getElementById('inputCargo');
+  inputCargoVisitor.value = '';
 
-  if (checkbox.value === 'off') {
-    alertRegister.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert">Tiene que aceptar los Terminos y Condiciones de Uso </div>';
-  } else {
+  const admin = require("firebase-admin");
+  const serviceAccount = require('./serviceAccountKey.json');
+  admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+  })
+
+  const uid = 'rut';
+  
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         const currentUser = firebase.auth().currentUser;
         const newUserKey = firebase.database().ref().child('users').push().key;
         firebase.database().ref(`users/${newUserKey}`).set({
-          NameUser: nombreNewUser,
-          EmailUser: emailNewUser
+          Rut: rutVisitor,
+          Name: nameVisitor,
+          Email: emailVisitor
         });
       }
     });
-    firebase.auth().createUserWithEmailAndPassword(emailNewUser, passNewUser)
-      .then(() => {
-        console.log('Usuario Registrado');
+    admin.auth().createCustomToken(uid)
+      .then((customToken) => {
+        console.log('Usuario Registrado'+ customToken);
         seccionLogin.style.display = 'none';
         seccionCenter.style.display = 'block';
         seccionRegistro.style.display = 'none';
@@ -192,8 +187,9 @@ btnRegister.addEventListener('click', () => {
         console.log('Error de Firebase > ' + error.code);
         console.log('Error de Firebase > mensaje' + error.message);
       });
-  }
+  
 });
+
 const checkbox = document.getElementById('aceptTerm');
 checkbox.addEventListener('click', () => {
   checkbox.value = 'on';
