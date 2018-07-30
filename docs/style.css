@@ -1,11 +1,7 @@
 /***************************Estilos Login***********************************/
 
 .login{
-	background-position: center center;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-  background-image: url(img/portada2.png);
-	background-size: cover;
+	
 	height: 100vh;
 	display: block;
 	width: 100%;
