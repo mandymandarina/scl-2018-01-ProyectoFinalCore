@@ -34,6 +34,7 @@
       <div class="col-12">
         <div class="col-12 colLogo">
           <img src="img/logo.png" id="logo" alt="Responsive image">
+         
         </div>
         <input class="form-control inputLogin" type="token" placeholder="Ingrese su rut" id="inputRut">
         <div class="input-group mb-3">
@@ -74,15 +75,10 @@
     <section class="row justify-content-center">
       <div class="col-12 justify-content-center register">
         <img src="img/logo.png" id="logoRegister" class="img-fluid" alt="Responsive image">
-        <input class="form-control inputLogin" placeholder="RUT" id="inputName">
-        <input class="form-control inputLogin" type="text" placeholder="Nombre" id="inputEmailUser">
-        
-        <div class="alertConteiner" id="alertRegister"></div>
-        <a class="textLogin">
-          <input id="aceptTerm" type="checkbox" value="off">
-          <span class="space"></span>
-          <p id="terminos" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" onclick="privacyPolicy()">Aceptar Terminos y Condiciones</p>
-        </a>
+        <input class="form-control inputLogin" placeholder="RUT" id="inputRut">
+        <input class="form-control inputLogin" type="text" placeholder="Nombre" id="inputName">
+        <input class="form-control inputLogin" type="email" placeholder="Email address" id="inputCorreo">
+        <input class="form-control inputLogin" type="text" placeholder="Cargo" id="inputCargo">
         <button type="button" id="btnRegistrarse" class="btn-md btnLogIn">REGISTRATE</button>
         <p class="textLogin" id="loginBack">Regresar a Login</p>
 
@@ -326,9 +322,10 @@
   <!--Vinculación Firebase-->
   
 <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-admin.js"></script>
 <script>
   // Initialize Firebase
-  var config = {
+  const config = {
     apiKey: "AIzaSyCN0GTXNWlTi5I3KYyZa6DdD6wVTRfJ-zY",
     authDomain: "myvisitor-6dccf.firebaseapp.com",
     databaseURL: "https://myvisitor-6dccf.firebaseio.com",
@@ -337,6 +334,13 @@
     messagingSenderId: "23998941895"
   };
   firebase.initializeApp(config);
+  const admin = {
+    projectId: "myvisitor-6dccf",
+    clientEmail: 'firebase-adminsdk-ut78m@myvisitor-6dccf.iam.gserviceaccount.com',
+    privateKey: "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDLiX2uQGQTh7R3\ndEfoT4ciYb+Wg13QpRZ5tg2SwwYZzQvwQiH2R0eu0/TGfGJguveGt2KQXCpRcxZO\nCoPRclUWSS3LC3mgh2VJcfWgiZfOmuquIzEPpnhUqSsBXAVgWovAvzk3BuTGQ2vy\nqiXE5LvnpHxWv82olR9wwEQMA2h6C5WfAaXHNZtv9nYT/yYN2rRZYmBdI+W13GdS\nanTfIKd2Lzhp7UY2aFNknOD4DkJzNwNhhbOTP1NN1UnGxVXPpbA+3gcv5F+B+xoh\nUdBhCo8cQVcjl+nmw/diun8apKEbhI2V3UZ6X9lrey95oj2u7dS5Q9ul+IP63a+1\nuU7UwxrnAgMBAAECggEAMAS8c286jQb/kw0KZ+rXSUvBXPuaFv7TuhwywJSlLFId\nRm37wDQZ28uinG888HA7tHswVDmCPFwH/5podfHg1BSoqpYG+FHpGfY6Skkb2QDg\na/ved8BA9ExC2pvAovZJsUwL7gkA0SuX3JS6u2RxVlmOghLXLLYdyEZ750+oht4n\nt86YIqHQvngnkHsrvbqu/SW+z06Ju8brQbmBMdcgBk0TnWxkedv9P2y61oi8DPx7\nKJjZlpnTNCxFRXEEcIqGmcomZ6+AUB8NDtgpvm7gwxidMV6N795dCPGhOjHMnWFo\ncoGEicyl7a9NnCRl1qvAuAp0xNLKgCrpIiETfiRO0QKBgQD37WAtr2yC5ZgXq0KI\nPZF4+6X3okS47IiYb1vvV92SZFEejPbL71gNJevn4OU+wuNsEm9RowyP+jAUyKsv\nwpr6c95Oxv0qzoIgPe/6Am6xijGMXc/U99ZMkNT1esWiPmC74w6W/8LCDmeFAB0Y\nju84oDAmAQAHr1gR5E931akLtwKBgQDSKhidtyy9Tijr4V55/EFOPoWMHsfg0ybO\nEsD8PPj9ppmH0eLI0i+9W/TlEYE0iYyFUXR5cS5FW/MAj36xzS5bBVevkig3y5UJ\npwb+miNw/Q6FSlOazMyFb9NFqO1tqXj+FOSjwEzPRI07kRsUXi6ejUXdWBYGzi9b\nQdeN8TjKUQKBgFA82LWwYnPyjkiKupuRIXWAK/R65bbbhlGfKKfLTgBEyyQSBwV1\nTo/ix/hhho/LTwL47GIFXNlz5P+0+gIY/0MzIK1qJSEneGGq6fGFvAFlcie1bL/F\n/esFrIZN14xsl633DA++cm+Pbd1Tbhc2myE+ZpbGGBZknyIbO8TSt0T9AoGAJA9/\nC8i7T3wSv257FHk5B2Do70L0ztnMJb3ICT+5BWTJoSldPVH7SQV3PrrDLa2QQ+vX\nDWNjKhl915HHjmCDXLDM+94bMn+nAfH73EG8ZQ22qR44vC35xceLO7+hhZh3nzkc\nhhBf3YyIozjhqZwDaccZvsH3fZFxRLpGbx99vBECgYAiQDoenUYEEvxXt6IL3y5m\nCVg3ZPG2SuG5qTyOVnLFPxpTPsCP80LqH25+qqf8suaWXzKKzrtcDS+xKbvxDYVZ\nagr5CavvEL7KIus++aU0NjmT2wiJcv+PBaDRGWo6TE1X+OX6Iw7a4OjAfQvSM0j/\nN6cEPIDbccKwaOyiynIiRw==\n-----END PRIVATE KEY-----\n"
+  }
+  firebase.initializeApp(admin);
+
 </script>
   <!-- Vinculación Jquery -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
