@@ -1,4 +1,4 @@
-//llamamos a un Json de las empresas
+// llamamos a un Json de las empresas
 
 
 // LOGOUT
@@ -75,15 +75,15 @@ const reservarEspacio = (()=> {
     const newReservaKey = firebase.database().ref().child('Reservas').push().key;
     firebase.database().ref(`Reservas/${newReservaKey}`).set({ 
       Rut: rutReserve,
-      name:nameReserve,
-      patente:patenteReserve,
-      espacio:espacioReserve,
-      numPersonas:numPersonasReserve,
-      observaciones:ObservacionesReserve
+      name: nameReserve,
+      patente: patenteReserve,
+      espacio: espacioReserve,
+      numPersonas: numPersonasReserve,
+      observaciones: ObservacionesReserve
     });
   }
 });
-/**********************************************Envio Emails*************************************************/
+/** ********************************************Envio Emails*************************************************/
 /*
 (function(){
   emailjs.init("<YOUR USER ID>");
@@ -126,6 +126,6 @@ window.privacyPolicy = (() => {
   const modal = document.getElementById('modalTerms');
   modal.style.display = 'block';
 
-  modal.innerHTML = `<div></div>`;
+  modal.innerHTML = '<div></div>';
 });
 /** ******************************FIN Politica de Privacidad***************************************** */
