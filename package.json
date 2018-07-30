@@ -1,15 +1,28 @@
 {
-  "name": "scl-2018-01-ProyectoFinalCor",
+  "name": "scl-2018-01-proyectofinalcor",
   "version": "1.0.0",
-  "description": "Test Unitarios",
+  "description": "Proyecto de Registrador",
   "main": "data.js",
   "scripts": {
     "test": "mocha"
   },
-  "author": "",
+  "author": "karynherrera",
   "license": "ISC",
   "dependencies": {
     "chai": "^4.1.2",
-    "firebase": "^5.2.0"
-  }
+    "firebase": "^5.2.0",
+    "firebase-admin": "^5.13.1"
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karynherrera/scl-2018-01-ProyectoFinalCore.git"
+  },
+  "bugs": {
+    "url": "https://github.com/karynherrera/scl-2018-01-ProyectoFinalCore/issues"
+  },
+  "homepage": "https://github.com/karynherrera/scl-2018-01-ProyectoFinalCore#readme"
 }
