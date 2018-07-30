@@ -12,6 +12,11 @@ window.logout = (() => {
 
 function saveData() {
   const rutText = inputRut.value;
+  const nameLast = inputName.value;
+  const mailText = inputEmail.value;
+  const patenteText = inputPatente.value;
+  const nameVisitText = inputPerson.value;
+  const cargoText = inputCargo.value;
   if (rutText === '') {
     errorTxt.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert" id="errorTxt"> Error: Debes ingresar un rut </div>';
     // Limpiar el textarea
@@ -20,26 +25,38 @@ function saveData() {
     const currentUser = firebase.auth().currentUser;
     const rutText = inputRut.value;
     const newVisitKey = firebase.database().ref().child('visits').push().key;
-    firebase.database().ref(`visits/${newVisitKey}`).set({
-      creator: currentUser,      
+    firebase.database().ref(`visits/${newVisitKey}`).set({           
       Rut: rutText,
-      email: 0,
-      name: 0,
-      Patente: 0,
+      name: nameLast,
+      nameVisit: nameVisitText,     
+      email: mailText,      
+      Patente: patenteText,
+      cargo: cargoText,
     });
     // Limpiar el textarea
     document.getElementById('inputRut').value = '';   
-  }
+  } 
+  saveIntrust();  
 };
 
-function options() {
-  event.stopPropagation();
-  const optionVis = document.getElementById('inputGroupSelect01');
-  firebase.database().ref('visits/' + optionVis).once('value', function(post) {   
-    firebase.database().ref('visits/').child(optionVis).update({
-      option: optionVis,
+function saveIntrust() {
+  const encargoText = inputEncargo.value;
+  const obsText = inputObs.value;
+  if (encargoText === '') {
+    errorTxt.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert" id="errorTxt"> Error: Debes ingresar un rut </div>';
+    // Limpiar el textarea
+    document.getElementById('inputEncargo').value = '';  
+  } else {
+    const currentUserTwo = firebase.auth().currentUser;
+    const encargoText = inputEncargo.value;
+    const newInKey = firebase.database().ref().child('intrust').push().key;
+    firebase.database().ref(`intrust/${newInKey}`).set({
+      creator: currentUserTwo,             
+      Encomienda: encargoText,
+      Observaciones: obsText,       
     });
-  });
+    document.getElementById('inputEncargo').value = '';  
+  }
 };
 
 const reservarEspacio = (()=> {

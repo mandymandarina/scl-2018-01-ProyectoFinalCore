@@ -35,36 +35,25 @@
         <div class="col-12 colLogo">
           <img src="img/logo.png" id="logo" alt="Responsive image">
         </div>
-        <input class="form-control inputLogin" type="token" placeholder="Ingrese su rut" id="inputRut">
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-           
-          </div>
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>Opciones...</option>
-            <option value="1">Visitante</option>
-            <option value="2">Encomienda</option>
-            <option value="3">Otros</option>
-          </select>
-        </div>
-        <a class="textLogin">
-          <input id="aceptTerm" type="checkbox" value="off">
-          <span class="space"></span>
-          <p id="terminos" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" onclick="privacyPolicy()">¿A quién vienes a ver?</p>
-        </a>
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese su rut" id="inputRut">
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese su nombre" id="inputName"> <input class="form-control inputLogin" type="text" placeholder="Ingrese su patente" id="inputPatente">
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese nombre" id="inputPerson">
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese su cargo" id="inputCargo">
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese su email" id="inputEmail">
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese encomienda" id="inputEncargo">
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese Observacion" id="inputObs">
+        
         <select class="form-control" id="listaEmpresas">
           <option id="optionEmpresas">
             Empresas
           </option>
         </select>
-        <input class="form-control inputLogin" type="password" placeholder="Ingrese nombre" id="inputPerson">
         <a class="textLogin">
           <input id="aceptTerm" type="checkbox" value="off">
           <span class="space"></span>
           <p id="terminos" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" onclick="privacyPolicy()">¿Vienes en vehículo?</p>
-        </a>
+        </a>        
         
-        <input class="form-control inputLogin" type="password" placeholder="Ingrese número de patente" id="inputPatente">
         <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveData()">OK</button>       
         
         <input class="form-control inputLogin" type="text" placeholder="Ingrese RUT" id="inputRutReserva">
@@ -79,28 +68,6 @@
     </div>
   </section>
   <!-- fin de login -->
-  <!-- Seccion Registro de Usuario -->
-  <div id="modalTerms"></div>
-  <section class="registro" id="registroUser">
-    <section class="row justify-content-center">
-      <div class="col-12 justify-content-center register">
-        <img src="img/logo.png" id="logoRegister" class="img-fluid" alt="Responsive image">
-        <input class="form-control inputLogin" placeholder="RUT" id="inputName">
-        <input class="form-control inputLogin" type="text" placeholder="Nombre" id="inputEmailUser">
-        
-        <div class="alertConteiner" id="alertRegister"></div>
-        <a class="textLogin">
-          <input id="aceptTerm" type="checkbox" value="off">
-          <span class="space"></span>
-          <p id="terminos" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" onclick="privacyPolicy()">Aceptar Terminos y Condiciones</p>
-        </a>
-        <button type="button" id="btnRegistrarse" class="btn-md btnLogIn">REGISTRATE</button>
-        <p class="textLogin" id="loginBack">Regresar a Login</p>
-
-      </div>
-    </section>
-  </section>
-  <!-- fin de registro de usuario -->
 
   <!-- SECCION MURO -->
   <section class="muro" id="sectionMuro">
