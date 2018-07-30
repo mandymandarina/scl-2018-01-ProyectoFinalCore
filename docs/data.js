@@ -1,4 +1,3 @@
-
 // LOGOUT
 window.logout = (() => {
   firebase.auth().signOut()
@@ -21,7 +20,6 @@ function saveData() {
     firebase.database().ref(`visits/${newVisitKey}`).set({
       creator: currentUser,      
       Rut: rutText,
-      Option: optionVis,
       email: 0,
       name: 0,
       Patente: 0,
@@ -29,7 +27,6 @@ function saveData() {
     // Limpiar el textarea
     document.getElementById('inputRut').value = '';   
   }
-  options();
 };
 
 function options() {
@@ -42,6 +39,33 @@ function options() {
   });
 };
 
+const reservarEspacio = (()=> {
+  const rutReserve = inputRutReserva.value;
+  const nameReserve = inputNameReserva.value;
+  const patenteReserve = inputPatenteReserva.value;
+  const espacioReserve = inputEspacioReserva.value;
+  const numPersonasReserve = inputPersonasReserva.value;
+  const ObservacionesReserve = inputObservaciones.value;
+
+  if (rutReserve === '') {
+    errorTxt.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert" id="errorTxt"> Error: Debes ingresar un rut </div>';
+    // Limpiar el textarea
+    inputRutReserva.value = '';
+  } else {
+    const currentUser = firebase.auth().currentUser;
+    const newReservaKey = firebase.database().ref().child('Reservas').push().key;
+    firebase.database().ref(`Reservas/${newReservaKey}`).set({ 
+      Rut: rutReserve,
+      name:nameReserve,
+      patente:patenteReserve,
+      espacio:espacioReserve,
+      numPersonas:numPersonasReserve,
+      observaciones:ObservacionesReserve
+    });
+    // Limpiar el textarea
+    rutReserve.value = '';   
+  }
+});
 
 /** ******************************Politica de Privacidad***************************************** */
 window.privacyPolicy = (() => {

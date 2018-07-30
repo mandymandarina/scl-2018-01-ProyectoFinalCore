@@ -92,16 +92,7 @@ const seccionMuro = document.getElementById('sectionMuro');
 
 
 // LOGARSE CON NOMBRE Y RUT
-const btnLogin = document.getElementById('btnLogin');
-btnLogin.addEventListener('click', () => {
-  const rutUser = document.getElementById('inputRut').value;  
-  firebase.auth().signInWithCustomToken(rutUser).catch(function(error) {
-  // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  // ...
-  });
-}); // fin evento click del boton login normal  
+
 
 const inputRutUser = document.getElementById('inputRut');
 inputRutUser.addEventListener('click', () => {
