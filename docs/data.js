@@ -1,3 +1,6 @@
+//llamamos a un Json de las empresas
+
+
 // LOGOUT
 window.logout = (() => {
   firebase.auth().signOut()
