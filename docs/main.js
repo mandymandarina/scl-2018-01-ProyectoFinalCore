@@ -8,7 +8,7 @@ window.onload = (() => {
   const inputPasswordUser = document.getElementById('inputPass');
   inputPasswordUser.value = '';
   // Limpiar el textarea
- 
+ /*
   document.getElementsByTagName('input').value = '';
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -19,6 +19,7 @@ window.onload = (() => {
      
       // guardamos el usuario que se ha logado en una coleccion de firebase
       // declaramos el usuario actual, el que se logó
+      /*
       const userLogued = firebase.auth().currentUser;
       const userData = userLogued.email; // acá sacamos el email del usuario logado
       let userId = userLogued.uid;
@@ -36,13 +37,14 @@ window.onload = (() => {
           console.log(arrayUsers.val());
         })*/
 
-        let arrayUsers = Object.entries(snapshot.val());
+        //let arrayUsers = Object.entries(snapshot.val());
         // for (id in arrayUsers) {
         // let arrayIds = arrayUsers[id];
         // let users = arrayIds[1];
         // console.log( "el id del usuario de la coleccion es:  "+users.idUser);
         // console.log( "el id del usuario logado es:  "+userId);
         // comparamos si el email del usuario de la coleccion es el mismo que se esta logando ahora
+        /*
         let result;
         let found = arrayUsers.find(item => {
           item.idUser === userId;
@@ -59,16 +61,16 @@ window.onload = (() => {
             NameUser: userLogued.displayName,
             EmailUser: userLogued.email
           });
-        }
-      });
-
+        } 
+      });*/
+      /*
     } else {
       seccionLogin.style.display = 'block';
       seccionMuro.style.display = 'none';
-      seccionCenter.style.display = 'none';
+      
       sectionProfile.style.display = 'none';
     }
-  });
+  }); */
 });// fin de window onload
 
 // ================SECCIONES DEL DOM=============================================
@@ -141,26 +143,25 @@ btnRegister.addEventListener('click', () => {
 
   const rutVisitor = document.getElementById('inputRut').value;
   const nameVisitor = document.getElementById('inputName').value;
-  const emailVisitor = document.getElementById('inputEmail').value;
+  const emailVisitor = document.getElementById('inputCorreo').value;
   const cargoVisitor = document.getElementById('inputCargo').value;
 
   const inputRutVisitor = document.getElementById('inputRut');
   inputRutVisitor.value = '';
   const inputNameVisitor = document.getElementById('inputName');
   inputNameVisitor.value = '';
-  const inputEmailVisitor = document.getElementById('inputEmail');
+  const inputEmailVisitor = document.getElementById('inputCorreo');
   inputEmailVisitor.value = '';
   const inputCargoVisitor = document.getElementById('inputCargo');
   inputCargoVisitor.value = '';
 
-  const admin = require("firebase-admin");
-  const serviceAccount = require('./serviceAccountKey.json');
-  admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-  })
+  console.log("registrarse");
+  
+  
+  
 
   const uid = 'rut';
-  
+  /*
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         const currentUser = firebase.auth().currentUser;
@@ -171,8 +172,8 @@ btnRegister.addEventListener('click', () => {
           Email: emailVisitor
         });
       }
-    });
-    admin.auth().createCustomToken(uid)
+    }); */
+    firebase.auth().createCustomToken(uid)
       .then((customToken) => {
         console.log('Usuario Registrado'+ customToken);
         seccionLogin.style.display = 'none';
@@ -187,15 +188,10 @@ btnRegister.addEventListener('click', () => {
         console.log('Error de Firebase > ' + error.code);
         console.log('Error de Firebase > mensaje' + error.message);
       });
-  
+
 });
 
-const checkbox = document.getElementById('aceptTerm');
-checkbox.addEventListener('click', () => {
-  checkbox.value = 'on';
-  const alertReg = document.getElementById('alertRegister');
-  alertReg.innerHTML = '<div id="alertPassword"></div>';
-});
+
 /** ******************BOTON ELIMINAR MENSAJE *********************************************/
 
 Window.confirmar = (()=>{
