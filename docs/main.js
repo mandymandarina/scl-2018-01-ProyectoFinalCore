@@ -70,29 +70,8 @@ window.onload = (() => {
             EmailUser: userLogued.email
           });
         }
-
-        // }
-        /*
-        arrayUsers.forEach(idFirebase => {
-          idFirebase.forEach(element => {
-            if (element.EmailUser !== userData) {
-              console.log("añadiendo usuario");
-              const newUserKey = firebase.database().ref().child('users').push().key;
-              firebase.database().ref(`users/${newUserKey}`).set({
-                idUser: userLogued.uid,
-                NameUser: userLogued.displayName,
-                EmailUser: userLogued.email
-              });
-            }else{
-              console.log("usuario ya añadido anteriormente");
-            }  
-          })
-        }) 
-        */
       });
 
-      // console.log(user.uid);
-      // console.log("user > "+JSON.stringify(user));
     } else {
       seccionLogin.style.display = 'block';
       seccionMuro.style.display = 'none';
@@ -153,7 +132,7 @@ const btnFormRegister = document.getElementById('registrate');
 btnFormRegister.addEventListener('click', () => {
   seccionRegistro.style.display = 'block';
   seccionLogin.style.display = 'none';
-  seccionCenter.style.display = 'none';
+  
 });
 // LINK PARA REGRESAR A LA SECCION DE LOGIN
 const btnReturnLogin = document.getElementById('loginBack');
@@ -280,7 +259,7 @@ btnRecipes.addEventListener('click', () => {
 
 
 /** ******************SECCION VOLVER ATRAS RECETAS *************************/
-
+/*
 const btnArrowRecipes = document.getElementById('btnArrowRecipes');
 btnArrowRecipes.addEventListener('click', () => {
   sectionProfile.style.display = 'none';
@@ -288,7 +267,7 @@ btnArrowRecipes.addEventListener('click', () => {
   seccionCenter.style.display = 'block';
   sectionRecipes.style.display = 'none';
   sectionFavorite.style.display = 'none';
-});
+}); */
 /** ******************FIN SECCION VOLVER ATRAS RECETAS ****************************/
 
 /** ******************SECCION FAVORITOS **************************************/
@@ -306,7 +285,7 @@ btnFavorite.addEventListener('click', () => {
 
 
 /** ******************SECCION VOLVER ATRAS FAVORITOS*************************/
-
+/*
 const btnArrowFavorite = document.getElementById('btnArrowFavorite');
 btnArrowFavorite.addEventListener('click', () => {
   sectionProfile.style.display = 'none';
@@ -314,5 +293,5 @@ btnArrowFavorite.addEventListener('click', () => {
   seccionCenter.style.display = 'block';
   sectionRecipes.style.display = 'none';
   sectionFavorite.style.display = 'none';
-});
+}); */
 /** ******************FIN SECCION VOLVER ATRAS FAVORITOS****************************/
