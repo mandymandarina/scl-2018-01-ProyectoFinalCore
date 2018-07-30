@@ -9,11 +9,11 @@ window.logout = (() => {
 });
 
 function saveData() {
-  const rutText = inputRut.value;
+  const rutText = inputRut.value;  
   if (rutText === '') {
     errorTxt.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert" id="errorTxt"> Error: Debes ingresar un rut </div>';
     // Limpiar el textarea
-    document.getElementById('inputRut').value = '';
+    document.getElementById('inputRut').value = '';    
   } else {
     const currentUser = firebase.auth().currentUser;
     const rutText = inputRut.value;
@@ -28,8 +28,25 @@ function saveData() {
     });
     // Limpiar el textarea
     document.getElementById('inputRut').value = '';   
+  }  
+};
+
+function saveIntrust() {
+  const personText = inputPerson.value;
+  if (personText === '') {
+    errorTxt.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert" id="errorTxt"> Error: Debes ingresar un rut </div>';
+    // Limpiar el textarea
+    document.getElementById('inputPerson').value = '';  
+  } else {
+    const currentUser = firebase.auth().currentUser;
+    const personText = inputPerson.value;
+    const newInKey = firebase.database().ref().child('intrust').push().key;
+    firebase.database().ref(`intrust/${newInKey}`).set({
+      creator: currentUser,      
+      Encomienda: personText,      
+    });
+    document.getElementById('inputPerson').value = '';  
   }
-  options();
 };
 
 function options() {
