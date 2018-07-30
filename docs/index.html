@@ -22,51 +22,52 @@
   <!--Vinculación Hojas de Estilo Propias-->
   <link rel="stylesheet" href="style.css">
 
-  <title>EasyFood</title>
+  <title>MyVisitor</title>
   <!-- link de icono parte superior de pestaña -->
   <link rel="icon" type="image/jpg" href="img/LogoGorro.png" />
-
 </head>
 <body>
   <!-- Sección Login -->
+
   <section class="login" id="sectionLogin">
     <div class="row justify-content-center">
       <div class="col-12">
         <div class="col-12 colLogo">
           <img src="img/logo.png" id="logo" alt="Responsive image">
         </div>
-        <input class="form-control inputLogin" type="email" placeholder="Email address" id="inputCorreo">
-        <input class="form-control inputLogin" type="password" placeholder="Password" id="inputPass">
-        <div class="alertConteiner" id="alertPassword"></div>
-        <button type="button" id="btnLogin" class="btn-md btnLogIn">ENTRAR</button>        
-        <p class="textLogin">¿Aún no tienes Cuenta?</p>
-        <p class="textLogin" id="registrate">Registrate</p>
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese su rut" id="inputRut">
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese su nombre" id="inputName"> <input class="form-control inputLogin" type="text" placeholder="Ingrese su patente" id="inputPatente">
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese nombre" id="inputPerson">
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese su cargo" id="inputCargo">
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese su email" id="inputEmail">
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese encomienda" id="inputEncargo">
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese Observacion" id="inputObs">
+        
+        <select class="form-control" id="listaEmpresas">
+          <option id="optionEmpresas">
+            Empresas
+          </option>
+        </select>
+        <a class="textLogin">
+          <input id="aceptTerm" type="checkbox" value="off">
+          <span class="space"></span>
+          <p id="terminos" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" onclick="privacyPolicy()">¿Vienes en vehículo?</p>
+        </a>        
+        
+        <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveData()">OK</button>       
+        
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese RUT" id="inputRutReserva">
+        <input class="form-control inputLogin" type="text" placeholder="Nombre y Apellido" id="inputNameReserva">
+        <input class="form-control inputLogin" type="text" placeholder="Patente" id="inputPatenteReserva">
+        <input class="form-control inputLogin" type="text" placeholder="Espacio Reservado" id="inputEspacioReserva">
+        <input class="form-control inputLogin" type="text" placeholder="# personas" id="inputPersonasReserva">
+        <input class="form-control inputLogin" type="text" placeholder="Observaciones" id="inputObservaciones">
+        <button type="button" id="btnReservar" class="btn-md btnLogIn" onclick="reservarEspacio()">Reservar</button>       
+
       </div>
     </div>
   </section>
   <!-- fin de login -->
-  <!-- Seccion Registro de Usuario -->
-  <div id="modalTerms"></div>
-  <section class="registro" id="registroUser">
-    <section class="row justify-content-center">
-      <div class="col-12 justify-content-center register">
-        <img src="img/logo.png" id="logoRegister" class="img-fluid" alt="Responsive image">
-        <input class="form-control inputLogin" placeholder="RUT" id="inputName">
-        <input class="form-control inputLogin" type="text" placeholder="Nombre" id="inputEmailUser">
-        
-        <div class="alertConteiner" id="alertRegister"></div>
-        <a class="textLogin">
-          <input id="aceptTerm" type="checkbox" value="off">
-          <span class="space"></span>
-          <p id="terminos" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" onclick="privacyPolicy()">Aceptar Terminos y Condiciones</p>
-        </a>
-        <button type="button" id="btnRegistrarse" class="btn-md btnLogIn">REGISTRATE</button>
-        <p class="textLogin" id="loginBack">Regresar a Login</p>
-
-      </div>
-    </section>
-  </section>
-  <!-- fin de registro de usuario -->
 
   <!-- SECCION MURO -->
   <section class="muro" id="sectionMuro">
@@ -281,10 +282,13 @@
     crossorigin="anonymous"></script>
   <!-- Vinculación a Fontawesome -->
   <script src="https://use.fontawesome.com/7873633050.js"></script>
+  <!-- Vinculación a libreria de envio emails -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js" type="text/javascript">
+  </script>
   <!--Vinculación archivos JS-->
   <script src="main.js"></script>
   <script src="data.js"></script>
 
 </body>
 
-</html>
+</html
