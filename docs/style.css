@@ -1,13 +1,9 @@
 /***************************Estilos Login***********************************/
 
 .login{
-	background-position: center center;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-  background-image: url(img/portada2.png);
-	background-size: cover;
+	
 	height: 100vh;
-	display: none;
+	display: block;
 	width: 100%;
 	text-align: center;
 }
@@ -19,6 +15,7 @@
 	margin-left: 10%;
 	margin-top: 20%;
 	margin-bottom: 10%;
+	display: none;
 }
 .inputLogin{
 	border-radius: 0%;

@@ -25,10 +25,10 @@
   <title>MyVisitor</title>
   <!-- link de icono parte superior de pestaña -->
   <link rel="icon" type="image/jpg" href="img/LogoGorro.png" />
-
 </head>
 <body>
   <!-- Sección Login -->
+
   <section class="login" id="sectionLogin">
     <div class="row justify-content-center">
       <div class="col-12">
@@ -43,20 +43,31 @@
         <input class="form-control inputLogin" type="text" placeholder="Ingrese encomienda" id="inputEncargo">
         <input class="form-control inputLogin" type="text" placeholder="Ingrese Observacion" id="inputObs">
         
-        
+        <select class="form-control" id="listaEmpresas">
+          <option id="optionEmpresas">
+            Empresas
+          </option>
+        </select>
         <a class="textLogin">
           <input id="aceptTerm" type="checkbox" value="off">
           <span class="space"></span>
           <p id="terminos" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" onclick="privacyPolicy()">¿Vienes en vehículo?</p>
         </a>        
         
-        <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveData()">OK</button>        
-        <p class="textLogin">¿Aún no tienes Cuenta?</p>
-        <p class="textLogin" id="registrate">Registrate</p>
+        <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveData()">OK</button>       
+        
+        <input class="form-control inputLogin" type="text" placeholder="Ingrese RUT" id="inputRutReserva">
+        <input class="form-control inputLogin" type="text" placeholder="Nombre y Apellido" id="inputNameReserva">
+        <input class="form-control inputLogin" type="text" placeholder="Patente" id="inputPatenteReserva">
+        <input class="form-control inputLogin" type="text" placeholder="Espacio Reservado" id="inputEspacioReserva">
+        <input class="form-control inputLogin" type="text" placeholder="# personas" id="inputPersonasReserva">
+        <input class="form-control inputLogin" type="text" placeholder="Observaciones" id="inputObservaciones">
+        <button type="button" id="btnReservar" class="btn-md btnLogIn" onclick="reservarEspacio()">Reservar</button>       
+
       </div>
     </div>
   </section>
-  <!-- fin de login --> 
+  <!-- fin de login -->
 
   <!-- SECCION MURO -->
   <section class="muro" id="sectionMuro">
@@ -314,6 +325,9 @@
     crossorigin="anonymous"></script>
   <!-- Vinculación a Fontawesome -->
   <script src="https://use.fontawesome.com/7873633050.js"></script>
+  <!-- Vinculación a libreria de envio emails -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js" type="text/javascript">
+  </script>
   <!--Vinculación archivos JS-->
   <script src="main.js"></script>
   <script src="data.js"></script>
