@@ -7,70 +7,7 @@ window.onload = (() => {
   inputEmailUser.value = '';
   const inputPasswordUser = document.getElementById('inputPass');
   inputPasswordUser.value = '';
-  // Limpiar el textarea
- /*
-  document.getElementsByTagName('input').value = '';
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      seccionLogin.style.display = 'none';
-      seccionMuro.style.display = 'block';
-      seccionCenter.style.display = 'block';
-
-     
-      // guardamos el usuario que se ha logado en una coleccion de firebase
-      // declaramos el usuario actual, el que se logó
-      /*
-      const userLogued = firebase.auth().currentUser;
-      const userData = userLogued.email; // acá sacamos el email del usuario logado
-      let userId = userLogued.uid;
-      // llamamos a la coleccion que tiene los usuarios
-      const allUsersRegister = firebase.database().ref('users/');
-      // revisamos la coleccion en ese momento
-      allUsersRegister.once('value', function(snapshot) {
-        // paso a arreglo el json que trae de firebase
-
-        // recorro ese arreglo hasta llegar a los keys de c/ usuario
-        // console.log(arrayUsers)
-        /*
-        let compare = allUsersRegister.orderByChild("idUser").equalTo(userId).once('value',(snapshot)=>{
-          let arrayUsers = Object.entries(snapshot.val());
-          console.log(arrayUsers.val());
-        })*/
-
-        //let arrayUsers = Object.entries(snapshot.val());
-        // for (id in arrayUsers) {
-        // let arrayIds = arrayUsers[id];
-        // let users = arrayIds[1];
-        // console.log( "el id del usuario de la coleccion es:  "+users.idUser);
-        // console.log( "el id del usuario logado es:  "+userId);
-        // comparamos si el email del usuario de la coleccion es el mismo que se esta logando ahora
-        /*
-        let result;
-        let found = arrayUsers.find(item => {
-          item.idUser === userId;
-          return result = true;
-        });
-
-        if (result) {
-          console.log('usuario ya añadido anteriormente ' + userId);
-        } else {
-          console.log('añadiendo usuario  ' + userId);
-          const newUserKey = firebase.database().ref().child('users').push().key;
-          firebase.database().ref(`users/${newUserKey}`).set({
-            idUser: userLogued.uid,
-            NameUser: userLogued.displayName,
-            EmailUser: userLogued.email
-          });
-        } 
-      });*/
-      /*
-    } else {
-      seccionLogin.style.display = 'block';
-      seccionMuro.style.display = 'none';
-      
-      sectionProfile.style.display = 'none';
-    }
-  }); */
+  
 });// fin de window onload
 
 // ================SECCIONES DEL DOM=============================================
@@ -161,33 +98,6 @@ btnRegister.addEventListener('click', () => {
   
 
   const uid = 'rut';
-  /*
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        const currentUser = firebase.auth().currentUser;
-        const newUserKey = firebase.database().ref().child('users').push().key;
-        firebase.database().ref(`users/${newUserKey}`).set({
-          Rut: rutVisitor,
-          Name: nameVisitor,
-          Email: emailVisitor
-        });
-      }
-    }); */
-    firebase.auth().createCustomToken(uid)
-      .then((customToken) => {
-        console.log('Usuario Registrado'+ customToken);
-        seccionLogin.style.display = 'none';
-        seccionCenter.style.display = 'block';
-        seccionRegistro.style.display = 'none';
-      })
-      .catch((error) => {
-        seccionLogin.style.display = 'none';
-        seccionCenter.style.display = 'none';
-        seccionRegistro.style.display = 'block';
-        alertRegister.innerHTML = `<div class="alert alert-danger alertConteiner" role="alert"> ${error} </div>`;
-        console.log('Error de Firebase > ' + error.code);
-        console.log('Error de Firebase > mensaje' + error.message);
-      });
 
 });
 
