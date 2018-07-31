@@ -16,21 +16,19 @@ Gracias, hasta pronto.
 
 
 ## User Story Mapping
-![alt text]
-()
+[aquí](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/user%20story%20mapping.jpg)
 
 ## Entrevistas 
 
-Para el estudio UX se realizaron entrevistas a personas comunes que les interesa la cocina como hobby.
-para poser ver las entrevista por favor visita los siguientes links en donde podras leer las entrevista de cada una de las personas que quisieron aportar y ayudarnos amablemente.
 
-Leer las entrevistas [aquí](https://drive.google.com/drive/folders/1-pvGqnTbtJcIQ1NvnGy-4BoSV6E5znDR)
+
+Si quieres escuchar las entrevistas haz click en el siguiente link  [aquí](https://drive.google.com/drive/folders/1-pvGqnTbtJcIQ1NvnGy-4BoSV6E5znDR)
 
 ## Estudio y viabilidad del proyecto
 
 Para poder realizar el proyecto se realizo un previo estudio sobre diferentes aplicaciones o paginas web, las cuales, su contenido se asemeja al del proyecto que se quiere realizar o que van dirigidas hacia el mismo publico. Para esto se realizo un Benchmark en donde se analizaron paginas en donde se hablen de recetas.
 
-Leer Benchmark [aquí](https://docs.google.com/document/d/1j-wwp7r6f1tYnR4-XXvQzGf_kjKcIAWxD7Rf9ZHRNYk/edit)
+Leer Benchmark [aquí](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/Benchmark.png)
 
 ## Proceso de diseño.
 
@@ -48,7 +46,7 @@ Luego una imagen que abarca el espacio donde después de hacer click en -por eje
 
 #### Demo Versión Desktop
 
-Para visualizarlo desde Figma, haz click [aquí](https://www.figma.com/file/JGYFiTRzL9a483petD90X3e7/Untitled) 
+Para visualizarlo desde Figma, haz click [aquí](https://www.figma.com/proto/Yn4TRloHzWhiyEA6a7fhvHip/Untitled?scaling=min-zoom&node-id=1%3A396) 
 
 
 ## Planificación de proyecto
