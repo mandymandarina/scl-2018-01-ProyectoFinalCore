@@ -108,6 +108,22 @@ pestHistorialV.addEventListener('click', () => {
   contenidoIngresoV.style.display = 'none';
 });
 
+// seccion Encomiendas
+const pestIngresoEnco = document.getElementById('btnPestIngresoEn');
+const pestHistorialEnco = document.getElementById('btnPestHistorialEn');
+const contenidoIngresoEnco = document.getElementById('seccionEnIngreso');
+const contenidotHistorialEnco = document.getElementById('seccionEnHistorial');
+
+pestIngresoEnco.addEventListener('click', () => {
+  contenidotHistorialEnco.style.display = 'none';
+  contenidoIngresoEnco.style.display = 'block';
+});
+pestHistorialEnco.addEventListener('click', () => {
+  contenidotHistorialEnco.style.display = 'block';
+  contenidoIngresoEnco.style.display = 'none';
+});
+
+
 // Boton cargo y mail
 
 const questYes = document.getElementById('btnSi');
