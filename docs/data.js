@@ -1,13 +1,4 @@
 
-// LOGOUT
-window.logout = (() => {
-  firebase.auth().signOut()
-    .then(() => {
-      console.log('chao');
-    })
-    .catch();
-});
-
 function saveData() {
   const rutText = inputRut.value;
   const nameLast = inputName.value;
@@ -20,7 +11,6 @@ function saveData() {
     // Limpiar el textarea
     document.getElementById('inputRut').value = '';
   } else {
-    const currentUser = firebase.auth().currentUser;
     const rutText = inputRut.value;
     const newVisitKey = firebase.database().ref().child('visits').push().key;
     firebase.database().ref(`visits/${newVisitKey}`).set({
@@ -34,27 +24,61 @@ function saveData() {
     // Limpiar el textarea
     document.getElementById('inputRut').value = '';
   }
-  saveIntrust();
+  
 };
 
+/**********************************************Ingreso de Encomiendas*************************************************/
 function saveIntrust() {
   const encargoText = inputEncargo.value;
+  const empresaText = listaEmpresa.value;
   const obsText = inputObs.value;
-  if (encargoText === '') {
-    errorTxt.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert" id="errorTxt"> Error: Debes ingresar un rut </div>';
-    // Limpiar el textarea
-    document.getElementById('inputEncargo').value = '';
-  } else {
-    const currentUserTwo = firebase.auth().currentUser;
-    const encargoText = inputEncargo.value;
+  let customerEmail;
+  window.datos;
+
+  let found = datos.find(item => {
+    if(item.name === empresaText){
+    customerEmail = item.email;
+    console.log(item.name);
+    console.log(customerEmail);
+    return result = true;
+    }else{
+      return result = false;
+    }
+  });
+
+  if(result){
+    console.log(customerEmail);
     const newInKey = firebase.database().ref().child('intrust').push().key;
     firebase.database().ref(`intrust/${newInKey}`).set({
-      creator: currentUserTwo,
       Encomienda: encargoText,
+      Empresa: empresaText,
       Observaciones: obsText,
     });
+
     document.getElementById('inputEncargo').value = '';
+    emailjs.init("user_0nX0E9VcT00Cn5l3Xunq5");
+
+    var template_params = {
+      "to_name": `${encargoText}`,
+      "customer_name": `${customerEmail}`,
+      "from_name": "MiVisita",
+      "to_name": `${encargoText}`,
+      "message_html": `Recepción recibió una encomienda para ${encargoText} miembro de ${empresaText} Descripción: ${obsText}`
+    }
+
+  var service_id = "gmail";
+  var template_id = "mi_visita";
+  emailjs.send(service_id, template_id, template_params)
+    .then(function(response){
+      console.log(response);
+    },function(error){
+      console.log(error);
+    });
+  }else{
+    saveIntrust();
   }
+
+    
 };
 
 const reservarEspacio = (() => {
@@ -100,6 +124,7 @@ const reservarEspacio = (() => {
     });
    }
   });
+
   /** ******************************Politica de Privacidad***************************************** */
   window.privacyPolicy = (() => {
     const modal = document.getElementById('modalTerms');
@@ -109,5 +134,5 @@ const reservarEspacio = (() => {
   });
 
 
-/**********************************************Envio Emails*************************************************/
+
 

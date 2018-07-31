@@ -29,7 +29,7 @@
 </head>
 
 <body>
-
+    
   <!-- Sección Principal-->
   <section class="login" id="sectionPrincipal">
     <div class="row justify-content-center">
@@ -85,20 +85,25 @@
       </div>
     </div>
     <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveData()">OK</button>
-    <button type="button" id="btnAtras" class="btn-md btnLogIn"> atras </button>
+    <button type="button" onclick="atras()" class="btn-md btnLogIn"> atras </button>
     </section>
 
     <!-- Sección Encomiendas -->
     <section class="login" id="sectionEncomiendas">
       <div class="row justify-content-center">
         <div class="col-12">
-          <input class="form-control inputLogin" type="text" placeholder="Ingrese encomienda" id="inputEncargo">
+           <select class="form-control" id="listaEmpresa">
+              <option id="optionEmpresa">
+                Empresa
+              </option>
+            </select>
+          <input class="form-control inputLogin" type="text" placeholder="Persona:" id="inputEncargo">
           <input class="form-control inputLogin" type="text" placeholder="Ingrese Observacion" id="inputObs">
-          <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveData()">OK</button>
+          <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveIntrust()">Ingresar Encomienda</button>
+          <button type="button" id="btnAtras" class="btn-md btnLogIn" onclick="atras()"> Volver a Inicio</button>
         </div>
       </div>
     </section>
-    <!-- Sección Reserva de Espacios -->
       <!-- Sección Reserva de Espacios -->
   <section class="login" id="sectionEspacios">
       <div class="row justify-content-center">
