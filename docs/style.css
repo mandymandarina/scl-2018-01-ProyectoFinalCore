@@ -89,6 +89,55 @@ opacity: 0.8;
 	padding:  1vw;
 }
 
+.btnPestaña{
+	background-color: #E6E6E5;
+	border-bottom: 0px;
+	margin: 0px;
+	cursor: pointer;
+	width: 20vw;
+	display: inline-block;
+	color: #202A37; 
+	font-size: 20px; 
+}
+
+.inputRva{
+	border-radius: 0%;
+  border: 0px;
+  width: 20vw;
+	display: inline-block;
+	margin-left: 5%;
+	margin-top: 7%;
+}
+
+#historyReserva{
+	display: none;
+	padding: 5%;
+}
+#ingresoReserva{
+	display: block;
+}
+
+#inputVacio{
+	background-color: #E6E6E5;
+	border: 0px;
+	width: 20vw;
+}
+.col-10{
+	background-color: #E6E6E5;
+}
+
+#menúPrincipalBtns{
+	padding: 15%;
+}
+
+#inputObservaciones{
+	border-radius: 0%;
+  border: 0px;
+	width: 50vw;
+	height: 20vh;
+	display: inline-block;
+	
+}
 
 @media (min-width: 768px){
 #logo{
@@ -117,6 +166,8 @@ opacity: 0.8;
 	font-size: 22px;
 }
 
+
+
 .textLogin{
 	font-size: 20px;
 
@@ -135,4 +186,6 @@ opacity: 0.8;
 }
 #sectionEspacios{
 	display: none;
+	padding: 5%;
 }
+
