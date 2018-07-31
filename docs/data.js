@@ -140,16 +140,18 @@ const reservarEspacio = (() => {
       'message_html': `En recepción se ha identificado a la persona: ${nameReserve} con RUT: ${rutReserve} quien reserva el espacio ${espacioReserve} para ${numPersonasReserve} personas ${ObservacionesReserve}`
     };
 
-  var service_id = "gmail";
-  var template_id = "mi_visita";
-  emailjs.send(service_id, template_id, template_params)
-    .then(function(response){
-      console.log(response);
-    },function(error){
-      console.log(error);
-    });
-   
-  });
+
+
+    var service_id = 'gmail';
+    var template_id = 'mi_visita';
+    emailjs.send(service_id, template_id, template_params)
+      .then(function(response) {
+        console.log(response);
+      }, function(error) {
+        console.log(error);
+      });
+  
+});
 
   /** ******************************Politica de Privacidad***************************************** */
 window.privacyPolicy = (() => {
