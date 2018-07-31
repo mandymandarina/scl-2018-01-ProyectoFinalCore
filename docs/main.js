@@ -1,21 +1,19 @@
 window.listaEmpresas = [];
 window.onload = (() => {
-
-const lista = document.getElementById("listaEmpresas");
+  const lista = document.getElementById('listaEmpresas');
   fetch('../data/empresas.json')
-		.then(response => response.json()) 
-		.then(data => {
+    .then(response => response.json()) 
+    .then(data => {
       data.forEach(element => {
         console.log(element.name);
       });
-			data.forEach(element => {
+      data.forEach(element => {
         let optionEmpresa = document.createElement('option');
         optionEmpresa.text = element.name;
         lista.add(optionEmpresa);
       }); 
-      console.log("holi");
-		})
- 
+      console.log('holi');
+    });
 });// fin de window onload
 
 
@@ -25,8 +23,6 @@ const seccionCenter = document.getElementById('sectionCenter');
 const seccionRegistro = document.getElementById('registroUser');
 const seccionMuro = document.getElementById('sectionMuro');
 // ==========================FUNCIONALIDAD LOGIN=====================================
-
-
 
 
 /** ******************BOTON ELIMINAR MENSAJE *********************************************/
