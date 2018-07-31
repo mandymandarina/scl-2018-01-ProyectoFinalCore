@@ -1,22 +1,27 @@
-window.emails = [];
+window.datos = [];
 window.onload = (() => {
 
   const lista = document.getElementById("listaEmpresas");
+  const list = document.getElementById("listaEmpresa");
   fetch('../data/empresas.json')
     .then(response => response.json())
     .then(data => {
+      window.datos = data;
       console.log(data);
-      data.forEach(element => {
-        
-      });
       data.forEach(element => {
         let optionEmpresa = document.createElement('option');
         optionEmpresa.text = element.name;
         lista.add(optionEmpresa);
       });
+      data.forEach(element => {
+        let optionEmpresas = document.createElement('option');
+        optionEmpresas.text = element.name;
+        list.add(optionEmpresas);
+      });
+
       console.log("holi");
     })
-  });// fin de window onload
+});// fin de window onload
 
 
 const seccionPrincipal = document.getElementById('sectionPrincipal');
@@ -50,7 +55,7 @@ btnRvaEspacios.addEventListener('click', () => {
   seccionRvaEspacios.style.display = 'block';
 });
 
-const atras=(()=>{
+const atras = (() => {
   if (seccionRvaEspacios.style.display = 'block') {
     seccionPrincipal.style.display = 'none';
     seccionVisitas.style.display = 'none';
