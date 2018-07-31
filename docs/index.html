@@ -25,6 +25,7 @@
 
   <title>MyVisitor</title>
   <!-- link de icono parte superior de pestaña -->
+  
   <link rel="icon" type="image/jpg" href="img/Logo redondo Mi Visita para pag.png" />
 </head>
 
@@ -34,9 +35,10 @@
   <section class="login" id="sectionPrincipal">
     <div class="row justify-content-center">
       <div class="col-12" id="menúPrincipalBtns">
-        <button type="button" id="btnVisitas" class="btn-md btnLogIn">Visitas</button>
-        <button type="button" id="btnEncomiendas" class="btn-md btnLogIn">Encomiendas</button>
-        <button type="button" id="btnReservaEspacios" class="btn-md btnLogIn">Reserva Espacios</button>
+        <img src="img/LogoIFpag.png" id="logo" class="img-fluid" alt="Responsive image">
+        <button type="button" id="btnVisitas" class="btn-md btnLogIn"><img class="photoMenu" src="icono/HOME/visita (home).svg"><span class=space></span>Visitas</button>
+        <button type="button" id="btnEncomiendas" class="btn-md btnLogIn"><img class="photoMenu" src="icono/HOME/Encomienda (home).svg"><span class=space></span>Encomiendas</button>
+        <button type="button" id="btnReservaEspacios" class="btn-md btnLogIn"><img class="photoMenu" src="icono/HOME/Reservas (home).svg"><span class=space></span>Reserva Espacios</button>
       </div>
     </div>
   </section>
@@ -165,22 +167,37 @@
         </span>
         <div class="col-10" id="ingresoReserva">
           <span>
-            <input class="form-control inputRva" type="text" placeholder="Ingrese RUT" id="inputRutReserva">
-            <input class="form-control inputRva" type="text" placeholder="Nombre y Apellido" id="inputNameReserva">
-            <input class="form-control inputRva" type="text" placeholder="Patente" id="inputPatenteReserva">
+            <div class="textRva">
+                <h6>RUT<span class=space></span><img class="photoMenu" src="icono/RESERVAS/Rut (reservas).svg"></h6>
+                <input class="form-control inputRva" type="text" placeholder="Ingrese RUT" id="inputRutReserva">
+            </div>
+            <div class="textRva">
+                <h6>Nombre y Apellido<span class=space></span><img class="photoMenu" src="icono/RESERVAS/nombre y apellido (reservas).svg"></h6>
+                <input class="form-control inputRva" type="text" placeholder="Nombre y Apellido" id="inputNameReserva">
+            </div>
+            <div class="textRva">
+                <h6>Patente<span class=space></span><img class="photoMenu" src="icono/VISITAS/Patente (visitas).svg"></h6>
+                <input class="form-control inputRva" type="text" placeholder="Patente" id="inputPatenteReserva">
+            </div>
           </span>
-          <select class="form-control inputRva" id="inputEspacioReserva">
-            <option class="optionEspacio">
-              Sala Blanco
-            </option>
-            <option class="optionEspacio">
-              Patio de Galpón
-            </option>
-            <option class="optionEspacio">
-              Hall Galpón
-            </option>
-          </select>
-          <input class="form-control inputRva" type="text" placeholder="# personas" id="inputPersonasReserva">
+          <div class="textRva">
+              <h6>Espacio Reservado<span class=space></span><img class="photoMenu" src="icono/RESERVAS/Reserva de espasios (reservas).svg"></h6>
+              <select class="form-control inputRva" id="inputEspacioReserva">
+                  <option class="optionEspacio">
+                    Sala Blanco
+                  </option>
+                  <option class="optionEspacio">
+                    Patio de Galpón
+                  </option>
+                  <option class="optionEspacio">
+                    Hall Galpón
+                  </option>
+                </select>
+          </div>
+          <div class="textRva">
+              <h6>N° de Personas<span class=space></span><img class="photoMenu" src="icono/RESERVAS/n de personas (reservas).svg"></h6>
+              <input class="form-control inputRva" type="text" placeholder="# personas" id="inputPersonasReserva">
+          </div>
           <input class="form-control" type="text" id="inputVacio">
           <input class="form-control" type="text" placeholder="Observaciones" id="inputObservaciones">
           <button type="button" id="btnReservar" class="btn-md btnLogIn" onclick="reservarEspacio()">Ingresar Reserva</button>

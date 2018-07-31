@@ -1,8 +1,9 @@
 window.datos = [];
 window.onload = (() => {
-  const lista = document.getElementById('listaEmpresas');
-  const list = document.getElementById('listaEmpresa');
-  fetch('../data/empresas.json')
+
+  const lista = document.getElementById("listaEmpresas");
+  const list = document.getElementById("listaEmpresa");
+  fetch('data/empresas.json')
     .then(response => response.json())
     .then(data => {
       window.datos = data;

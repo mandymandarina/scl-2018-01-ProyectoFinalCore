@@ -87,11 +87,10 @@ function saveIntrust() {
     emailjs.init('user_0nX0E9VcT00Cn5l3Xunq5');
 
     var template_params = {
-      'to_name': `${encargoText}`,
       'customer_name': `${customerEmail}`,
       'from_name': 'MiVisita',
-      'to_name': `${encargoText}`,
-      'message_html': `Recepción recibió una encomienda para ${encargoText} miembro de ${empresaText} Descripción: ${obsText}`
+      'to_name': `${empresaText}`,
+      'message_html': `Recepción recibió una encomienda para ${encargoText} Descripción: ${obsText}`
     };
 
     var service_id = 'gmail';
@@ -130,7 +129,7 @@ const reservarEspacio = (() => {
   emailjs.init('user_0nX0E9VcT00Cn5l3Xunq5');
 
   var template_params = {
-    'to_name': `${nameReserve}`,
+    'to_name': `Administrador`,
     'customer_name': `${customerEmail}`,
     'from_name': 'MiVisita',
     'to_name': `${nameReserve}`,
@@ -148,16 +147,9 @@ const reservarEspacio = (() => {
     });
 });
 
-  /** ******************************Politica de Privacidad***************************************** */
-window.privacyPolicy = (() => {
-  const modal = document.getElementById('modalTerms');
-  modal.style.display = 'block';
-
-  modal.innerHTML = '<div></div>';
-});
-
 
 // Buscar visitas desde firebase
+
 firebase.database().ref('visits')  
   .on('child_added', (newMessage) => {    
     tableOne.innerHTML += `<tr> 
@@ -168,6 +160,7 @@ firebase.database().ref('visits')
       <td>${newMessage.val().email}</td>     
       </tr>`;
   });
+
 
 // Buscar reservas desde firebase
 firebase.database().ref('Reservas')  

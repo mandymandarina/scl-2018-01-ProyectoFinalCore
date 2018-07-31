@@ -130,8 +130,8 @@ p{
   border: 0px;
   width: 20vw;
 	display: inline-block;
-	margin-left: 5%;
-	margin-top: 7%;
+	margin-left: 1%;
+	margin-top: 1%;
 }
 
 #historyReserva{
@@ -159,17 +159,29 @@ p{
 	border-radius: 0%;
   border: 0px;
 	width: 50vw;
-	height: 20vh;
+	height: 10vh;
 	display: inline-block;
 	
+}
+#logo{
+	text-align: center;
+	width:10vw;
+	
+}
+
+.textRva{
+	text-align: left;
+	display: inline-block;
+	margin-left: 1%;
+	margin-top: 2%;
 }
 
 @media (min-width: 768px){
 #logo{
-	margin-top:30px;
+	margin-top:0px;
 	text-align: center;
-	width: 50vw;
-	margin-left:10%
+	width: 20vw;
+	margin-left:0%
 }
 .login{	
 	background-size: cover;
