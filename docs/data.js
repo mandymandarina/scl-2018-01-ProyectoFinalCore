@@ -16,7 +16,7 @@ function saveData() {
   const nameVisitText = inputPerson.value;
   const cargoText = inputCargo.value;
   if (rutText === '') {
-    errorTxt.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert" id="errorTxt"> Error: Debes ingresar un rut </div>';
+    errorTxt.innerHTML = '<div> </div>';
     // Limpiar el textarea
     document.getElementById('inputRut').value = '';
   } else {
@@ -65,7 +65,7 @@ const reservarEspacio = (() => {
   const numPersonasReserve = inputPersonasReserva.value;
   const ObservacionesReserve = inputObservaciones.value;
 
-  const customerEmail =  'williamdantegarcia@gmail.com';
+  const customerEmail =  'v.azocar.adasme@gmail.com';
 
   if (rutReserve === '') {
     inputRutReserva.value = '';
@@ -87,7 +87,7 @@ const reservarEspacio = (() => {
       "customer_name": `${customerEmail}`,
       "from_name": "MiVisita",
       "to_name": `${nameReserve}`,
-      "message_html": `En recepción se ha identificado a la persona: ${nameReserve} con RUT:+${rutReserve} quien reserva el espacio ${espacioReserve} para ${numPersonasReserve} personas ${ObservacionesReserve}`
+      "message_html": `En recepción se ha identificado a la persona: ${nameReserve} con RUT: ${rutReserve} quien reserva el espacio ${espacioReserve} para ${numPersonasReserve} personas ${ObservacionesReserve}`
     }
 
   var service_id = "gmail";

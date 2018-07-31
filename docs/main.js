@@ -73,3 +73,20 @@ const atras=(()=>{
 
 });
 
+/********Pestañas Reserva Espacios*/
+const pestIngresoRva = document.getElementById("btnIngresoRva");
+const pestHistorialRva = document.getElementById("btnHistoryRva");
+const contenidoIngresoRva = document.getElementById("ingresoReserva");
+const contenidotHistorialRva = document.getElementById("historyReserva");
+
+
+pestIngresoRva.addEventListener('click', () => {
+  contenidotHistorialRva.style.display = 'none';
+  contenidoIngresoRva.style.display = 'block';
+
+});
+pestHistorialRva.addEventListener('click', () => {
+  contenidotHistorialRva.style.display = 'block';
+  contenidoIngresoRva.style.display = 'none';
+
+})

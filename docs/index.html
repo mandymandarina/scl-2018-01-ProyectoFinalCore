@@ -47,8 +47,7 @@
             <input class="form-control inputLogin" type="text" placeholder="Ingrese nombre" id="inputPerson">
             <input class="form-control inputLogin" type="text" placeholder="Ingrese su cargo" id="inputCargo">
             <input class="form-control inputLogin" type="text" placeholder="Ingrese su email" id="inputEmail">
-            <input class="form-control inputLogin" type="text" placeholder="Ingrese encomienda" id="inputEncargo">
-            <input class="form-control inputLogin" type="text" placeholder="Ingrese Observacion" id="inputObs">
+            
             
             <select class="form-control" id="listaEmpresas">
               <option id="optionEmpresas">
@@ -70,25 +69,48 @@
   <!-- Sección Encomiendas -->
   <section class="login" id="sectionEncomiendas">
       <div class="row justify-content-center">
-        <div class="col-12">
+        <div class="col-10">
             
-            <button type="button" id="btnAtras" class="btn-md btnLogIn"onclick="atras()"> Atras </button>
           </div>
       </div>
     </section>
     <!-- Sección Reserva de Espacios -->
   <section class="login" id="sectionEspacios">
       <div class="row justify-content-center">
-        <div class="col-12">
+        <span><button type="button" id="btnIngresoRva" class="btn-md btnPestaña">Ingreso</button><button type="button" id="btnHistoryRva" class="btn-md btnPestaña">Historial</button> </span>
+        <div class="col-10" id="ingresoReserva">
             <input class="form-control inputLogin" type="text" placeholder="Ingrese RUT" id="inputRutReserva">
             <input class="form-control inputLogin" type="text" placeholder="Nombre y Apellido" id="inputNameReserva">
             <input class="form-control inputLogin" type="text" placeholder="Patente" id="inputPatenteReserva">
             <input class="form-control inputLogin" type="text" placeholder="Espacio Reservado" id="inputEspacioReserva">
             <input class="form-control inputLogin" type="text" placeholder="# personas" id="inputPersonasReserva">
             <input class="form-control inputLogin" type="text" placeholder="Observaciones" id="inputObservaciones">
-            <button type="button" id="btnReservar" class="btn-md btnLogIn" onclick="reservarEspacio()">Reservar</button> 
-            <button type="button" id="btnAtras" class="btn-md btnLogIn" onclick="atras()"> Atras </button> 
+            <button type="button" id="btnReservar" class="btn-md btnLogIn" onclick="reservarEspacio()">Ingresar Reserva</button> 
+          
         </div>
+        <div class="col-10" id="historyReserva">
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Rut</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Patente</th>
+                    <th scope="col">Visita a: </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                </tbody>
+              </table>
+            
+        </div>
+        <button type="button" id="btnAtras" class="btn-md btnLogIn" onclick="atras()"> Atras </button> 
       </div>
     </section>
  
