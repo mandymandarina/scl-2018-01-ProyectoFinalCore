@@ -4,25 +4,53 @@ function saveData() {
   const nameLast = inputName.value;
   const mailText = inputEmail.value;
   const patenteText = inputPatente.value;
-  const nameVisitText = inputPerson.value;
+  const nameVisitText = inputPerson.value; // persona a la que visita
   const cargoText = inputCargo.value;
-  if (rutText === '') {
-    errorTxt.innerHTML = '<div> </div>';
-    // Limpiar el textarea
-    document.getElementById('inputRut').value = '';
-  } else {
-    const rutText = inputRut.value;
+  const empresa = listaEmpresas.value;
+  window.datos;
+
+  let found = datos.find(item => {
+    if(item.name === empresa){
+    customerEmail = item.email;
+    return result = true;
+    }else{
+      return result = false;
+    }
+  });
+
+  if(result){
     const newVisitKey = firebase.database().ref().child('visits').push().key;
     firebase.database().ref(`visits/${newVisitKey}`).set({
       Rut: rutText,
       name: nameLast,
       nameVisit: nameVisitText,
+      EmpresaVisit: empresa, 
       email: mailText,
       Patente: patenteText,
       cargo: cargoText,
     });
     // Limpiar el textarea
     document.getElementById('inputRut').value = '';
+    emailjs.init("user_0nX0E9VcT00Cn5l3Xunq5");
+
+    var template_params = {
+      "to_name": `${empresa}`,
+      "customer_name": `${customerEmail}`,
+      "from_name": "MiVisita",
+      "to_name": `${empresa}`,
+      "message_html": `Se registró en recepción a la persona  ${nameLast} RUT: ${rutText} indicó tener una reunión en ${empresa} con ${nameVisitText}`
+    }
+
+  var service_id = "gmail";
+  var template_id = "mi_visita";
+  emailjs.send(service_id, template_id, template_params)
+    .then(function(response){
+      console.log(response);
+    },function(error){
+      console.log(error);
+    });
+  }else{
+    saveData();
   }
   
 };
@@ -52,6 +80,7 @@ function saveIntrust() {
     firebase.database().ref(`intrust/${newInKey}`).set({
       Encomienda: encargoText,
       Empresa: empresaText,
+      EmailEmpresa: customerEmail,
       Observaciones: obsText,
     });
 
@@ -91,9 +120,6 @@ const reservarEspacio = (() => {
 
   const customerEmail =  'v.azocar.adasme@gmail.com'; // este seria directamente el email de la administradora del IF
 
-  if (rutReserve === '') {
-    inputRutReserva.value = '';
-  } else {
     const newReservaKey = firebase.database().ref().child('Reservas').push().key;
     firebase.database().ref(`Reservas/${newReservaKey}`).set({
       Rut: rutReserve,
@@ -122,7 +148,7 @@ const reservarEspacio = (() => {
     },function(error){
       console.log(error);
     });
-   }
+   
   });
 
   /** ******************************Politica de Privacidad***************************************** */
