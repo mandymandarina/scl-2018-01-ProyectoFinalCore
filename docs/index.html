@@ -53,34 +53,55 @@
           <button type="button" id="btnPestHistorial" class="btnPestaña">HISTORIAL</button>
           <section id="seccionViIngreso" class="seccion2">
             <span>
-              <h4>Rut</h4>
-              <input class="form-control" type="text" placeholder="Ingrese su rut" id="inputRut">
-              <h4>Nombre y Apellido</h4>
-              <input class="form-control" type="text" placeholder="Ingrese su nombre" id="inputName">
-              <h4>Patente </h4>
-              <input class="form-control" type="text" placeholder="Ingrese su patente" id="inputPatente">
+              <div class="controll"><p>Rut</p>
+              <input class="form-control" type="text" placeholder="Ingrese su rut" id="inputRut"></div>
+              <div class="controll"><p>Nombre y Apellido</p>
+              <input class="form-control" type="text" placeholder="Ingrese su nombre" id="inputName"></div>
+              <div class="controll"><p>Patente </p>
+              <input class="form-control" type="text" placeholder="Ingrese su patente" id="inputPatente"></div>
             </span>
             <span>
-              <h4>Ingreso a empresas </h4>
+              <div>
+              <p>Ingreso a empresas </p>
               <select class="form-control" id="listaEmpresas">
                 <option id="optionEmpresas">
                   Empresas
                 </option>
               </select>
-              <h4>Visita a: </h4>
+              <p>Visita a: </p>
               <input class="form-control" type="text" placeholder="Ingrese nombre" id="inputPerson">
+            </div>
             </span>
             <a class="textLogin">
               <span class="space"></span>
               <p id="terminos" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" onclick="privacyPolicy()">
                  Opcional | ¿Desea recibir información sobre el IF? <button type="button" id="btnSi" class="btnYes"> SI </button></p>
             </a>
+            <section id="secctionYes">
             <h4>Cargo</h4>
             <input class="form-control" type="text" placeholder="Ingrese su cargo" id="inputCargo">
             <h4>Email</h4>
             <input class="form-control" type="text" placeholder="Ingrese su email" id="inputEmail">
+           </section>
           </section>
-          <section id="seccionViHistorial" class="seccion2"></section>
+          <section id="seccionViHistorial" class="seccion2">
+              <table class="table table-dark" id="tableOne">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Rut</th>
+                      <th scope="col">Patente</th>
+                      <th scope="col">Visita a</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Cargo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>                      
+                    </tr>                              
+                  </tbody>
+                </table>
+          </section>
         </div>
       </div>
     </div>

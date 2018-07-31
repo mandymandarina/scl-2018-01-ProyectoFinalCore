@@ -110,6 +110,11 @@ pestHistorialV.addEventListener('click', () => {
   contenidoIngresoV.style.display = 'none';
 });
 
-// Boton Si cargo y mail
+// Boton cargo y mail
 
-const questYes = document.getElementById('');
+const questYes = document.getElementById('btnSi');
+const contenidoYes = document.getElementById('secctionYes');
+
+questYes.addEventListener('click', () =>{
+  contenidoYes.style.display = 'block';
+});
