@@ -1,24 +1,50 @@
 /***************************Estilos Login***********************************/
 
-.login{
-	
+.login{	
 	height: 100vh;
 	display: block;
 	width: 100%;
 	text-align: center;
 }
+.btnPestaña{
+	background-color: #FFF ;
+	border-radius: 3%;
+	border-top: 1px solid #202A37;
+	border-left: 1px solid #202A37;
+	border-right: 1px solid #202A37;
+	border-bottom: 0px;
+	margin: 0px;
+	cursor: pointer;
+	width: 20vw;
+	display: inline-block;
+	color: #202A37; 
+	font-size: 20px; 
+}
 
+#seccionViIngreso {
+	display:block;
+}
+
+#seccionViHistorial {
+  display: none;
+}
 
 .inputLogin{
 	border-radius: 0%;
-  border: 0px;
-  width: 60vw;
-	height: 6vh;
-	display: block;
-	margin-left: 17%;
+  border: 0px; 
+	display: inline;	
 	margin-top: 2%;
+	width: 10em;
+	margin: 20%;
+
+}
+.seccion2{
+  background-color: #e6e6e5;
 }
 
+.btnYes {
+	background-color: #202A37;
+}
 .btnLogIn{
 	background-color: #202A37;
 	border: 0px;
@@ -32,6 +58,32 @@
 	margin-top:2%;
 }
 
+.container {
+opacity: 0.8;
+}
+.title{
+	font-family: monospace;
+	color: black;
+	font-size: 200%;
+	font-weight: 300;
+	text-align: left;
+}
+.leter {
+	font-family: monospace;
+	color: black;
+	font-size: 150%;
+	font-weight: 300;
+}
+
+.form-control {
+	display: inline-block;
+	margin: 1em;
+	width: 10em;
+}
+
+.login {
+	background-image: url(img/Foto\ Fondo\ Pag.jpg);
+}
 
 .space{
 	padding:  1vw;

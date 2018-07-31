@@ -19,10 +19,10 @@ window.onload = (() => {
   });// fin de window onload
 
 
-const seccionPrincipal = document.getElementById("sectionPrincipal");
-const seccionVisitas = document.getElementById("sectionVisitas");
-const seccionEncomiedas = document.getElementById("sectionEncomiendas");
-const seccionRvaEspacios = document.getElementById("sectionEspacios");
+const seccionPrincipal = document.getElementById('sectionPrincipal');
+const seccionVisitas = document.getElementById('sectionVisitas');
+const seccionEncomiedas = document.getElementById('sectionEncomiendas');
+const seccionRvaEspacios = document.getElementById('sectionEspacios');
 
 //const btnAtras = document.getElementsByClassName("btnAtras");
 const btnVisitas = document.getElementById("btnVisitas");
@@ -90,3 +90,21 @@ pestHistorialRva.addEventListener('click', () => {
   contenidoIngresoRva.style.display = 'none';
 
 })
+// seccion visitas 
+const pestIngresoV = document.getElementById('btnPestIngreso');
+const pestHistorialV = document.getElementById('btnPestHistorial');
+const contenidoIngresoV = document.getElementById('seccionViIngreso');
+const contenidotHistorialV = document.getElementById('seccionViHistorial');
+
+pestIngresoV.addEventListener('click', () => {
+  contenidotHistorialV.style.display = 'none';
+  contenidoIngresoV.style.display = 'block';
+});
+pestHistorialV.addEventListener('click', () => {
+  contenidotHistorialV.style.display = 'block';
+  contenidoIngresoV.style.display = 'none';
+});
+
+// Boton Si cargo y mail
+
+const questYes = document.getElementById('');

@@ -25,7 +25,7 @@
 
   <title>MyVisitor</title>
   <!-- link de icono parte superior de pestaña -->
-  <link rel="icon" type="image/jpg" href="img/LogoGorro.png" />
+  <link rel="icon" type="image/jpg" href="img/Logo redondo Mi Visita para pag.png" />
 </head>
 
 <body>
@@ -44,122 +44,143 @@
   <section class="login" id="sectionVisitas">
     <div class="row justify-content-center">
       <div class="col-12">
-        <input class="form-control inputLogin" type="text" placeholder="Ingrese su rut" id="inputRut">
-        <input class="form-control inputLogin" type="text" placeholder="Ingrese su nombre" id="inputName">
-        <input class="form-control inputLogin" type="text" placeholder="Ingrese su patente" id="inputPatente">
-        <input class="form-control inputLogin" type="text" placeholder="Ingrese nombre" id="inputPerson">
-        <input class="form-control inputLogin" type="text" placeholder="Ingrese su cargo" id="inputCargo">
-        <input class="form-control inputLogin" type="text" placeholder="Ingrese su email" id="inputEmail">
-
-
-        <select class="form-control" id="listaEmpresas">
-          <option id="optionEmpresas">
-            Empresas
-          </option>
-        </select>
-        <a class="textLogin">
-          <input id="aceptTerm" type="checkbox" value="off">
-          <span class="space"></span>
-          <p id="terminos" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" onclick="privacyPolicy()">¿Vienes en vehículo?</p>
-        </a>
-
-        <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveData()">OK</button>
-
-        <button type="button" id="btnAtras" class="btn-md btnLogIn" onclick="atras()"> Atras </button>
+        <h1 class="title">
+          <i class="fas fa-arrow-left"></i> VISITAS
+          <i class="fas fa-user-circle"></i>
+        </h1>
+        <div class="container">
+          <button type="button" id="btnPestIngreso" class="btnPestaña">Ingreso</button>
+          <button type="button" id="btnPestHistorial" class="btnPestaña">HISTORIAL</button>
+          <section id="seccionViIngreso" class="seccion2">
+            <span>
+              <h4>Rut</h4>
+              <input class="form-control" type="text" placeholder="Ingrese su rut" id="inputRut">
+              <h4>Nombre y Apellido</h4>
+              <input class="form-control" type="text" placeholder="Ingrese su nombre" id="inputName">
+              <h4>Patente </h4>
+              <input class="form-control" type="text" placeholder="Ingrese su patente" id="inputPatente">
+            </span>
+            <span>
+              <h4>Ingreso a empresas </h4>
+              <select class="form-control" id="listaEmpresas">
+                <option id="optionEmpresas">
+                  Empresas
+                </option>
+              </select>
+              <h4>Visita a: </h4>
+              <input class="form-control" type="text" placeholder="Ingrese nombre" id="inputPerson">
+            </span>
+            <a class="textLogin">
+              <span class="space"></span>
+              <p id="terminos" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" onclick="privacyPolicy()">
+                 Opcional | ¿Desea recibir información sobre el IF? <button type="button" id="btnSi" class="btnYes"> SI </button></p>
+            </a>
+            <h4>Cargo</h4>
+            <input class="form-control" type="text" placeholder="Ingrese su cargo" id="inputCargo">
+            <h4>Email</h4>
+            <input class="form-control" type="text" placeholder="Ingrese su email" id="inputEmail">
+          </section>
+          <section id="seccionViHistorial" class="seccion2"></section>
+        </div>
       </div>
     </div>
-  </section>
-  <!-- Sección Encomiendas -->
-  <section class="login" id="sectionEncomiendas">
-    <div class="row justify-content-center">
-      <div class="col-10">
+    <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveData()">OK</button>
+    <button type="button" id="btnAtras" class="btn-md btnLogIn"> atras </button>
+    </section>
 
+    <!-- Sección Encomiendas -->
+    <section class="login" id="sectionEncomiendas">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <input class="form-control inputLogin" type="text" placeholder="Ingrese encomienda" id="inputEncargo">
+          <input class="form-control inputLogin" type="text" placeholder="Ingrese Observacion" id="inputObs">
+          <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveData()">OK</button>
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- Sección Reserva de Espacios -->
+    </section>
+    <!-- Sección Reserva de Espacios -->
+      <!-- Sección Reserva de Espacios -->
   <section class="login" id="sectionEspacios">
-    <div class="row justify-content-center">
-      <span>
-        <button type="button" id="btnIngresoRva" class="btn-md btnPestaña">Ingreso</button>
-        <button type="button" id="btnHistoryRva" class="btn-md btnPestaña">Historial</button>
-      </span>
-      <div class="col-10" id="ingresoReserva">
+      <div class="row justify-content-center">
         <span>
-          <input class="form-control inputRva" type="text" placeholder="Ingrese RUT" id="inputRutReserva">
-          <input class="form-control inputRva" type="text" placeholder="Nombre y Apellido" id="inputNameReserva">
-          <input class="form-control inputRva" type="text" placeholder="Patente" id="inputPatenteReserva">
+          <button type="button" id="btnIngresoRva" class="btn-md btnPestaña">Ingreso</button>
+          <button type="button" id="btnHistoryRva" class="btn-md btnPestaña">Historial</button>
         </span>
-        <select class="form-control inputRva" id="inputEspacioReserva">
-          <option class="optionEspacio">
-            Sala Blanco
-          </option>
-          <option class="optionEspacio">
-            Patio de Galpón
-          </option>
-          <option class="optionEspacio">
-            Hall Galpón
-          </option>
-        </select>
-        <input class="form-control inputRva" type="text" placeholder="# personas" id="inputPersonasReserva">
-        <input class="form-control" type="text" id="inputVacio">
-        <input class="form-control" type="text" placeholder="Observaciones" id="inputObservaciones">
-        <button type="button" id="btnReservar" class="btn-md btnLogIn" onclick="reservarEspacio()">Ingresar Reserva</button>
-        <button type="button" id="btnAtras" class="btn-md btnLogIn" onclick="atras()"> Volver a Inicio</button>
+        <div class="col-10" id="ingresoReserva">
+          <span>
+            <input class="form-control inputRva" type="text" placeholder="Ingrese RUT" id="inputRutReserva">
+            <input class="form-control inputRva" type="text" placeholder="Nombre y Apellido" id="inputNameReserva">
+            <input class="form-control inputRva" type="text" placeholder="Patente" id="inputPatenteReserva">
+          </span>
+          <select class="form-control inputRva" id="inputEspacioReserva">
+            <option class="optionEspacio">
+              Sala Blanco
+            </option>
+            <option class="optionEspacio">
+              Patio de Galpón
+            </option>
+            <option class="optionEspacio">
+              Hall Galpón
+            </option>
+          </select>
+          <input class="form-control inputRva" type="text" placeholder="# personas" id="inputPersonasReserva">
+          <input class="form-control" type="text" id="inputVacio">
+          <input class="form-control" type="text" placeholder="Observaciones" id="inputObservaciones">
+          <button type="button" id="btnReservar" class="btn-md btnLogIn" onclick="reservarEspacio()">Ingresar Reserva</button>
+          <button type="button" id="btnAtras" class="btn-md btnLogIn" onclick="atras()"> Volver a Inicio</button>
+        </div>
+        <div class="col-10" id="historyReserva">
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">Rut</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Patente</th>
+                <th scope="col">Visita a: </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" id="btnAtras" class="btn-md btnLogIn" onclick="atras()"> Volver a Inicio</button>
+        </div>
       </div>
-      <div class="col-10" id="historyReserva">
-        <table class="table table-dark">
-          <thead>
-            <tr>
-              <th scope="col">Fecha</th>
-              <th scope="col">Rut</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Patente</th>
-              <th scope="col">Visita a: </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-          </tbody>
-        </table>
-        <button type="button" id="btnAtras" class="btn-md btnLogIn" onclick="atras()"> Volver a Inicio</button>
-      </div>
-    </div>
-  </section>
-
-  <!--Vinculación Firebase-->
-  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyCN0GTXNWlTi5I3KYyZa6DdD6wVTRfJ-zY",
-      authDomain: "myvisitor-6dccf.firebaseapp.com",
-      databaseURL: "https://myvisitor-6dccf.firebaseio.com",
-      projectId: "myvisitor-6dccf",
-      storageBucket: "myvisitor-6dccf.appspot.com",
-      messagingSenderId: "23998941895"
-    };
-    firebase.initializeApp(config);
-  </script>
-  <!-- Vinculación Jquery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-    crossorigin="anonymous"></script>
-  <!-- Vinculación a Fontawesome -->
-  <script src="https://use.fontawesome.com/7873633050.js"></script>
-  <!-- Vinculación a libreria de envio emails -->
-  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <!--Vinculación archivos JS-->
-  <script src="main.js"></script>
-  <script src="data.js"></script>
+    </section>
+    <!--Vinculación Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCN0GTXNWlTi5I3KYyZa6DdD6wVTRfJ-zY",
+        authDomain: "myvisitor-6dccf.firebaseapp.com",
+        databaseURL: "https://myvisitor-6dccf.firebaseio.com",
+        projectId: "myvisitor-6dccf",
+        storageBucket: "myvisitor-6dccf.appspot.com",
+        messagingSenderId: "23998941895"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <!-- Vinculación Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"></script>
+    <!-- Vinculación a Fontawesome -->
+    <script src="https://use.fontawesome.com/7873633050.js"></script>
+    <!-- Vinculación a libreria de envio emails -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <!--Vinculación archivos JS-->
+    <script src="main.js"></script>
+    <script src="data.js"></script>
 
 </body>
 
