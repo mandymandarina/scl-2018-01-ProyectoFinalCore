@@ -16,7 +16,7 @@ function saveData() {
   const nameVisitText = inputPerson.value;
   const cargoText = inputCargo.value;
   if (rutText === '') {
-    errorTxt.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert" id="errorTxt"> Error: Debes ingresar un rut </div>';
+    errorTxt.innerHTML = '<div> </div>';
     // Limpiar el textarea
     document.getElementById('inputRut').value = '';
   } else {
@@ -65,7 +65,7 @@ const reservarEspacio = (() => {
   const numPersonasReserve = inputPersonasReserva.value;
   const ObservacionesReserve = inputObservaciones.value;
 
-  const customerEmail =  'williamdantegarcia@gmail.com';
+  const customerEmail = 'v.azocar.adasme@gmail.com'; // este seria directamente el email de la administradora del IF
 
   if (rutReserve === '') {
     inputRutReserva.value = '';
@@ -80,34 +80,45 @@ const reservarEspacio = (() => {
       observaciones: ObservacionesReserve
     });
 
-    emailjs.init("user_0nX0E9VcT00Cn5l3Xunq5");
+    emailjs.init('user_0nX0E9VcT00Cn5l3Xunq5');
 
     var template_params = {
-      "to_name": `${nameReserve}`,
-      "customer_name": `${customerEmail}`,
-      "from_name": "MiVisita",
-      "to_name": `${nameReserve}`,
-      "message_html": `En recepción se ha identificado a la persona: ${nameReserve} con RUT:+${rutReserve} quien reserva el espacio ${espacioReserve} para ${numPersonasReserve} personas ${ObservacionesReserve}`
-    }
+      'to_name': `${nameReserve}`,
+      'customer_name': `${customerEmail}`,
+      'from_name': 'MiVisita',
+      'to_name': `${nameReserve}`,
+      'message_html': `En recepción se ha identificado a la persona: ${nameReserve} con RUT: ${rutReserve} quien reserva el espacio ${espacioReserve} para ${numPersonasReserve} personas ${ObservacionesReserve}`
+    };
 
-  var service_id = "gmail";
-  var template_id = "mi_visita";
-  emailjs.send(service_id, template_id, template_params)
-    .then(function(response){
-      console.log(response);
-    },function(error){
-      console.log(error);
-    });
-  
-  /** ******************************Politica de Privacidad***************************************** */
-  window.privacyPolicy = (() => {
-    const modal = document.getElementById('modalTerms');
-    modal.style.display = 'block';
-
-    modal.innerHTML = `<div></div>`;
-  });
-}
+    var service_id = 'gmail';
+    var template_id = 'mi_visita';
+    emailjs.send(service_id, template_id, template_params)
+      .then(function(response) {
+        console.log(response);
+      }, function(error) {
+        console.log(error);
+      });
+  }
 });
-/**********************************************Envio Emails*************************************************/
+  /** ******************************Politica de Privacidad***************************************** */
+window.privacyPolicy = (() => {
+  const modal = document.getElementById('modalTerms');
+  modal.style.display = 'block';
 
-/** ******************************FIN Politica de Privacidad***************************************** */
+  modal.innerHTML = '<div></div>';
+});
+
+
+/** ********************************************Envio Emails*************************************************/
+
+// Buscar mensajes desde data
+firebase.database().ref('visits')  
+  .on('child_added', (newMessage) => {    
+    tableOne.innerHTML += `<tr> 
+    <th scope="row">${newMessage.val().name}</th>
+      <td>${newMessage.val().Rut}</td>
+      <td>${newMessage.val().Patente}</td>
+      <td>${newMessage.val().cargo}</td>
+      <td>${newMessage.val().email}</td>     
+      </tr>`;
+  });
