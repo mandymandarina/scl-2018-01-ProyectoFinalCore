@@ -6,29 +6,36 @@
 Hola ¿Cómo están? Mi nombre es Vanessa y hoy estoy junto a Miranda y Karyn, somos estudiantes de Laboratoria y les queremos presentar la app Mi Visita.
 Si estas aburrido de tener archivadores acumulando polvo, que además no te ayudan a mantener un orden lógico de la información.
 
-La app MI VISITA es una solución para ti, ayuda al control de ingreso, agiliza la entrada de visitantes, ya que guardara los sus para una próxima visita, contribuye a las tareas de recepcionistas y administradores, ya que podrás tener toda la información que necesitas en un solo lugar, de manera rápida y ordenada, pudiendo ver historiales y posibles contactos.
+La app MI VISITA es una solución para ti, ayuda al control de ingreso, agiliza la entrada de visitantes, ya que guardara sus datos para una próxima visita, contribuye a las tareas de recepcionistas y administradores, podrás tener toda la información que necesitas en un solo lugar, de manera rápida y ordenada, pudiendo ver historiales y posibles contactos.
 
-Además a través de un mail, se notificara a una o más personas de la empresa perteneciente al recinto (IF) indicando que tiene una visita. Para que autorice el ingreso. En tiempo real el portero o recepcionista recibe la autorización de ingreso. 
+Además a través de un mail, se notificara a una o más personas de la empresa perteneciente al recinto, en este caso de IF Blanco, indicando que tiene una visita. Para que autorice el ingreso. En tiempo real el portero o recepcionista recibe la autorización de ingreso. 
 
-¿Me habrá llegado encomienda?, esto no lo preguntarás más, con Mi Visita tendrás notificaciones tu correo de las encomiendas o correspondencia que lleguen al lugar de trabajo.
+¿Me habrá llegado encomienda?, esto no lo preguntarás más, con Mi Visita tendrás notificaciones en tu correo de las encomiendas o correspondencia que lleguen al lugar de trabajo.
 
 Gracias, hasta pronto.
 
+## Objetivo
+
+Esta aplicación tiene como objetivo principal realizar de manera rápida y sencilla los ingresos de visita, orientado a la comunidad IF Blanco.
 
 ## User Story Mapping
+
+Para comenzar con el proceso de Diseño y definir nuestro producto minimo viable, realizamos un User Story Mapping, en donde detectamos las principales acciones que debían considerarse para generar la app.
+
 ![alt text](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/user%20story%20mapping.jpg)
 
-## Entrevistas 
+## Entrevistas y Observación en terreno
 
-
-
-Si quieres escuchar las entrevistas haz click en el siguiente link  [aquí](https://drive.google.com/drive/folders/1-pvGqnTbtJcIQ1NvnGy-4BoSV6E5znDR)
+Si quieres escuchar las entrevistas haz click en el siguiente link  [aquí](https://drive.google.com/open?id=1z2LvZOBc-ML2WTWoDIy-x3CYHbehNPaE)
 
 ## Estudio y viabilidad del proyecto
 
-Para poder realizar el proyecto se realizo un previo estudio sobre diferentes aplicaciones o paginas web, las cuales, su contenido se asemeja al del proyecto que se quiere realizar o que van dirigidas hacia el mismo publico. Para esto se realizo un Benchmark en donde se analizaron paginas en donde se hablen de recetas.
+Para poder realizar el proyecto se realizo un estudio sobre diferentes aplicaciones y paginas web, cuyo contenido se asemejara al del proyecto que se quiere realizar. Por medio de este Benchmark, nos dimos cuenta de los contenidos de estas páginas y de sus posibles falencias, para considerarlo dentro de nuestra aplicación. 
 
 ![alt text](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/Benchmark.png)
+
+
+
 
 ## Proceso de diseño.
 
@@ -43,15 +50,13 @@ Luego una imagen que abarca el espacio donde después de hacer click en -por eje
 
 
 
-
 #### Demo Versión Desktop
 
-Para visualizarlo desde Figma, haz click [aquí](https://www.figma.com/proto/Yn4TRloHzWhiyEA6a7fhvHip/Untitled?scaling=min-zoom&node-id=1%3A396) 
-
+Para visualizar el demo de la app desde Figma, haz click [aquí](https://www.figma.com/proto/Yn4TRloHzWhiyEA6a7fhvHip/Untitled?scaling=min-zoom&node-id=1%3A396) 
 
 ## Planificación de proyecto
 
-Para conocer la planificación del proyecto completo, dividido en 3 Sprints, haz click [aquí](https://trello.com/b/l8M2dMwT/recepci%C3%B3n).
+Para conocer la planificación del proyecto completo, haz click [aquí](https://trello.com/b/l8M2dMwT/recepci%C3%B3n).
 
 
 
