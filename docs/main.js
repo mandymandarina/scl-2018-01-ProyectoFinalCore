@@ -70,7 +70,6 @@ const atras=(()=>{
     seccionVisitas.style.display = 'none';
     seccionRvaEspacios.style.display = 'none';
   }
-
 });
 
 /********Pestañas Reserva Espacios*/
