@@ -29,14 +29,14 @@
 </head>
 
 <body>
-
+    
   <!-- Sección Principal-->
   <section class="login" id="sectionPrincipal">
     <div class="row justify-content-center">
       <div class="col-12" id="menúPrincipalBtns">
         <button type="button" id="btnVisitas" class="btn-md btnLogIn">Visitas</button>
         <button type="button" id="btnEncomiendas" class="btn-md btnLogIn">Encomiendas</button>
-        <button type="button" id="btnReservaEspacios" class="btn-md btnLogIn">Reservas Espacios</button>
+        <button type="button" id="btnReservaEspacios" class="btn-md btnLogIn">Reserva Espacios</button>
       </div>
     </div>
   </section>
@@ -45,7 +45,7 @@
     <div class="row justify-content-center">
       <div class="col-12">
         <h1 class="title">
-          <i class="fas fa-arrow-left"></i> VISITAS
+          <i class="fas fa-arrow-left" id="arr"></i> VISITAS
           <i class="fas fa-user-circle"></i>
         </h1>
         <div class="container">
@@ -114,16 +114,29 @@
     <section class="login" id="sectionEncomiendas">
       <div class="row justify-content-center">
         <div class="col-12">
-          <input class="form-control inputLogin" type="text" placeholder="Ingrese encomienda" id="inputEncargo">
+            <h1 class="title">
+                <i class="fas fa-arrow-left" id="arro"></i> ENCOMIENDAS
+                <i class="fas fa-dolly"></i>
+              </h1>
+           <select class="form-control" id="listaEmpresa">
+              <option id="optionEmpresa">
+                Empresa
+              </option>
+            </select>
+          <input class="form-control inputLogin" type="text" placeholder="Persona:" id="inputEncargo">
           <input class="form-control inputLogin" type="text" placeholder="Ingrese Observacion" id="inputObs">
-          <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveData()">OK</button>
+          <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveIntrust()">Ingresar Encomienda</button>
+          <button type="button" id="btnAtras" class="btn-md btnLogIn" onclick="atras()"> Volver a Inicio</button>
         </div>
       </div>
     </section>
-    <!-- Sección Reserva de Espacios -->
       <!-- Sección Reserva de Espacios -->
   <section class="login" id="sectionEspacios">
-      <div class="row justify-content-center">
+      <h1 class="title">
+          <i class="fas fa-arrow-left" id="arrows"></i> RESERVA ESPACIOS 
+          <i class="fas fa-map-marked-alt"></i>
+        </h1>
+      <div class="row justify-content-center">          
         <span>
           <button type="button" id="btnIngresoRva" class="btn-md btnPestaña">Ingreso</button>
           <button type="button" id="btnHistoryRva" class="btn-md btnPestaña">Historial</button>
