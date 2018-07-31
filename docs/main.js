@@ -3,7 +3,7 @@ window.onload = (() => {
 
   const lista = document.getElementById("listaEmpresas");
   const list = document.getElementById("listaEmpresa");
-  fetch('../data/empresas.json')
+  fetch('data/empresas.json')
     .then(response => response.json())
     .then(data => {
       window.datos = data;
@@ -110,6 +110,11 @@ pestHistorialV.addEventListener('click', () => {
   contenidoIngresoV.style.display = 'none';
 });
 
-// Boton Si cargo y mail
+// Boton cargo y mail
 
-const questYes = document.getElementById('');
+const questYes = document.getElementById('btnSi');
+const contenidoYes = document.getElementById('secctionYes');
+
+questYes.addEventListener('click', () =>{
+  contenidoYes.style.display = 'block';
+});

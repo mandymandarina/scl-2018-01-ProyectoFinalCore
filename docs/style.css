@@ -20,13 +20,19 @@
 	color: #202A37; 
 	font-size: 20px; 
 }
-
+.btnYes {
+	margin-bottom: 10px;
+}
 #seccionViIngreso {
 	display:block;
 }
 
 #seccionViHistorial {
-  display: none;
+  display:none;
+}
+
+#secctionYes {
+	display: none;
 }
 
 .inputLogin{
@@ -74,13 +80,17 @@ opacity: 0.8;
 	font-size: 150%;
 	font-weight: 300;
 }
-
+p{
+	margin: 0px;
+}
 .form-control {
 	display: inline-block;
 	margin: 1em;
 	width: 10em;
 }
-
+.controll {
+	display: inline-block;
+}
 .login {
 	background-image: url(img/Foto\ Fondo\ Pag.jpg);
 }

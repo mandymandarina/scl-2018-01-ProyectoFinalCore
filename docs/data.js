@@ -118,7 +118,7 @@ const reservarEspacio = (() => {
   const numPersonasReserve = inputPersonasReserva.value;
   const ObservacionesReserve = inputObservaciones.value;
 
-  const customerEmail =  'v.azocar.adasme@gmail.com'; // este seria directamente el email de la administradora del IF
+  const customerEmail = 'v.azocar.adasme@gmail.com'; // este seria directamente el email de la administradora del IF
 
     const newReservaKey = firebase.database().ref().child('Reservas').push().key;
     firebase.database().ref(`Reservas/${newReservaKey}`).set({
@@ -130,15 +130,15 @@ const reservarEspacio = (() => {
       observaciones: ObservacionesReserve
     });
 
-    emailjs.init("user_0nX0E9VcT00Cn5l3Xunq5");
+    emailjs.init('user_0nX0E9VcT00Cn5l3Xunq5');
 
     var template_params = {
-      "to_name": `${nameReserve}`,
-      "customer_name": `${customerEmail}`,
-      "from_name": "MiVisita",
-      "to_name": `${nameReserve}`,
-      "message_html": `En recepción se ha identificado a la persona: ${nameReserve} con RUT: ${rutReserve} quien reserva el espacio ${espacioReserve} para ${numPersonasReserve} personas ${ObservacionesReserve}`
-    }
+      'to_name': `${nameReserve}`,
+      'customer_name': `${customerEmail}`,
+      'from_name': 'MiVisita',
+      'to_name': `${nameReserve}`,
+      'message_html': `En recepción se ha identificado a la persona: ${nameReserve} con RUT: ${rutReserve} quien reserva el espacio ${espacioReserve} para ${numPersonasReserve} personas ${ObservacionesReserve}`
+    };
 
   var service_id = "gmail";
   var template_id = "mi_visita";
@@ -152,13 +152,23 @@ const reservarEspacio = (() => {
   });
 
   /** ******************************Politica de Privacidad***************************************** */
-  window.privacyPolicy = (() => {
-    const modal = document.getElementById('modalTerms');
-    modal.style.display = 'block';
+window.privacyPolicy = (() => {
+  const modal = document.getElementById('modalTerms');
+  modal.style.display = 'block';
 
-    modal.innerHTML = `<div></div>`;
+  modal.innerHTML = '<div></div>';
+});
+
+
+
+// Buscar mensajes desde data
+firebase.database().ref('visits')  
+  .on('child_added', (newMessage) => {    
+    tableOne.innerHTML += `<tr> 
+    <th scope="row">${newMessage.val().name}</th>
+      <td>${newMessage.val().Rut}</td>
+      <td>${newMessage.val().Patente}</td>
+      <td>${newMessage.val().cargo}</td>
+      <td>${newMessage.val().email}</td>     
+      </tr>`;
   });
-
-
-
-
