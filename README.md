@@ -16,7 +16,7 @@ Gracias, hasta pronto.
 
 
 ## User Story Mapping
-[aquí](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/user%20story%20mapping.jpg)
+![alt text](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/user%20story%20mapping.jpg)
 
 ## Entrevistas 
 
@@ -28,7 +28,7 @@ Si quieres escuchar las entrevistas haz click en el siguiente link  [aquí](http
 
 Para poder realizar el proyecto se realizo un previo estudio sobre diferentes aplicaciones o paginas web, las cuales, su contenido se asemeja al del proyecto que se quiere realizar o que van dirigidas hacia el mismo publico. Para esto se realizo un Benchmark en donde se analizaron paginas en donde se hablen de recetas.
 
-Leer Benchmark [aquí](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/Benchmark.png)
+![alt text](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/Benchmark.png)
 
 ## Proceso de diseño.
 
