@@ -65,7 +65,7 @@ const reservarEspacio = (() => {
   const numPersonasReserve = inputPersonasReserva.value;
   const ObservacionesReserve = inputObservaciones.value;
 
-  const customerEmail =  'v.azocar.adasme@gmail.com';
+  const customerEmail =  'v.azocar.adasme@gmail.com'; // este seria directamente el email de la administradora del IF
 
   if (rutReserve === '') {
     inputRutReserva.value = '';
@@ -98,7 +98,8 @@ const reservarEspacio = (() => {
     },function(error){
       console.log(error);
     });
-  
+   }
+  });
   /** ******************************Politica de Privacidad***************************************** */
   window.privacyPolicy = (() => {
     const modal = document.getElementById('modalTerms');
@@ -106,8 +107,7 @@ const reservarEspacio = (() => {
 
     modal.innerHTML = `<div></div>`;
   });
-}
-});
+
+
 /**********************************************Envio Emails*************************************************/
 
-/** ******************************FIN Politica de Privacidad***************************************** */

@@ -74,6 +74,10 @@
 	background-color: #E6E6E5;
 }
 
+#menúPrincipalBtns{
+	padding: 15%;
+}
+
 #inputObservaciones{
 	border-radius: 0%;
   border: 0px;

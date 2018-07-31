@@ -1,12 +1,13 @@
-window.listaEmpresas = [];
+window.emails = [];
 window.onload = (() => {
 
   const lista = document.getElementById("listaEmpresas");
   fetch('../data/empresas.json')
     .then(response => response.json())
     .then(data => {
+      console.log(data);
       data.forEach(element => {
-        console.log(element.name);
+        
       });
       data.forEach(element => {
         let optionEmpresa = document.createElement('option');
