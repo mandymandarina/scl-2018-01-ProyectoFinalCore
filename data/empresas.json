@@ -1,42 +1,54 @@
 [
     {
-        "name": "Elestudio"
+        "name": "Elestudio",
+        "email": "karynherrera@gmail.com"
     },
     {
-        "name": "Robotics Labs"
+        "name": "Robotics Labs",
+        "email": "m.naranjo.medel@gmail.com"
     },
     {
-        "name": "Fábrica de Medios"
+        "name": "Fábrica de Medios",
+        "email": "v.azocar.adasme@gmail.com"
     },
     {
-        "name": "Café Altura"
+        "name": "Café Altura",
+        "email": "karynherrera@gmail.com"
     },
     {
         "name": "Laboratoria"
     },
     {
-        "name": "Fundación Mustakis"
+        "name": "Fundación Mustakis",
+        "email": "m.naranjo.medel@gmail.com"
     },
     {
-        "name": "Destilería Husares"
+        "name": "Destilería Husares",
+        "email": "v.azocar.adasme@gmail.com"
     },
     {
-        "name": "AgusLab"
+        "name": "AgusLab",
+        "email": "karynherrera@gmail.com"
     },
     {
-        "name": "Wildproyectchile"
+        "name": "Wildproyectchile",
+        "email": "m.naranjo.medel@gmail.com"
     },
     {
-        "name": "Deseis"
+        "name": "Deseis",
+        "email": "v.azocar.adasme@gmail.com"
     },
     {
-        "name": "cdi"
+        "name": "cdi",
+        "email": "karynherrera@gmail.com"
     },
     {
-        "name": "Tremenda"
+        "name": "Tremenda",
+        "email": "m.naranjo.medel@gmail.com"
     },
     {
-        "name": "Ilegal"
+        "name": "Ilegal",
+        "email": "v.azocar.adasme@gmail.com"
     }
     
 ]

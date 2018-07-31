@@ -1,65 +1,116 @@
-//llamamos a un Json de las empresas
-
-
-// LOGOUT
-window.logout = (() => {
-  firebase.auth().signOut()
-    .then(() => {
-      console.log('chao');
-    })
-    .catch();
-});
 
 function saveData() {
   const rutText = inputRut.value;
   const nameLast = inputName.value;
   const mailText = inputEmail.value;
   const patenteText = inputPatente.value;
-  const nameVisitText = inputPerson.value;
+  const nameVisitText = inputPerson.value; // persona a la que visita
   const cargoText = inputCargo.value;
-  if (rutText === '') {
-    errorTxt.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert" id="errorTxt"> Error: Debes ingresar un rut </div>';
-    // Limpiar el textarea
-    document.getElementById('inputRut').value = '';
-  } else {
-    const currentUser = firebase.auth().currentUser;
-    const rutText = inputRut.value;
+  const empresa = listaEmpresas.value;
+  window.datos;
+
+  let found = datos.find(item => {
+    if(item.name === empresa){
+    customerEmail = item.email;
+    return result = true;
+    }else{
+      return result = false;
+    }
+  });
+
+  if(result){
     const newVisitKey = firebase.database().ref().child('visits').push().key;
-    firebase.database().ref(`visits/${newVisitKey}`).set({           
+    firebase.database().ref(`visits/${newVisitKey}`).set({
       Rut: rutText,
       name: nameLast,
-      nameVisit: nameVisitText,     
-      email: mailText,      
+      nameVisit: nameVisitText,
+      EmpresaVisit: empresa, 
+      email: mailText,
       Patente: patenteText,
       cargo: cargoText,
     });
     // Limpiar el textarea
-    document.getElementById('inputRut').value = '';   
-  } 
-  saveIntrust();  
+    document.getElementById('inputRut').value = '';
+    emailjs.init("user_0nX0E9VcT00Cn5l3Xunq5");
+
+    var template_params = {
+      "to_name": `${empresa}`,
+      "customer_name": `${customerEmail}`,
+      "from_name": "MiVisita",
+      "to_name": `${empresa}`,
+      "message_html": `Se registró en recepción a la persona  ${nameLast} RUT: ${rutText} indicó tener una reunión en ${empresa} con ${nameVisitText}`
+    }
+
+  var service_id = "gmail";
+  var template_id = "mi_visita";
+  emailjs.send(service_id, template_id, template_params)
+    .then(function(response){
+      console.log(response);
+    },function(error){
+      console.log(error);
+    });
+  }else{
+    saveData();
+  }
+  
 };
 
+/**********************************************Ingreso de Encomiendas*************************************************/
 function saveIntrust() {
   const encargoText = inputEncargo.value;
+  const empresaText = listaEmpresa.value;
   const obsText = inputObs.value;
-  if (encargoText === '') {
-    errorTxt.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert" id="errorTxt"> Error: Debes ingresar un rut </div>';
-    // Limpiar el textarea
-    document.getElementById('inputEncargo').value = '';  
-  } else {
-    const currentUserTwo = firebase.auth().currentUser;
-    const encargoText = inputEncargo.value;
+  let customerEmail;
+  window.datos;
+
+  let found = datos.find(item => {
+    if(item.name === empresaText){
+    customerEmail = item.email;
+    console.log(item.name);
+    console.log(customerEmail);
+    return result = true;
+    }else{
+      return result = false;
+    }
+  });
+
+  if(result){
+    console.log(customerEmail);
     const newInKey = firebase.database().ref().child('intrust').push().key;
     firebase.database().ref(`intrust/${newInKey}`).set({
-      creator: currentUserTwo,             
       Encomienda: encargoText,
-      Observaciones: obsText,       
+      Empresa: empresaText,
+      EmailEmpresa: customerEmail,
+      Observaciones: obsText,
     });
-    document.getElementById('inputEncargo').value = '';  
+
+    document.getElementById('inputEncargo').value = '';
+    emailjs.init("user_0nX0E9VcT00Cn5l3Xunq5");
+
+    var template_params = {
+      "to_name": `${encargoText}`,
+      "customer_name": `${customerEmail}`,
+      "from_name": "MiVisita",
+      "to_name": `${encargoText}`,
+      "message_html": `Recepción recibió una encomienda para ${encargoText} miembro de ${empresaText} Descripción: ${obsText}`
+    }
+
+  var service_id = "gmail";
+  var template_id = "mi_visita";
+  emailjs.send(service_id, template_id, template_params)
+    .then(function(response){
+      console.log(response);
+    },function(error){
+      console.log(error);
+    });
+  }else{
+    saveIntrust();
   }
+
+    
 };
 
-const reservarEspacio = (()=> {
+const reservarEspacio = (() => {
   const rutReserve = inputRutReserva.value;
   const nameReserve = inputNameReserva.value;
   const patenteReserve = inputPatenteReserva.value;
@@ -67,65 +118,59 @@ const reservarEspacio = (()=> {
   const numPersonasReserve = inputPersonasReserva.value;
   const ObservacionesReserve = inputObservaciones.value;
 
-  if (rutReserve === '') {
-    errorTxt.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert" id="errorTxt"> Error: Debes ingresar un rut </div>';
-    // Limpiar el textarea
-    inputRutReserva.value = '';
-  } else {
+  const customerEmail = 'v.azocar.adasme@gmail.com'; // este seria directamente el email de la administradora del IF
+
     const newReservaKey = firebase.database().ref().child('Reservas').push().key;
-    firebase.database().ref(`Reservas/${newReservaKey}`).set({ 
+    firebase.database().ref(`Reservas/${newReservaKey}`).set({
       Rut: rutReserve,
-      name:nameReserve,
-      patente:patenteReserve,
-      espacio:espacioReserve,
-      numPersonas:numPersonasReserve,
-      observaciones:ObservacionesReserve
+      name: nameReserve,
+      patente: patenteReserve,
+      espacio: espacioReserve,
+      numPersonas: numPersonasReserve,
+      observaciones: ObservacionesReserve
     });
+
+    emailjs.init('user_0nX0E9VcT00Cn5l3Xunq5');
+
+    var template_params = {
+      'to_name': `${nameReserve}`,
+      'customer_name': `${customerEmail}`,
+      'from_name': 'MiVisita',
+      'to_name': `${nameReserve}`,
+      'message_html': `En recepción se ha identificado a la persona: ${nameReserve} con RUT: ${rutReserve} quien reserva el espacio ${espacioReserve} para ${numPersonasReserve} personas ${ObservacionesReserve}`
+    };
+
+
+
+    var service_id = 'gmail';
+    var template_id = 'mi_visita';
+    emailjs.send(service_id, template_id, template_params)
+      .then(function(response) {
+        console.log(response);
+      }, function(error) {
+        console.log(error);
+      });
   }
 });
-/**********************************************Envio Emails*************************************************/
-/*
-(function(){
-  emailjs.init("<YOUR USER ID>");
-})();
-const vue = new Vue({
-  el: '#app',
-  data(){
-      return {
-          from_name: '',
-          from_email: '',
-          message: '',
-          subject: '',
-      }
-  },
-  methods: {
-      enviar(){
-          let data = {
-              from_name: this.from_name,
-              from_email: this.from_email,
-              message: this.message,
-              subject: this.subject,
-          };
-          
-          emailjs.send("<YOUR SERVICE ID>","<YOUR TEMPLATE ID>", data)
-          .then(function(response) {
-              if(response.text === 'OK'){
-                  alert('El correo se ha enviado de forma exitosa');
-              }
-             console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
-          }, function(err) {
-              alert('Ocurrió un problema al enviar el correo');
-             console.log("FAILED. error=", err);
-          });
-      }
-  }
-});
-*/
-/** ******************************Politica de Privacidad***************************************** */
+
+  /** ******************************Politica de Privacidad***************************************** */
 window.privacyPolicy = (() => {
   const modal = document.getElementById('modalTerms');
   modal.style.display = 'block';
 
-  modal.innerHTML = `<div></div>`;
+  modal.innerHTML = '<div></div>';
 });
-/** ******************************FIN Politica de Privacidad***************************************** */
+
+
+
+// Buscar mensajes desde data
+firebase.database().ref('visits')  
+  .on('child_added', (newMessage) => {    
+    tableOne.innerHTML += `<tr> 
+    <th scope="row">${newMessage.val().name}</th>
+      <td>${newMessage.val().Rut}</td>
+      <td>${newMessage.val().Patente}</td>
+      <td>${newMessage.val().cargo}</td>
+      <td>${newMessage.val().email}</td>     
+      </tr>`;
+  });

@@ -1,126 +1,120 @@
-window.listaEmpresas = [];
+window.datos = [];
 window.onload = (() => {
 
-const lista = document.getElementById("listaEmpresas");
+  const lista = document.getElementById("listaEmpresas");
+  const list = document.getElementById("listaEmpresa");
   fetch('../data/empresas.json')
-		.then(response => response.json()) 
-		.then(data => {
+    .then(response => response.json())
+    .then(data => {
+      window.datos = data;
+      console.log(data);
       data.forEach(element => {
-        console.log(element.name);
-      });
-			data.forEach(element => {
         let optionEmpresa = document.createElement('option');
         optionEmpresa.text = element.name;
         lista.add(optionEmpresa);
-      }); 
+      });
+      data.forEach(element => {
+        let optionEmpresas = document.createElement('option');
+        optionEmpresas.text = element.name;
+        list.add(optionEmpresas);
+      });
+
       console.log("holi");
-		})
- 
+    })
 });// fin de window onload
 
 
-// ================SECCIONES DEL DOM=============================================
-const seccionLogin = document.getElementById('sectionLogin');
-const seccionCenter = document.getElementById('sectionCenter');
-const seccionRegistro = document.getElementById('registroUser');
-const seccionMuro = document.getElementById('sectionMuro');
-// ==========================FUNCIONALIDAD LOGIN=====================================
+const seccionPrincipal = document.getElementById('sectionPrincipal');
+const seccionVisitas = document.getElementById('sectionVisitas');
+const seccionEncomiedas = document.getElementById('sectionEncomiendas');
+const seccionRvaEspacios = document.getElementById('sectionEspacios');
 
+//const btnAtras = document.getElementsByClassName("btnAtras");
+const btnVisitas = document.getElementById("btnVisitas");
+const btnEncomiedas = document.getElementById("btnEncomiendas");
+const btnRvaEspacios = document.getElementById("btnReservaEspacios");
 
-
-
-/** ******************BOTON ELIMINAR MENSAJE *********************************************/
-
-Window.confirmar = (()=>{
-  const confirm = document.getElementById('confirm');
-  confirm.style.display = 'block';
-  const cancelar = document.getElementById('confirmCancelar');
-  const aceptar = document.getElementById('confirmConfirmar');
-  cancelar.addEventListener('click', () => {
-    confirm.style.display = 'none';
-  });                          
-  aceptar.addEventListener('click', function(event) {
-    deleteButtonClicked(event);
-    confirm.style.display = 'none';
-  });
+btnVisitas.addEventListener('click', () => {
+  seccionPrincipal.style.display = 'none';
+  seccionVisitas.style.display = 'block';
+  seccionEncomiedas.style.display = 'none';
+  seccionRvaEspacios.style.display = 'none';
 });
 
-/** ******************SECCION PERFIL *********************************************/
-const sectionProfile = document.getElementById('sectionProfile');
-
-const btnProfile = document.getElementById('nameIconFooterProfile');
-btnProfile.addEventListener('click', () => {
-  seccionLogin.style.display = 'none';
-  seccionCenter.style.display = 'none';
-  sectionRecipes.style.display = 'none';
-  sectionProfile.style.display = 'block';
-  sectionFavorite.style.display = 'none';
+btnEncomiedas.addEventListener('click', () => {
+  seccionPrincipal.style.display = 'none';
+  seccionVisitas.style.display = 'none';
+  seccionEncomiedas.style.display = 'block';
+  seccionRvaEspacios.style.display = 'none';
 });
 
-/** ******************FIN SECCION PERFIL *********************************************/
-
-
-/** ******************SECCION VOLVER ATRAS PERFIL ****************************/
-const btnArrowProfile = document.getElementById('btnArrowProfile');
-btnArrowProfile.addEventListener('click', () => {
-  sectionProfile.style.display = 'none';
-  seccionLogin.style.display = 'none';
-  sectionRecipes.style.display = 'none';
-  seccionCenter.style.display = 'block'; 
-  sectionFavorite.style.display = 'none';
+btnRvaEspacios.addEventListener('click', () => {
+  seccionPrincipal.style.display = 'none';
+  seccionVisitas.style.display = 'none';
+  seccionEncomiedas.style.display = 'none';
+  seccionRvaEspacios.style.display = 'block';
 });
 
-
-/** ******************FIN SECCION VOLVER ATRAS PERFIL ****************************/
-
-/** ******************SECCION RECETAS **************************************/
-const sectionRecipes = document.getElementById('sectionRecipes');
-
-const btnRecipes = document.getElementById('nameIconFooterRecipes');
-btnRecipes.addEventListener('click', () => {
-  sectionProfile.style.display = 'none';
-  seccionLogin.style.display = 'none';
-  seccionCenter.style.display = 'none';
-  sectionRecipes.style.display = 'block';
-  sectionFavorite.style.display = 'none';
+const atras = (() => {
+  if (seccionRvaEspacios.style.display = 'block') {
+    seccionPrincipal.style.display = 'none';
+    seccionVisitas.style.display = 'none';
+    seccionEncomiedas.style.display = 'none';
+  }
+  if (seccionEncomiedas.style.display = 'block') {
+    seccionPrincipal.style.display = 'none';
+    seccionVisitas.style.display = 'none';
+    seccionRvaEspacios.style.display = 'none';
+  }
+  if (seccionVisitas.style.display = 'block') {
+    seccionPrincipal.style.display = 'none';
+    seccionRvaEspacios.style.display = 'none';
+    seccionEncomiedas.style.display = 'none';
+  }
+  if (seccionPrincipal.style.display = 'block') {
+    seccionEncomiedas.style.display = 'none';
+    seccionVisitas.style.display = 'none';
+    seccionRvaEspacios.style.display = 'none';
+  }
 });
-/** ******************FIN SECCION RECETAS*******************************************/
+
+/********Pestañas Reserva Espacios*/
+const pestIngresoRva = document.getElementById("btnIngresoRva");
+const pestHistorialRva = document.getElementById("btnHistoryRva");
+const contenidoIngresoRva = document.getElementById("ingresoReserva");
+const contenidotHistorialRva = document.getElementById("historyReserva");
 
 
-/** ******************SECCION VOLVER ATRAS RECETAS *************************/
-/*
-const btnArrowRecipes = document.getElementById('btnArrowRecipes');
-btnArrowRecipes.addEventListener('click', () => {
-  sectionProfile.style.display = 'none';
-  seccionLogin.style.display = 'none';
-  seccionCenter.style.display = 'block';
-  sectionRecipes.style.display = 'none';
-  sectionFavorite.style.display = 'none';
-}); */
-/** ******************FIN SECCION VOLVER ATRAS RECETAS ****************************/
+pestIngresoRva.addEventListener('click', () => {
+  contenidotHistorialRva.style.display = 'none';
+  contenidoIngresoRva.style.display = 'block';
 
-/** ******************SECCION FAVORITOS **************************************/
-const sectionFavorite = document.getElementById('sectionFavorite');
-
-const btnFavorite = document.getElementById('nameIconFooterFavourite');
-btnFavorite.addEventListener('click', () => {
-  sectionProfile.style.display = 'none';
-  seccionLogin.style.display = 'none';
-  seccionCenter.style.display = 'none';
-  sectionRecipes.style.display = 'none';
-  sectionFavorite.style.display = 'block';
 });
-/** ******************FIN SECCION FAVORITOS****************************************/
+pestHistorialRva.addEventListener('click', () => {
+  contenidotHistorialRva.style.display = 'block';
+  contenidoIngresoRva.style.display = 'none';
 
+})
+// seccion visitas 
+const pestIngresoV = document.getElementById('btnPestIngreso');
+const pestHistorialV = document.getElementById('btnPestHistorial');
+const contenidoIngresoV = document.getElementById('seccionViIngreso');
+const contenidotHistorialV = document.getElementById('seccionViHistorial');
 
-/** ******************SECCION VOLVER ATRAS FAVORITOS*************************/
-/*
-const btnArrowFavorite = document.getElementById('btnArrowFavorite');
-btnArrowFavorite.addEventListener('click', () => {
-  sectionProfile.style.display = 'none';
-  seccionLogin.style.display = 'none';
-  seccionCenter.style.display = 'block';
-  sectionRecipes.style.display = 'none';
-  sectionFavorite.style.display = 'none';
-}); */
-/** ******************FIN SECCION VOLVER ATRAS FAVORITOS****************************/
+pestIngresoV.addEventListener('click', () => {
+  contenidotHistorialV.style.display = 'none';
+  contenidoIngresoV.style.display = 'block';
+});
+pestHistorialV.addEventListener('click', () => {
+  contenidotHistorialV.style.display = 'block';
+  contenidoIngresoV.style.display = 'none';
+});
+
+// Boton cargo y mail
+
+const questYes = document.getElementById('btnSi');
+const contenidoYes = document.getElementById('secctionYes');
+
+questYes.addEventListener('click', () =>{
+  contenidoYes.style.display = 'block';
+});
