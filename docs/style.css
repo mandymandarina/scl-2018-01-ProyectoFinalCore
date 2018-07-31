@@ -31,6 +31,14 @@
   display:none;
 }
 
+#seccionEnIngreso{
+	display: block;
+}
+
+#seccionEnHistorial{
+	display: none;
+}
+
 #secctionYes {
 	display: none;
 }
@@ -50,6 +58,13 @@
 
 .btnYes {
 	background-color: #202A37;
+}
+
+.controll {
+	display: inline-block;
+}
+.spansection {
+	display: block;
 }
 .btnLogIn{
 	background-color: #202A37;
@@ -156,7 +171,7 @@ p{
 	width: 50vw;
 	margin-left:10%
 }
-.login{
+.login{	
 	background-size: cover;
 	height: 110vh;
 	display: none;

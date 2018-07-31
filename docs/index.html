@@ -60,15 +60,15 @@
               <div class="controll"><p>Patente </p>
               <input class="form-control" type="text" placeholder="Ingrese su patente" id="inputPatente"></div>
             </span>
-            <span>
-              <div>
+            <span class="spansection">
+              <div class="controll">
               <p>Ingreso a empresas </p>
               <select class="form-control" id="listaEmpresas">
                 <option id="optionEmpresas">
                   Empresas
                 </option>
-              </select>
-              <p>Visita a: </p>
+              </select></div>
+              <div class="controll"><p>Visita a: </p>
               <input class="form-control" type="text" placeholder="Ingrese nombre" id="inputPerson">
             </div>
             </span>
@@ -78,10 +78,10 @@
                  Opcional | ¿Desea recibir información sobre el IF? <button type="button" id="btnSi" class="btnYes"> SI </button></p>
             </a>
             <section id="secctionYes">
-            <span><p>Cargo</p>
-            <input class="form-control" type="text" placeholder="Ingrese su cargo" id="inputCargo">
-            <p>Email</p>
-            <input class="form-control" type="text" placeholder="Ingrese su email" id="inputEmail">
+            <span><div class="controll"><p>Cargo</p>
+            <input class="form-control" type="text" placeholder="Ingrese su cargo" id="inputCargo"></div>
+            <div class="controll"><p>Email</p>
+            <input class="form-control" type="text" placeholder="Ingrese su email" id="inputEmail"></div>
             </span>
            </section>
           </section>
@@ -118,6 +118,10 @@
                 <i class="fas fa-arrow-left" id="arro"></i> ENCOMIENDAS
                 <i class="fas fa-dolly"></i>
               </h1>
+              <div>
+                  <button type="button" id="btnPestIngresoEn" class="btnPestaña">Ingreso</button>
+                  <button type="button" id="btnPestHistorialEn" class="btnPestaña">HISTORIAL</button> 
+                <section id="seccionEnIngreso" class="seccion2">  
            <select class="form-control" id="listaEmpresa">
               <option id="optionEmpresa">
                 Empresa
@@ -127,16 +131,34 @@
           <input class="form-control inputLogin" type="text" placeholder="Ingrese Observacion" id="inputObs">
           <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveIntrust()">Ingresar Encomienda</button>
           <button type="button" id="btnAtras" class="btn-md btnLogIn" onclick="atras()"> Volver a Inicio</button>
+        </section></div>
+        <section id="seccionEnHistorial" class="seccion2">
+            <table class="table table-dark" id="tableThre">
+                <thead>
+                  <tr>
+                    <th scope="col">Email Empresa</th>
+                    <th scope="col">Empresa</th>
+                    <th scope="col">Encomienda</th>
+                    <th scope="col">Observaciones</th>                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>                      
+                  </tr>                              
+                </tbody>
+              </table>
+        </section>
         </div>
       </div>
-    </section>
+       </section>
+
       <!-- Sección Reserva de Espacios -->
   <section class="login" id="sectionEspacios">
       <h1 class="title">
           <i class="fas fa-arrow-left" id="arrows"></i> RESERVA ESPACIOS 
           <i class="fas fa-map-marked-alt"></i>
         </h1>
-      <div class="row justify-content-center">          
+      ><div class="row justify-content-center">          
         <span>
           <button type="button" id="btnIngresoRva" class="btn-md btnPestaña">Ingreso</button>
           <button type="button" id="btnHistoryRva" class="btn-md btnPestaña">Historial</button>
@@ -165,14 +187,15 @@
           <button type="button" id="btnAtras" class="btn-md btnLogIn" onclick="atras()"> Volver a Inicio</button>
         </div>
         <div class="col-10" id="historyReserva">
-          <table class="table table-dark">
+          <table class="table table-dark" id="tableTwo">
             <thead>
               <tr>
-                <th scope="col">Fecha</th>
-                <th scope="col">Rut</th>
                 <th scope="col">Nombre</th>
+                <th scope="col">Rut</th>
                 <th scope="col">Patente</th>
-                <th scope="col">Visita a: </th>
+                <th scope="col">Espacio</th>
+                <th scope="col">Numero de presonas</th>
+                <th scope="col">Observaciones</th>
               </tr>
             </thead>
             <tbody>

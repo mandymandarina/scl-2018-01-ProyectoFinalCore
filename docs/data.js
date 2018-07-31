@@ -13,7 +13,7 @@ function saveData() {
     if (item.name === empresa) {
       customerEmail = item.email;
       return result = true;
-    } else{
+    } else {
       return result = false;
     }
   });
@@ -49,7 +49,7 @@ function saveData() {
       }, function(error) {
         console.log(error);
       });
-  } else{
+  } else {
     saveData();
   }
 };
@@ -68,7 +68,7 @@ function saveIntrust() {
       console.log(item.name);
       console.log(customerEmail);
       return result = true;
-    } else{
+    } else {
       return result = false;
     }
   });
@@ -102,7 +102,7 @@ function saveIntrust() {
       }, function(error) {
         console.log(error);
       });
-  } else{
+  } else {
     saveIntrust();
   }
 };
@@ -157,7 +157,7 @@ window.privacyPolicy = (() => {
 });
 
 
-// Buscar mensajes desde data
+// Buscar visitas desde firebase
 firebase.database().ref('visits')  
   .on('child_added', (newMessage) => {    
     tableOne.innerHTML += `<tr> 
@@ -168,3 +168,28 @@ firebase.database().ref('visits')
       <td>${newMessage.val().email}</td>     
       </tr>`;
   });
+
+// Buscar reservas desde firebase
+firebase.database().ref('Reservas')  
+  .on('child_added', (newMessage) => {    
+    tableTwo.innerHTML += `<tr> 
+  <th scope="row">${newMessage.val().name}</th>
+    <td>${newMessage.val().Rut}</td>
+    <td>${newMessage.val().Patente}</td>
+    <td>${newMessage.val().espacio}</td>
+    <td>${newMessage.val().numPersonas}</td>
+    <td>${newMessage.val().observaciones}</td>  
+    </tr>`;
+  });
+
+// Buscar encomiendas desde firebase
+firebase.database().ref('intrust')  
+  .on('child_added', (newMessage) => {    
+    tableThre.innerHTML += `<tr> 
+<th scope="row">${newMessage.val().EmailEmpresa}</th>
+  <td>${newMessage.val().Empresa}</td>
+  <td>${newMessage.val().Encomienda}</td> 
+  <td>${newMessage.val().observaciones}</td>  
+  </tr>`;
+  });
+
