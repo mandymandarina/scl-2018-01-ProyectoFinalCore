@@ -57,8 +57,6 @@
       </div>
     </div>
   </section>
-
-  
   <!-- Sección Visitas -->
   <section class="login" id="sectionVisitas">
     <div class="row justify-content-center">
@@ -70,7 +68,8 @@
         <div class="container">
           <button type="button" id="btnPestIngreso" class="btnPestaña">Ingreso</button>
           <button type="button" id="btnPestHistorial" class="btnPestaña">HISTORIAL</button>
-          <section id="seccionViIngreso" class="seccion2">
+          <div class="col-10" id="seccionViIngreso">
+          <section  class="seccion2">
             <span>
               <div class="controll">
                 <p>Rut</p>
@@ -119,6 +118,7 @@
               </span>
             </section>
           </section>
+          </div>
           <section id="seccionViHistorial" class="seccion2">
             <table class="table table-dark" id="tableOne">
               <thead>
@@ -155,9 +155,9 @@
             <button type="button" id="btnPestIngresoEn" class="btnPestaña">Ingreso</button>
             <button type="button" id="btnPestHistorialEn" class="btnPestaña">HISTORIAL</button> 
         </span>
-        <div class="col-10" id="ingresoReserva">
+        <div class="col-10" id="seccionEnIngreso" >
           <span>
-              <section id="seccionEnIngreso" class="seccion2">  
+              <section class="seccion2">  
             <div class="textRva">
               <h6>Empresa
                 <img class="photoMenu" src="icono/ENCOMIENDAS/Empresa (encomiendas).svg">
@@ -185,7 +185,7 @@
             </section>
           </span>
         </div>
-        <div class="col-10" id="historyReserva">
+        <div class="col-10" id="seccionEnHistorial">
             <section  class="seccion2">
                 <table class="table table-dark" id="tableThre">
                     <thead>
@@ -267,7 +267,6 @@
         <input class="form-control" type="text" id="inputVacio">
         <input class="form-control" type="text" placeholder="Observaciones" id="inputObservaciones">
         <button type="button" id="btnReservar" class="btn-md btnLogIn" onclick="reservarEspacio()">Ingresar Reserva</button>
-
       </div>
       <div class="col-10" id="historyReserva">
         <table class="table table-dark" id="tableTwo">

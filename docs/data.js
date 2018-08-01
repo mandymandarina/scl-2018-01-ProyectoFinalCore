@@ -148,41 +148,39 @@ const reservarEspacio = (() => {
 });
 
 
-// Buscar visitas desde firebase
 
 firebase.database().ref('visits')  
-  .on('child_added', (newMessage) => {    
-    tableOne.innerHTML += `<tr> 
-    <th scope="row">${newMessage.val().name}</th>
-      <td>${newMessage.val().Rut}</td>
-      <td>${newMessage.val().Patente}</td>
-      <td>${newMessage.val().cargo}</td>
-      <td>${newMessage.val().email}</td>     
-      </tr>`;
-  });
+.on('child_added', (newMessage) => {    
+  tableOne.innerHTML += `<tr> 
+  <th scope="row">${newMessage.val().name}</th>
+    <td>${newMessage.val().Rut}</td>
+    <td>${newMessage.val().Patente}</td>
+    <td>${newMessage.val().cargo}</td>
+    <td>${newMessage.val().email}</td>     
+    </tr>`;
+});
 
 
 // Buscar reservas desde firebase
 firebase.database().ref('Reservas')  
-  .on('child_added', (newMessage) => {    
-    tableTwo.innerHTML += `<tr> 
-  <th scope="row">${newMessage.val().name}</th>
-    <td>${newMessage.val().Rut}</td>
-    <td>${newMessage.val().Patente}</td>
-    <td>${newMessage.val().espacio}</td>
-    <td>${newMessage.val().numPersonas}</td>
-    <td>${newMessage.val().observaciones}</td>  
-    </tr>`;
-  });
+.on('child_added', (newMessage) => {    
+  tableTwo.innerHTML += `<tr> 
+<th scope="row">${newMessage.val().name}</th>
+  <td>${newMessage.val().Rut}</td>
+  <td>${newMessage.val().Patente}</td>
+  <td>${newMessage.val().espacio}</td>
+  <td>${newMessage.val().numPersonas}</td>
+  <td>${newMessage.val().observaciones}</td>  
+  </tr>`;
+});
 
 // Buscar encomiendas desde firebase
 firebase.database().ref('intrust')  
-  .on('child_added', (newMessage) => {    
-    tableThre.innerHTML += `<tr> 
+.on('child_added', (newMessage) => {    
+  tableThre.innerHTML += `<tr> 
 <th scope="row">${newMessage.val().EmailEmpresa}</th>
-  <td>${newMessage.val().Empresa}</td>
-  <td>${newMessage.val().Encomienda}</td> 
-  <td>${newMessage.val().observaciones}</td>  
-  </tr>`;
-  });
-
+<td>${newMessage.val().Empresa}</td>
+<td>${newMessage.val().Encomienda}</td> 
+<td>${newMessage.val().observaciones}</td>  
+</tr>`;
+});

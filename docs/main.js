@@ -1,9 +1,10 @@
 window.datos = [];
 window.onload = (() => {
-   /* Para esconder la pantalla de inicio*/
-   setTimeout(function hide() { 
+
+  /* Para esconder la pantalla de inicio*/
+  setTimeout(function hide() {
     $('#pagSplash').hide('fast');
-    document.getElementById('sectionPrincipal').style.display = 'block'; 
+    document.getElementById('sectionPrincipal').style.display = 'block';
   }, 3000);
 
   const lista = document.getElementById("listaEmpresas");
@@ -26,6 +27,10 @@ window.onload = (() => {
 
       console.log('holi');
     });
+
+    // Buscar visitas desde firebase
+
+
 });// fin de window onload
 
 
@@ -134,7 +139,7 @@ pestHistorialEnco.addEventListener('click', () => {
 const questYes = document.getElementById('btnSi');
 const contenidoYes = document.getElementById('secctionYes');
 
-questYes.addEventListener('click', () =>{
+questYes.addEventListener('click', () => {
   contenidoYes.style.display = 'block';
 });
 
@@ -142,21 +147,21 @@ questYes.addEventListener('click', () =>{
 
 const arrowAtras = document.getElementById('arr');
 
-arrowAtras.addEventListener('click', () =>{
+arrowAtras.addEventListener('click', () => {
   sectionVisitas.style.display = 'none';
   sectionPrincipal.style.display = 'block';
 });
 
 const arrowAtras2 = document.getElementById('arro');
 
-arrowAtras2.addEventListener('click', () =>{
+arrowAtras2.addEventListener('click', () => {
   sectionEncomiendas.style.display = 'none';
   sectionPrincipal.style.display = 'block';
 });
 
 const arrowAtras3 = document.getElementById('arrows');
 
-arrowAtras3.addEventListener('click', () =>{
+arrowAtras3.addEventListener('click', () => {
   sectionEncomiendas.style.display = 'none';
   sectionPrincipal.style.display = 'block';
 });
