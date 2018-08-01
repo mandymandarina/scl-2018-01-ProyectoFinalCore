@@ -1,5 +1,10 @@
 window.datos = [];
 window.onload = (() => {
+   /* Para esconder la pantalla de inicio*/
+   setTimeout(function hide() { 
+    $('#pagSplash').hide('fast');
+    document.getElementById('sectionPrincipal').style.display = 'block'; 
+  }, 3000);
 
   const lista = document.getElementById("listaEmpresas");
   const list = document.getElementById("listaEmpresa");

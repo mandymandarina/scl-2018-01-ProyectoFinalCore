@@ -114,7 +114,7 @@ const reservarEspacio = (() => {
   const numPersonasReserve = inputPersonasReserva.value;
   const ObservacionesReserve = inputObservaciones.value;
 
-  const customerEmail = 'v.azocar.adasme@gmail.com'; // este seria directamente el email de la administradora del IF
+  const customerEmail = 'karynherrera@gmail.com'; // este seria directamente el email de la administradora del IF
 
   const newReservaKey = firebase.database().ref().child('Reservas').push().key;
   firebase.database().ref(`Reservas/${newReservaKey}`).set({
