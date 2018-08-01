@@ -156,7 +156,9 @@ firebase.database().ref('visits')
     <td>${newMessage.val().Rut}</td>
     <td>${newMessage.val().Patente}</td>
     <td>${newMessage.val().cargo}</td>
-    <td>${newMessage.val().email}</td>     
+    <td>${newMessage.val().email}</td>  
+    <td>${newMessage.val().nameVisit}</td>
+    <td>${newMessage.val().EmpresaVisit}</td>     
     </tr>`;
 });
 
@@ -181,6 +183,6 @@ firebase.database().ref('intrust')
 <th scope="row">${newMessage.val().EmailEmpresa}</th>
 <td>${newMessage.val().Empresa}</td>
 <td>${newMessage.val().Encomienda}</td> 
-<td>${newMessage.val().observaciones}</td>  
+<td>${newMessage.val().Observaciones}</td>  
 </tr>`;
 });
