@@ -8,7 +8,7 @@ window.onload = (() => {
 
   const lista = document.getElementById("listaEmpresas");
   const list = document.getElementById("listaEmpresa");
-  fetch('../data/empresas.json')
+  fetch('data/empresas.json')
     .then(response => response.json())
     .then(data => {
       window.datos = data;
@@ -24,8 +24,8 @@ window.onload = (() => {
         list.add(optionEmpresas);
       });
 
-      console.log("holi");
-    })
+      console.log('holi');
+    });
 });// fin de window onload
 
 
@@ -34,11 +34,10 @@ const seccionVisitas = document.getElementById('sectionVisitas');
 const seccionEncomiedas = document.getElementById('sectionEncomiendas');
 const seccionRvaEspacios = document.getElementById('sectionEspacios');
 
-
-//const btnAtras = document.getElementsByClassName("btnAtras");
-const btnVisitas = document.getElementById("btnVisitas");
-const btnEncomiedas = document.getElementById("btnEncomiendas");
-const btnRvaEspacios = document.getElementById("btnReservaEspacios");
+// const btnAtras = document.getElementsByClassName("btnAtras");
+const btnVisitas = document.getElementById('btnVisitas');
+const btnEncomiedas = document.getElementById('btnEncomiendas');
+const btnRvaEspacios = document.getElementById('btnReservaEspacios');
 
 btnVisitas.addEventListener('click', () => {
   seccionPrincipal.style.display = 'none';
@@ -84,23 +83,21 @@ const atras = (() => {
   }
 });
 
-/********Pestañas Reserva Espacios*/
-const pestIngresoRva = document.getElementById("btnIngresoRva");
-const pestHistorialRva = document.getElementById("btnHistoryRva");
-const contenidoIngresoRva = document.getElementById("ingresoReserva");
-const contenidotHistorialRva = document.getElementById("historyReserva");
+/** ******Pestañas Reserva Espacios*/
+const pestIngresoRva = document.getElementById('btnIngresoRva');
+const pestHistorialRva = document.getElementById('btnHistoryRva');
+const contenidoIngresoRva = document.getElementById('ingresoReserva');
+const contenidotHistorialRva = document.getElementById('historyReserva');
 
 
 pestIngresoRva.addEventListener('click', () => {
   contenidotHistorialRva.style.display = 'none';
   contenidoIngresoRva.style.display = 'block';
-
 });
 pestHistorialRva.addEventListener('click', () => {
   contenidotHistorialRva.style.display = 'block';
   contenidoIngresoRva.style.display = 'none';
-
-})
+});
 // seccion visitas 
 const pestIngresoV = document.getElementById('btnPestIngreso');
 const pestHistorialV = document.getElementById('btnPestHistorial');
@@ -116,6 +113,22 @@ pestHistorialV.addEventListener('click', () => {
   contenidoIngresoV.style.display = 'none';
 });
 
+// seccion Encomiendas
+const pestIngresoEnco = document.getElementById('btnPestIngresoEn');
+const pestHistorialEnco = document.getElementById('btnPestHistorialEn');
+const contenidoIngresoEnco = document.getElementById('seccionEnIngreso');
+const contenidotHistorialEnco = document.getElementById('seccionEnHistorial');
+
+pestIngresoEnco.addEventListener('click', () => {
+  contenidotHistorialEnco.style.display = 'none';
+  contenidoIngresoEnco.style.display = 'block';
+});
+pestHistorialEnco.addEventListener('click', () => {
+  contenidotHistorialEnco.style.display = 'block';
+  contenidoIngresoEnco.style.display = 'none';
+});
+
+
 // Boton cargo y mail
 
 const questYes = document.getElementById('btnSi');
@@ -123,4 +136,27 @@ const contenidoYes = document.getElementById('secctionYes');
 
 questYes.addEventListener('click', () =>{
   contenidoYes.style.display = 'block';
+});
+
+// flecha para atras
+
+const arrowAtras = document.getElementById('arr');
+
+arrowAtras.addEventListener('click', () =>{
+  sectionVisitas.style.display = 'none';
+  sectionPrincipal.style.display = 'block';
+});
+
+const arrowAtras2 = document.getElementById('arro');
+
+arrowAtras2.addEventListener('click', () =>{
+  sectionEncomiendas.style.display = 'none';
+  sectionPrincipal.style.display = 'block';
+});
+
+const arrowAtras3 = document.getElementById('arrows');
+
+arrowAtras3.addEventListener('click', () =>{
+  sectionEncomiendas.style.display = 'none';
+  sectionPrincipal.style.display = 'block';
 });
