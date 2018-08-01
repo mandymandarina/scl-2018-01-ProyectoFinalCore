@@ -155,9 +155,9 @@ firebase.database().ref('visits')
   <th scope="row">${newMessage.val().name}</th>
     <td>${newMessage.val().Rut}</td>
     <td>${newMessage.val().Patente}</td>
-    <td>${newMessage.val().cargo}</td>
-    <td>${newMessage.val().email}</td>  
     <td>${newMessage.val().nameVisit}</td>
+    <td>${newMessage.val().email}</td>  
+    <td>${newMessage.val().cargo}</td>
     <td>${newMessage.val().EmpresaVisit}</td>     
     </tr>`;
 });
