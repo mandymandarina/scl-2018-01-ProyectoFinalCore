@@ -2,14 +2,15 @@
 .imgSplash{
 	width: 100%;
 }
-.login{	
-	height: 100vh;
-	width: 100%;
-	display: none;
-	text-align: center;
-}
 #sectionPrincipal{
 	display: none;
+}
+
+.login{	
+	height: 100vh;
+	display: block;
+	width: 100%;
+	text-align: center;
 }
 .btnPestaña{
 	background-color: #FFF ;
@@ -27,6 +28,7 @@
 }
 .btnYes {
 	margin-bottom: 10px;
+	color:white;
 }
 #seccionViIngreso {
 	display:block;
