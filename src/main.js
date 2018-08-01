@@ -1,286 +1,163 @@
+window.datos = [];
 window.onload = (() => {
-  const seccionLogin = document.getElementById('sectionLogin');
-  const seccionCenter = document.getElementById('sectionCenter');
-  const seccionMuro = document.getElementById('sectionMuro');
-  const inputEmailUser = document.getElementById('inputCorreo');
-  const sectionProfile = document.getElementById('sectionProfile');
-  const sectionRecipes = document.getElementById('sectionRecipes');
-  const sectionFavorite = document.getElementById('sectionFavorite');
-  inputEmailUser.value = '';
-  const inputPasswordUser = document.getElementById('inputPass');
-  inputPasswordUser.value = '';
-  // Limpiar el textarea
- 
-  document.getElementsByTagName('input').value = '';
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      seccionLogin.style.display = 'none';
-      seccionMuro.style.display = 'block';
-      seccionCenter.style.display = 'block';
 
-      /*
-      const userLogued = firebase.auth().currentUser;
-      const newUserKey = firebase.database().ref().child('users').push().key;
-              firebase.database().ref(`users/${newUserKey}`).set({
-                idUser: userLogued.uid,
-                NameUser: userLogued.displayName,
-                EmailUser: userLogued.email
-              }); 
-              */
-      // guardamos el usuario que se ha logado en una coleccion de firebase
-      // declaramos el usuario actual, el que se logó
-      const userLogued = firebase.auth().currentUser;
-      const userData = userLogued.email; // acá sacamos el email del usuario logado
-      let userId = userLogued.uid;
-      // llamamos a la coleccion que tiene los usuarios
-      const allUsersRegister = firebase.database().ref('users/');
-      // revisamos la coleccion en ese momento
-      allUsersRegister.once('value', function(snapshot) {
-        // paso a arreglo el json que trae de firebase
+  /* Para esconder la pantalla de inicio*/
+  setTimeout(function hide() {
+    $('#pagSplash').hide('fast');
+    document.getElementById('sectionPrincipal').style.display = 'block';
+  }, 3000);
 
-        // recorro ese arreglo hasta llegar a los keys de c/ usuario
-        // console.log(arrayUsers)
-        /*
-        let compare = allUsersRegister.orderByChild("idUser").equalTo(userId).once('value',(snapshot)=>{
-          let arrayUsers = Object.entries(snapshot.val());
-          console.log(arrayUsers.val());
-        })*/
-
-        let arrayUsers = Object.entries(snapshot.val());
-        // for (id in arrayUsers) {
-        // let arrayIds = arrayUsers[id];
-        // let users = arrayIds[1];
-        // console.log( "el id del usuario de la coleccion es:  "+users.idUser);
-        // console.log( "el id del usuario logado es:  "+userId);
-        // comparamos si el email del usuario de la coleccion es el mismo que se esta logando ahora
-        let result;
-        let found = arrayUsers.find(item => {
-          item.idUser === userId;
-          return result = true;
-        });
-
-        if (result) {
-          console.log('usuario ya añadido anteriormente ' + userId);
-        } else {
-          console.log('añadiendo usuario  ' + userId);
-          const newUserKey = firebase.database().ref().child('users').push().key;
-          firebase.database().ref(`users/${newUserKey}`).set({
-            idUser: userLogued.uid,
-            NameUser: userLogued.displayName,
-            EmailUser: userLogued.email
-          });
-        }
+  const lista = document.getElementById("listaEmpresas");
+  const list = document.getElementById("listaEmpresa");
+  fetch('data/empresas.json')
+    .then(response => response.json())
+    .then(data => {
+      window.datos = data;
+      console.log(data);
+      data.forEach(element => {
+        let optionEmpresa = document.createElement('option');
+        optionEmpresa.text = element.name;
+        lista.add(optionEmpresa);
       });
-    } else {
-      seccionLogin.style.display = 'block';
-      seccionMuro.style.display = 'none';
-      seccionCenter.style.display = 'none';
-      sectionProfile.style.display = 'none';
-    }
-  });
+      data.forEach(element => {
+        let optionEmpresas = document.createElement('option');
+        optionEmpresas.text = element.name;
+        list.add(optionEmpresas);
+      });
+
+      console.log('holi');
+    });
 });// fin de window onload
 
-// ================SECCIONES DEL DOM=============================================
-const seccionLogin = document.getElementById('sectionLogin');
-const seccionCenter = document.getElementById('sectionCenter');
-const seccionRegistro = document.getElementById('registroUser');
-const seccionMuro = document.getElementById('sectionMuro');
-// ==========================FUNCIONALIDAD LOGIN=====================================
 
+const seccionPrincipal = document.getElementById('sectionPrincipal');
+const seccionVisitas = document.getElementById('sectionVisitas');
+const seccionEncomiedas = document.getElementById('sectionEncomiendas');
+const seccionRvaEspacios = document.getElementById('sectionEspacios');
 
-// LOGARSE CON NOMBRE Y RUT
-const btnLogin = document.getElementById('btnLogin');
-btnLogin.addEventListener('click', () => {
-  const rutUser = document.getElementById('inputRut').value;  
-  firebase.auth().signInWithCustomToken(rutUser)
+// const btnAtras = document.getElementsByClassName("btnAtras");
+const btnVisitas = document.getElementById('btnVisitas');
+const btnEncomiedas = document.getElementById('btnEncomiendas');
+const btnRvaEspacios = document.getElementById('btnReservaEspacios');
 
-    .catch((error) => {
-      const inputEmailUser = document.getElementById('inputRut');
-      inputEmailUser.value = '';      
-      const alertLogin = document.getElementById('alertPassword');
-      const msjErrorFirebase = error.message;
-      if (msjErrorFirebase === 'The email address is badly formatted.') {
-        alertLogin.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert"> Error: Por favor ingresa un correo eléctronico válido</div>';
-      } else if (msjErrorFirebase === 'The password is invalid or the user does not have a password.') {
-        alertLogin.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert"> Error: Password Invalido, Ingrese un password de 6 o más caracteres </div>';
-      }
-      console.log('Error de Firebase > ' + error.code);
-      console.log('Error de Firebase > mensaje' + error.message);
-    });
-}); // fin evento click del boton login normal  
-
-const inputEmailUser = document.getElementById('inputRut');
-inputEmailUser.addEventListener('click', () => {
-  inputEmailUser.value = '';
-  const alertLogin = document.getElementById('alertPassword');
-  alertLogin.innerHTML = '<div id="alertPassword"></div>';
+btnVisitas.addEventListener('click', () => {
+  seccionPrincipal.style.display = 'none';
+  seccionVisitas.style.display = 'block';
+  seccionEncomiedas.style.display = 'none';
+  seccionRvaEspacios.style.display = 'none';
 });
 
-
-// LINK A FORMULARIO PARA REGISTRAR NUEVO USUARIO
-const btnFormRegister = document.getElementById('registrate');
-btnFormRegister.addEventListener('click', () => {
-  seccionRegistro.style.display = 'block';
-  seccionLogin.style.display = 'none';
-});
-// LINK PARA REGRESAR A LA SECCION DE LOGIN
-const btnReturnLogin = document.getElementById('loginBack');
-btnReturnLogin.addEventListener('click', () => {
-  seccionLogin.style.display = 'block';
-  seccionCenter.style.display = 'none';
-  seccionRegistro.style.display = 'none';
-  const alertReg = document.getElementById('alertRegister');
-  alertReg.innerHTML = '<div id="alertPassword"></div>';
+btnEncomiedas.addEventListener('click', () => {
+  seccionPrincipal.style.display = 'none';
+  seccionVisitas.style.display = 'none';
+  seccionEncomiedas.style.display = 'block';
+  seccionRvaEspacios.style.display = 'none';
 });
 
-// REGISTRO DE USUARIO NUEVO
-const btnRegister = document.getElementById('btnRegistrarse');
+btnRvaEspacios.addEventListener('click', () => {
+  seccionPrincipal.style.display = 'none';
+  seccionVisitas.style.display = 'none';
+  seccionEncomiedas.style.display = 'none';
+  seccionRvaEspacios.style.display = 'block';
+});
 
-btnRegister.addEventListener('click', () => {
-  const checkbox = document.getElementById('aceptTerm');
-  console.log(checkbox.value);
-  const alertReg = document.getElementById('alertRegister');
-  alertReg.innerHTML = '<div id="alertPassword"></div>';
-
-  const nombreNewUser = document.getElementById('inputName').value;
-  const emailNewUser = document.getElementById('inputEmailUser').value;
-  const passNewUser = document.getElementById('inputPassUser').value;
-
-  const inputNombreNewUser = document.getElementById('inputName');
-  inputNombreNewUser.value = '';
-  const inputEmailNewUser = document.getElementById('inputEmailUser');
-  inputEmailNewUser.value = '';
-  const inputPassNewUser = document.getElementById('inputPassUser');
-  inputPassNewUser.value = '';
-
-  if (checkbox.value === 'off') {
-    alertRegister.innerHTML = '<div class="alert alert-danger alertConteiner" role="alert">Tiene que aceptar los Terminos y Condiciones de Uso </div>';
-  } else {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        const currentUser = firebase.auth().currentUser;
-        const newUserKey = firebase.database().ref().child('users').push().key;
-        firebase.database().ref(`users/${newUserKey}`).set({
-          NameUser: nombreNewUser,
-          EmailUser: emailNewUser
-        });
-      }
-    });
-    firebase.auth().createUserWithEmailAndPassword(emailNewUser, passNewUser)
-      .then(() => {
-        console.log('Usuario Registrado');
-        seccionLogin.style.display = 'none';
-        seccionCenter.style.display = 'block';
-        seccionRegistro.style.display = 'none';
-      })
-      .catch((error) => {
-        seccionLogin.style.display = 'none';
-        seccionCenter.style.display = 'none';
-        seccionRegistro.style.display = 'block';
-        alertRegister.innerHTML = `<div class="alert alert-danger alertConteiner" role="alert"> ${error} </div>`;
-        console.log('Error de Firebase > ' + error.code);
-        console.log('Error de Firebase > mensaje' + error.message);
-      });
+const atras = (() => {
+  if (seccionRvaEspacios.style.display = 'block') {
+    seccionPrincipal.style.display = 'none';
+    seccionVisitas.style.display = 'none';
+    seccionEncomiedas.style.display = 'none';
+  }
+  if (seccionEncomiedas.style.display = 'block') {
+    seccionPrincipal.style.display = 'none';
+    seccionVisitas.style.display = 'none';
+    seccionRvaEspacios.style.display = 'none';
+  }
+  if (seccionVisitas.style.display = 'block') {
+    seccionPrincipal.style.display = 'none';
+    seccionRvaEspacios.style.display = 'none';
+    seccionEncomiedas.style.display = 'none';
+  }
+  if (seccionPrincipal.style.display = 'block') {
+    seccionEncomiedas.style.display = 'none';
+    seccionVisitas.style.display = 'none';
+    seccionRvaEspacios.style.display = 'none';
   }
 });
-const checkbox = document.getElementById('aceptTerm');
-checkbox.addEventListener('click', () => {
-  checkbox.value = 'on';
-  const alertReg = document.getElementById('alertRegister');
-  alertReg.innerHTML = '<div id="alertPassword"></div>';
+
+/** ******Pestañas Reserva Espacios*/
+const pestIngresoRva = document.getElementById('btnIngresoRva');
+const pestHistorialRva = document.getElementById('btnHistoryRva');
+const contenidoIngresoRva = document.getElementById('ingresoReserva');
+const contenidotHistorialRva = document.getElementById('historyReserva');
+
+
+pestIngresoRva.addEventListener('click', () => {
+  contenidotHistorialRva.style.display = 'none';
+  contenidoIngresoRva.style.display = 'block';
 });
-/** ******************BOTON ELIMINAR MENSAJE *********************************************/
-
-Window.confirmar = (()=>{
-  const confirm = document.getElementById('confirm');
-  confirm.style.display = 'block';
-  const cancelar = document.getElementById('confirmCancelar');
-  const aceptar = document.getElementById('confirmConfirmar');
-  cancelar.addEventListener('click', () => {
-    confirm.style.display = 'none';
-  });                          
-  aceptar.addEventListener('click', function(event) {
-    deleteButtonClicked(event);
-    confirm.style.display = 'none';
-  });
+pestHistorialRva.addEventListener('click', () => {
+  contenidotHistorialRva.style.display = 'block';
+  contenidoIngresoRva.style.display = 'none';
 });
+// seccion visitas 
+const pestIngresoV = document.getElementById('btnPestIngreso');
+const pestHistorialV = document.getElementById('btnPestHistorial');
+const contenidoIngresoV = document.getElementById('seccionViIngreso');
+const contenidotHistorialV = document.getElementById('seccionViHistorial');
 
-/** ******************SECCION PERFIL *********************************************/
-const sectionProfile = document.getElementById('sectionProfile');
-
-const btnProfile = document.getElementById('nameIconFooterProfile');
-btnProfile.addEventListener('click', () => {
-  seccionLogin.style.display = 'none';
-  seccionCenter.style.display = 'none';
-  sectionRecipes.style.display = 'none';
-  sectionProfile.style.display = 'block';
-  sectionFavorite.style.display = 'none';
+pestIngresoV.addEventListener('click', () => {
+  contenidotHistorialV.style.display = 'none';
+  contenidoIngresoV.style.display = 'block';
+});
+pestHistorialV.addEventListener('click', () => {
+  contenidotHistorialV.style.display = 'block';
+  contenidoIngresoV.style.display = 'none';
 });
 
-/** ******************FIN SECCION PERFIL *********************************************/
+// seccion Encomiendas
+const pestIngresoEnco = document.getElementById('btnPestIngresoEn');
+const pestHistorialEnco = document.getElementById('btnPestHistorialEn');
+const contenidoIngresoEnco = document.getElementById('seccionEnIngreso');
+const contenidotHistorialEnco = document.getElementById('seccionEnHistorial');
 
-
-/** ******************SECCION VOLVER ATRAS PERFIL ****************************/
-const btnArrowProfile = document.getElementById('btnArrowProfile');
-btnArrowProfile.addEventListener('click', () => {
-  sectionProfile.style.display = 'none';
-  seccionLogin.style.display = 'none';
-  sectionRecipes.style.display = 'none';
-  seccionCenter.style.display = 'block'; 
-  sectionFavorite.style.display = 'none';
+pestIngresoEnco.addEventListener('click', () => {
+  contenidotHistorialEnco.style.display = 'none';
+  contenidoIngresoEnco.style.display = 'block';
+});
+pestHistorialEnco.addEventListener('click', () => {
+  contenidotHistorialEnco.style.display = 'block';
+  contenidoIngresoEnco.style.display = 'none';
 });
 
 
-/** ******************FIN SECCION VOLVER ATRAS PERFIL ****************************/
+// Boton cargo y mail
 
-/** ******************SECCION RECETAS **************************************/
-const sectionRecipes = document.getElementById('sectionRecipes');
+const questYes = document.getElementById('btnSi');
+const contenidoYes = document.getElementById('secctionYes');
 
-const btnRecipes = document.getElementById('nameIconFooterRecipes');
-btnRecipes.addEventListener('click', () => {
-  sectionProfile.style.display = 'none';
-  seccionLogin.style.display = 'none';
-  seccionCenter.style.display = 'none';
-  sectionRecipes.style.display = 'block';
-  sectionFavorite.style.display = 'none';
+questYes.addEventListener('click', () => {
+  contenidoYes.style.display = 'block';
 });
-/** ******************FIN SECCION RECETAS*******************************************/
 
+// flecha para atras
 
-/** ******************SECCION VOLVER ATRAS RECETAS *************************/
-/*
-const btnArrowRecipes = document.getElementById('btnArrowRecipes');
-btnArrowRecipes.addEventListener('click', () => {
-  sectionProfile.style.display = 'none';
-  seccionLogin.style.display = 'none';
-  seccionCenter.style.display = 'block';
-  sectionRecipes.style.display = 'none';
-  sectionFavorite.style.display = 'none';
-}); */
-/** ******************FIN SECCION VOLVER ATRAS RECETAS ****************************/
+const arrowAtras = document.getElementById('arr');
 
-/** ******************SECCION FAVORITOS **************************************/
-const sectionFavorite = document.getElementById('sectionFavorite');
-
-const btnFavorite = document.getElementById('nameIconFooterFavourite');
-btnFavorite.addEventListener('click', () => {
-  sectionProfile.style.display = 'none';
-  seccionLogin.style.display = 'none';
-  seccionCenter.style.display = 'none';
-  sectionRecipes.style.display = 'none';
-  sectionFavorite.style.display = 'block';
+arrowAtras.addEventListener('click', () => {
+  sectionVisitas.style.display = 'none';
+  sectionPrincipal.style.display = 'block';
 });
-/** ******************FIN SECCION FAVORITOS****************************************/
 
+const arrowAtras2 = document.getElementById('arro');
 
-/** ******************SECCION VOLVER ATRAS FAVORITOS*************************/
-/*
-const btnArrowFavorite = document.getElementById('btnArrowFavorite');
-btnArrowFavorite.addEventListener('click', () => {
-  sectionProfile.style.display = 'none';
-  seccionLogin.style.display = 'none';
-  seccionCenter.style.display = 'block';
-  sectionRecipes.style.display = 'none';
-  sectionFavorite.style.display = 'none';
-}); */
-/** ******************FIN SECCION VOLVER ATRAS FAVORITOS****************************/
+arrowAtras2.addEventListener('click', () => {
+  sectionEncomiendas.style.display = 'none';
+  sectionPrincipal.style.display = 'block';
+});
+
+const arrowAtras3 = document.getElementById('arrows');
+
+arrowAtras3.addEventListener('click', () => {
+  sectionEncomiendas.style.display = 'none';
+  sectionPrincipal.style.display = 'block';
+});

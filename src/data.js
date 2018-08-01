@@ -1,97 +1,188 @@
 
-// LOGOUT
-window.logout = (() => {
-  firebase.auth().signOut()
-    .then(() => {
-      console.log('chao');
-    })
-    .catch();
+function saveData() {
+  const rutText = inputRut.value;
+  const nameLast = inputName.value;
+  const mailText = inputEmail.value;
+  const patenteText = inputPatente.value;
+  const nameVisitText = inputPerson.value; // persona a la que visita
+  const cargoText = inputCargo.value;
+  const empresa = listaEmpresas.value;
+  window.datos;
+
+  let found = datos.find(item => {
+    if (item.name === empresa) {
+      customerEmail = item.email;
+      return result = true;
+    } else {
+      return result = false;
+    }
+  });
+
+  if (result) {
+    const newVisitKey = firebase.database().ref().child('visits').push().key;
+    firebase.database().ref(`visits/${newVisitKey}`).set({
+      Rut: rutText,
+      name: nameLast,
+      nameVisit: nameVisitText,
+      EmpresaVisit: empresa, 
+      email: mailText,
+      Patente: patenteText,
+      cargo: cargoText,
+    });
+    // Limpiar el textarea
+    document.getElementById('inputRut').value = '';
+    emailjs.init('user_0nX0E9VcT00Cn5l3Xunq5');
+
+    var template_params = {
+      'to_name': `${empresa}`,
+      'customer_name': `${customerEmail}`,
+      'from_name': 'MiVisita',
+      'to_name': `${empresa}`,
+      'message_html': `Se registró en recepción a la persona  ${nameLast} RUT: ${rutText} indicó tener una reunión en ${empresa} con ${nameVisitText}`
+    };
+
+    var service_id = 'gmail';
+    var template_id = 'mi_visita';
+    emailjs.send(service_id, template_id, template_params)
+      .then(function(response) {
+        console.log(response);
+      }, function(error) {
+        console.log(error);
+      });
+  } else {
+    saveData();
+  }
+};
+
+/** ********************************************Ingreso de Encomiendas*************************************************/
+function saveIntrust() {
+  const encargoText = inputEncargo.value;
+  const empresaText = listaEmpresa.value;
+  const obsText = inputObs.value;
+  let customerEmail;
+  window.datos;
+
+  let found = datos.find(item => {
+    if (item.name === empresaText) {
+      customerEmail = item.email;
+      console.log(item.name);
+      console.log(customerEmail);
+      return result = true;
+    } else {
+      return result = false;
+    }
+  });
+
+  if (result) {
+    console.log(customerEmail);
+    const newInKey = firebase.database().ref().child('intrust').push().key;
+    firebase.database().ref(`intrust/${newInKey}`).set({
+      Encomienda: encargoText,
+      Empresa: empresaText,
+      EmailEmpresa: customerEmail,
+      Observaciones: obsText,
+    });
+
+    document.getElementById('inputEncargo').value = '';
+    emailjs.init('user_0nX0E9VcT00Cn5l3Xunq5');
+
+    var template_params = {
+      'customer_name': `${customerEmail}`,
+      'from_name': 'MiVisita',
+      'to_name': `${empresaText}`,
+      'message_html': `Recepción recibió una encomienda para ${encargoText} Descripción: ${obsText}`
+    };
+
+    var service_id = 'gmail';
+    var template_id = 'mi_visita';
+    emailjs.send(service_id, template_id, template_params)
+      .then(function(response) {
+        console.log(response);
+      }, function(error) {
+        console.log(error);
+      });
+  } else {
+    saveIntrust();
+  }
+};
+
+const reservarEspacio = (() => {
+  const rutReserve = inputRutReserva.value;
+  const nameReserve = inputNameReserva.value;
+  const patenteReserve = inputPatenteReserva.value;
+  const espacioReserve = inputEspacioReserva.value;
+  const numPersonasReserve = inputPersonasReserva.value;
+  const ObservacionesReserve = inputObservaciones.value;
+
+  const customerEmail = 'v.azocar.adasme@gmail.com'; // este seria directamente el email de la administradora del IF
+
+  const newReservaKey = firebase.database().ref().child('Reservas').push().key;
+  firebase.database().ref(`Reservas/${newReservaKey}`).set({
+    Rut: rutReserve,
+    name: nameReserve,
+    patente: patenteReserve,
+    espacio: espacioReserve,
+    numPersonas: numPersonasReserve,
+    observaciones: ObservacionesReserve
+  });
+
+  emailjs.init('user_0nX0E9VcT00Cn5l3Xunq5');
+
+  var template_params = {
+    'to_name': `Administrador`,
+    'customer_name': `${customerEmail}`,
+    'from_name': 'MiVisita',
+    'to_name': `${nameReserve}`,
+    'message_html': `En recepción se ha identificado a la persona: ${nameReserve} con RUT: ${rutReserve} quien reserva el espacio ${espacioReserve} para ${numPersonasReserve} personas ${ObservacionesReserve}`
+  };
+
+
+  var service_id = 'gmail';
+  var template_id = 'mi_visita';
+  emailjs.send(service_id, template_id, template_params)
+    .then(function(response) {
+      console.log(response);
+    }, function(error) {
+      console.log(error);
+    });
 });
 
 
-/** ******************************Politica de Privacidad***************************************** */
-window.privacyPolicy = (() => {
-  const modal = document.getElementById('modalTerms');
-  modal.style.display = 'block';
+// Buscar visitas desde firebase
 
-  modal.innerHTML = `
-  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-  aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-  <div class="modal-content">
-  <span><p>Politica de Privacidad</p>
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-  <span aria-hidden="true">&times;</span>
-  </button></span>
-    <p>
-    La presente Política de Privacidad establece los términos en que Easyfood usa y
-    protege la información que es proporcionada por sus usuarios al momento de
-    utilizar su sitio web. Esta compañía está comprometida con la seguridad de los
-    datos de sus usuarios. Cuando le pedimos llenar los campos de información
-    personal con la cual usted pueda ser identificado, lo hacemos asegurando que
-    sólo se empleará de acuerdo con los términos de este documento. Sin embargo,
-    esta Política de Privacidad puede cambiar con el tiempo o ser actualizada por lo
-    que le recomendamos y enfatizamos revisar continuamente esta página para
-    asegurarse que está de acuerdo con dichos cambios.
-    Información que es recogida
-    Nuestro sitio web podrá recoger información personal, por ejemplo: Nombre,
-    información de contacto como su dirección de correo electrónica e información
-    demográfica. Así mismo cuando sea necesario podrá ser requerida información
-    específica para procesar algún pedido o realizar una entrega o facturación.
-    Uso de la información recogida
-    Nuestro sitio web emplea la información con el fin de proporcionar el mejor servicio
-    posible, particularmente para mantener un registro de usuarios, de pedidos en
-    caso que aplique, y mejorar nuestros productos y servicios. Es posible que sean
-    enviados correos electrónicos periódicamente a través de nuestro sitio con ofertas
-    especiales, nuevos productos y otra información publicitaria que consideremos
-    relevante para usted o que pueda brindarle algún beneficio, estos correos
-    electrónicos serán enviados a la dirección que usted proporcione y podrán ser
-    cancelados en cualquier momento.
-    Easyfood está altamente comprometido para cumplir con el compromiso de
-    mantener su información segura. Usamos los sistemas más avanzados y los
-    actualizamos constantemente para asegurarnos que no exista ningún acceso no
-    autorizado.
-    Cookies
-    Una cookie se refiere a un fichero que es enviado con la finalidad de solicitar
-    permiso para almacenarse en su ordenador, al aceptar dicho fichero se crea y la
-    cookie sirve entonces para tener información respecto al tráfico web, y también
-    facilita las futuras visitas a una web recurrente. Otra función que tienen las cookies
-    es que con ellas las web pueden reconocerte individualmente y por tanto brindarte
-    el mejor servicio personalizado de su web.
-    Nuestro sitio web emplea las cookies para poder identificar las páginas que son
-    visitadas y su frecuencia. Esta información es empleada únicamente para análisis
-    estadístico y después la información se elimina de forma permanente. Usted
-    puede eliminar las cookies en cualquier momento desde su ordenador. Sin
-    embargo las cookies ayudan a proporcionar un mejor servicio de los sitios web,
-    estás no dan acceso a información de su ordenador ni de usted, a menos de que
-    usted así lo quiera y la proporcione directamente, visitas a una web . Usted puede
-    aceptar o negar el uso de cookies, sin embargo la mayoría de navegadores
-    aceptan cookies automáticamente pues sirve para tener un mejor servicio web.
-    También usted puede cambiar la configuración de su ordenador para declinar las
-    cookies. Si se declinan es posible que no pueda utilizar algunos de nuestros
-    servicios.
-    Enlaces a Terceros
-    Este sitio web pudiera contener en laces a otros sitios que pudieran ser de su
-    interés. Una vez que usted de clic en estos enlaces y abandone nuestra página, ya
-    no tenemos control sobre al sitio al que es redirigido y por lo tanto no somos
-    responsables de los términos o privacidad ni de la protección de sus datos en esos
-    otros sitios terceros. Dichos sitios están sujetos a sus propias políticas de
-    privacidad por lo cual es recomendable que los consulte para confirmar que usted
-    está de acuerdo con estas.
-    Control de su información personal
-    En cualquier momento usted puede restringir la recopilación o el uso de la
-    información personal que es proporcionada a nuestro sitio web. Cada vez que se
-    le solicite rellenar un formulario, como el de alta de usuario, puede marcar o
-    desmarcar la opción de recibir información por correo electrónico. En caso de que
-    haya marcado la opción de recibir nuestro boletín o publicidad usted puede
-    cancelarla en cualquier momento.
-    Esta compañía no venderá, cederá ni distribuirá la información personal que es
-    recopilada sin su consentimiento, salvo que sea requerido por un juez con un
-    orden judicial.
-    Easyfood Se reserva el derecho de cambiar los términos de la presente Política de
-    Privacidad en cualquier momento.</p>
-  </div>
-  </div>
-  </div>`;
-});
-/** ******************************FIN Politica de Privacidad***************************************** */
+firebase.database().ref('visits')  
+  .on('child_added', (newMessage) => {    
+    tableOne.innerHTML += `<tr> 
+    <th scope="row">${newMessage.val().name}</th>
+      <td>${newMessage.val().Rut}</td>
+      <td>${newMessage.val().Patente}</td>
+      <td>${newMessage.val().cargo}</td>
+      <td>${newMessage.val().email}</td>     
+      </tr>`;
+  });
+
+
+// Buscar reservas desde firebase
+firebase.database().ref('Reservas')  
+  .on('child_added', (newMessage) => {    
+    tableTwo.innerHTML += `<tr> 
+  <th scope="row">${newMessage.val().name}</th>
+    <td>${newMessage.val().Rut}</td>
+    <td>${newMessage.val().Patente}</td>
+    <td>${newMessage.val().espacio}</td>
+    <td>${newMessage.val().numPersonas}</td>
+    <td>${newMessage.val().observaciones}</td>  
+    </tr>`;
+  });
+
+// Buscar encomiendas desde firebase
+firebase.database().ref('intrust')  
+  .on('child_added', (newMessage) => {    
+    tableThre.innerHTML += `<tr> 
+<th scope="row">${newMessage.val().EmailEmpresa}</th>
+  <td>${newMessage.val().Empresa}</td>
+  <td>${newMessage.val().Encomienda}</td> 
+  <td>${newMessage.val().observaciones}</td>  
+  </tr>`;
+  });
+
