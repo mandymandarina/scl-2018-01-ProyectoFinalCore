@@ -5,7 +5,7 @@ window.onload = (() => {
   setTimeout(function hide() {
     $('#pagSplash').hide('fast');
     document.getElementById('sectionPrincipal').style.display = 'block';
-  }, 3000);
+  }, 1000);
 
   const lista = document.getElementById("listaEmpresas");
   const list = document.getElementById("listaEmpresa");

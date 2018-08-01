@@ -188,9 +188,17 @@ p{
 }
 .textRva{
 	text-align: left;
+	display: inline;
+	margin-left: 10%;
+	margin-top: 5%;
+	left: 10%;
+}
+
+.textVisit{
+	text-align: left;
 	display: inline-block;
 	margin-left: 1%;
-	margin-top: 2%;
+	margin-top: 4%;
 }
 
 @media (min-width: 768px){
@@ -226,6 +234,12 @@ p{
 	font-size: 20px;
 
 }
+}
+
+#rutVisita{
+	display: inline-block;
+	top: 19%;
+	left: 30%;
 }
 
 /***************************Secciones***********************************/
