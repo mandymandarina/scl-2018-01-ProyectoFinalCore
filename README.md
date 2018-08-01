@@ -50,7 +50,8 @@ Para poder realizar el proyecto se realizó un estudio sobre diferentes aplicaci
 El primer paso fue identificar las necesidades de los usuarios de nuestro proyecto, que puntos debíamos considerar y hacer que la aplicación les entregue información lo más ordenada posible, evitando registros manuales y haciendo la toma de decisiones mucho más ágil.
 
 * #### PRIMER SKETCH (Baja Fidelidad)
-Con las considerasiones mencionadas anteriormente se realizo un Primer Sketch de baja fidelidad para poder iterar posteriormente
+Con las considerasiones mencionadas anteriormente se realizo un Primer Sketch de baja fidelidad para poder iterar posteriormente.
+
 ![alt text](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/Sketch%20baja%20Fidelidad.jpg)
 
 
@@ -58,18 +59,18 @@ Con las considerasiones mencionadas anteriormente se realizo un Primer Sketch de
 
 Para esta propuesta, se tomaron decisiones de color, imágenes, estilos en general, se realizó un primer testeo con el usuario principal, Claudia Fiestas, recepcionista en portería, quien nos identificó su problema para ver el tamaño de las letras, lo que impedía su correcta lectura.
 
-![alt text](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/1%20Sketch%20Alta%20Fidelidad.jpg)
-
 Si quieres ver el video del user testing haz click [aquí](https://drive.google.com/open?id=1Ap4yDLkbjwWz_AzWw1TGNFmkMRz9w5sp)
+
+![alt text](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/1%20Sketch%20Alta%20Fidelidad.jpg)
 
 * ####  TERCER SKETCH (Alta Fidelidad)
 
 Considerando las observaciones del primer testeo, esta vez se agrandaron las fuentes, iconos y botones asociados, además se observó su problema para saber cuándo había terminado el registro de visita, por lo tanto se incorpora una ventana que indique que el registro fue exitoso. 
 En este testeo el usuario se vio mucho más satisfecho y comprendió de manera óptima la aplicación.
 
-![alt text](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/2%20Sketch%20Alta%20Fidelidad.jpg)
-
 Si quieres ver el video del user testing haz click [aquí](https://drive.google.com/open?id=1RQoTHP6RW2rcPOdvPcfMUHtft1cIXjw6)
+
+![alt text](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/2%20Sketch%20Alta%20Fidelidad.jpg)
 
 #### Demo Versión Desktop
 
