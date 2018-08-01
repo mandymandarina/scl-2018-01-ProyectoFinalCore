@@ -1,5 +1,10 @@
 window.datos = [];
 window.onload = (() => {
+   /* Para esconder la pantalla de inicio*/
+   setTimeout(function hide() { 
+    $('#pagSplash').hide('fast');
+    document.getElementById('sectionPrincipal').style.display = 'block'; 
+  }, 3000);
 
   const lista = document.getElementById("listaEmpresas");
   const list = document.getElementById("listaEmpresa");
@@ -28,6 +33,7 @@ const seccionPrincipal = document.getElementById('sectionPrincipal');
 const seccionVisitas = document.getElementById('sectionVisitas');
 const seccionEncomiedas = document.getElementById('sectionEncomiendas');
 const seccionRvaEspacios = document.getElementById('sectionEspacios');
+
 
 //const btnAtras = document.getElementsByClassName("btnAtras");
 const btnVisitas = document.getElementById("btnVisitas");
