@@ -12,8 +12,6 @@ Además a través de un mail, se notificara a una o más personas de la empresa 
 
 ¿Me habrá llegado encomienda?, esto no lo preguntarás más, con Mi Visita tendrás notificaciones en tu correo de las encomiendas o correspondencia que lleguen al lugar de trabajo.
 
-Gracias, hasta pronto.
-
 ## Objetivo
 
 Esta aplicación tiene como objetivo principal realizar de manera rápida y sencilla los ingresos de visita, orientado a la comunidad IF Blanco.
