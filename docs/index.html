@@ -25,20 +25,26 @@
 
   <title>MyVisitor</title>
   <!-- link de icono parte superior de pestaña -->
-  
+
   <link rel="icon" type="image/jpg" href="img/Logo redondo Mi Visita para pag.png" />
 </head>
 
 <body>
-    
+
   <!-- Sección Principal-->
   <section class="login" id="sectionPrincipal">
     <div class="row justify-content-center">
       <div class="col-12" id="menúPrincipalBtns">
         <img src="img/LogoIFpag.png" id="logo" class="img-fluid" alt="Responsive image">
-        <button type="button" id="btnVisitas" class="btn-md btnLogIn"><img class="photoMenu" src="icono/HOME/visita (home).svg"><span class=space></span>Visitas</button>
-        <button type="button" id="btnEncomiendas" class="btn-md btnLogIn"><img class="photoMenu" src="icono/HOME/Encomienda (home).svg"><span class=space></span>Encomiendas</button>
-        <button type="button" id="btnReservaEspacios" class="btn-md btnLogIn"><img class="photoMenu" src="icono/HOME/Reservas (home).svg"><span class=space></span>Reserva Espacios</button>
+        <button type="button" id="btnVisitas" class="btn-md btnLogIn">
+          <img class="photoMenu" src="icono/HOME/visita (home).svg">
+          <span class=space></span>Visitas</button>
+        <button type="button" id="btnEncomiendas" class="btn-md btnLogIn">
+          <img class="photoMenu" src="icono/HOME/Encomienda (home).svg">
+          <span class=space></span>Encomiendas</button>
+        <button type="button" id="btnReservaEspacios" class="btn-md btnLogIn">
+          <img class="photoMenu" src="icono/HOME/Reservas (home).svg">
+          <span class=space></span>Reserva Espacios</button>
       </div>
     </div>
   </section>
@@ -55,207 +61,255 @@
           <button type="button" id="btnPestHistorial" class="btnPestaña">HISTORIAL</button>
           <section id="seccionViIngreso" class="seccion2">
             <span>
-              <div class="controll"><p>Rut</p>
-              <input class="form-control" type="text" placeholder="Ingrese su rut" id="inputRut"></div>
-              <div class="controll"><p>Nombre y Apellido</p>
-              <input class="form-control" type="text" placeholder="Ingrese su nombre" id="inputName"></div>
-              <div class="controll"><p>Patente </p>
-              <input class="form-control" type="text" placeholder="Ingrese su patente" id="inputPatente"></div>
+              <div class="controll">
+                <p>Rut</p>
+                <input class="form-control" type="text" placeholder="Ingrese su rut" id="inputRut">
+              </div>
+              <div class="controll">
+                <p>Nombre y Apellido</p>
+                <input class="form-control" type="text" placeholder="Ingrese su nombre" id="inputName">
+              </div>
+              <div class="controll">
+                <p>Patente </p>
+                <input class="form-control" type="text" placeholder="Ingrese su patente" id="inputPatente">
+              </div>
             </span>
             <span class="spansection">
               <div class="controll">
-              <p>Ingreso a empresas </p>
-              <select class="form-control" id="listaEmpresas">
-                <option id="optionEmpresas">
-                  Empresas
-                </option>
-              </select></div>
-              <div class="controll"><p>Visita a: </p>
-              <input class="form-control" type="text" placeholder="Ingrese nombre" id="inputPerson">
-            </div>
+                <p>Ingreso a empresas </p>
+                <select class="form-control" id="listaEmpresas">
+                  <option id="optionEmpresas">
+                    Empresas
+                  </option>
+                </select>
+              </div>
+              <div class="controll">
+                <p>Visita a: </p>
+                <input class="form-control" type="text" placeholder="Ingrese nombre" id="inputPerson">
+              </div>
             </span>
             <a class="textLogin">
               <span class="space"></span>
               <p id="terminos" data-toggle="modal" data-target=".bd-example-modal-lg" href="#" onclick="privacyPolicy()">
-                 Opcional | ¿Desea recibir información sobre el IF? <button type="button" id="btnSi" class="btnYes"> SI </button></p>
+                Opcional | ¿Desea recibir información sobre el IF?
+                <button type="button" id="btnSi" class="btnYes"> SI </button>
+              </p>
             </a>
             <section id="secctionYes">
-            <span><div class="controll"><p>Cargo</p>
-            <input class="form-control" type="text" placeholder="Ingrese su cargo" id="inputCargo"></div>
-            <div class="controll"><p>Email</p>
-            <input class="form-control" type="text" placeholder="Ingrese su email" id="inputEmail"></div>
-            </span>
-           </section>
+              <span>
+                <div class="controll">
+                  <p>Cargo</p>
+                  <input class="form-control" type="text" placeholder="Ingrese su cargo" id="inputCargo">
+                </div>
+                <div class="controll">
+                  <p>Email</p>
+                  <input class="form-control" type="text" placeholder="Ingrese su email" id="inputEmail">
+                </div>
+              </span>
+            </section>
           </section>
           <section id="seccionViHistorial" class="seccion2">
-              <table class="table table-dark" id="tableOne">
-                  <thead>
-                    <tr>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Rut</th>
-                      <th scope="col">Patente</th>
-                      <th scope="col">Visita a</th>
-                      <th scope="col">Email</th>
-                      <th scope="col">Cargo</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>                      
-                    </tr>                              
-                  </tbody>
-                </table>
+            <table class="table table-dark" id="tableOne">
+              <thead>
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Rut</th>
+                  <th scope="col">Patente</th>
+                  <th scope="col">Visita a</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Cargo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                </tr>
+              </tbody>
+            </table>
           </section>
         </div>
       </div>
     </div>
     <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveData()">REGISTRAR</button>
-    <button type="button" id="btnAtras" class="btn-md btnLogIn">ATRAS</button>
-    </section>
 
-    <!-- Sección Encomiendas -->
-    <section class="login" id="sectionEncomiendas">
-      <div class="row justify-content-center">
-        <div class="col-12">
-            <h1 class="title">
-                <i class="fas fa-arrow-left" id="arro"></i> ENCOMIENDAS
-                <i class="fas fa-dolly"></i>
-              </h1>
-              <div>
-                  <button type="button" id="btnPestIngresoEn" class="btnPestaña">Ingreso</button>
-                  <button type="button" id="btnPestHistorialEn" class="btnPestaña">HISTORIAL</button> 
-                <section id="seccionEnIngreso" class="seccion2">  
-           <select class="form-control" id="listaEmpresa">
-              <option id="optionEmpresa">
-                Empresa
-              </option>
-            </select>
-          <input class="form-control inputLogin" type="text" placeholder="Persona:" id="inputEncargo">
-          <input class="form-control inputLogin" type="text" placeholder="Ingrese Observacion" id="inputObs">
-          <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveIntrust()">Ingresar Encomienda</button>
-          <button type="button" id="btnAtras" class="btn-md btnLogIn" onclick="atras()"> Volver a Inicio</button>
-        </section></div>
-        <section id="seccionEnHistorial" class="seccion2">
-            <table class="table table-dark" id="tableThre">
-                <thead>
-                  <tr>
-                    <th scope="col">Email Empresa</th>
-                    <th scope="col">Empresa</th>
-                    <th scope="col">Encomienda</th>
-                    <th scope="col">Observaciones</th>                    
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>                      
-                  </tr>                              
-                </tbody>
-              </table>
-        </section>
-        </div>
-      </div>
-       </section>
+  </section>
 
-      <!-- Sección Reserva de Espacios -->
-  <section class="login" id="sectionEspacios">
-      <h1 class="title">
-          <i class="fas fa-arrow-left" id="arrows"></i> RESERVA ESPACIOS 
-          <i class="fas fa-map-marked-alt"></i>
+  <!-- Sección Encomiendas -->
+  <section class="login" id="sectionEncomiendas">
+      <h1 class="title" id="titulo">
+          <i class="fas fa-arrow-left" id="arro"></i> ENCOMIENDAS
+          <i class="fas fa-dolly"></i>
         </h1>
-      ><div class="row justify-content-center">          
+      <div class="row justify-content-center">
         <span>
-          <button type="button" id="btnIngresoRva" class="btn-md btnPestaña">Ingreso</button>
-          <button type="button" id="btnHistoryRva" class="btn-md btnPestaña">Historial</button>
+            <button type="button" id="btnPestIngresoEn" class="btnPestaña">Ingreso</button>
+            <button type="button" id="btnPestHistorialEn" class="btnPestaña">HISTORIAL</button> 
         </span>
         <div class="col-10" id="ingresoReserva">
           <span>
+              <section id="seccionEnIngreso" class="seccion2">  
             <div class="textRva">
-                <h6>RUT<span class=space></span><img class="photoMenu" src="icono/RESERVAS/Rut (reservas).svg"></h6>
-                <input class="form-control inputRva" type="text" placeholder="Ingrese RUT" id="inputRutReserva">
-            </div>
-            <div class="textRva">
-                <h6>Nombre y Apellido<span class=space></span><img class="photoMenu" src="icono/RESERVAS/nombre y apellido (reservas).svg"></h6>
-                <input class="form-control inputRva" type="text" placeholder="Nombre y Apellido" id="inputNameReserva">
-            </div>
-            <div class="textRva">
-                <h6>Patente<span class=space></span><img class="photoMenu" src="icono/VISITAS/Patente (visitas).svg"></h6>
-                <input class="form-control inputRva" type="text" placeholder="Patente" id="inputPatenteReserva">
-            </div>
-          </span>
-          <div class="textRva">
-              <h6>Espacio Reservado<span class=space></span><img class="photoMenu" src="icono/RESERVAS/Reserva de espasios (reservas).svg"></h6>
-              <select class="form-control inputRva" id="inputEspacioReserva">
-                  <option class="optionEspacio">
-                    Sala Blanco
-                  </option>
-                  <option class="optionEspacio">
-                    Patio de Galpón
-                  </option>
-                  <option class="optionEspacio">
-                    Hall Galpón
+              <h6>Empresa
+                <img class="photoMenu" src="icono/ENCOMIENDAS/Empresa (encomiendas).svg">
+              </h6>
+              <select class="form-control inputRva" id="listaEmpresa">
+                  <option id="optionEmpresa">
+                    Empresa
                   </option>
                 </select>
-          </div>
-          <div class="textRva">
-              <h6>N° de Personas<span class=space></span><img class="photoMenu" src="icono/RESERVAS/n de personas (reservas).svg"></h6>
-              <input class="form-control inputRva" type="text" placeholder="# personas" id="inputPersonasReserva">
-          </div>
-          <input class="form-control" type="text" id="inputVacio">
-          <input class="form-control" type="text" placeholder="Observaciones" id="inputObservaciones">
-          <button type="button" id="btnReservar" class="btn-md btnLogIn" onclick="reservarEspacio()">Ingresar Reserva</button>
-          <button type="button" id="btnAtras" class="btn-md btnLogIn" onclick="atras()"> Volver a Inicio</button>
+            </div>
+            <div class="textRva">
+              <h6>Persona
+                <span class=space></span>
+                <img class="photoMenu" src="icono/ENCOMIENDAS/Persona (encomiendas).svg">
+              </h6>
+              <input class="form-control inputRva" type="text" placeholder="Persona:" id="inputEncargo">
+            </div>
+            <input class="form-control" type="text" id="inputVacio">
+            <div class="textRva">
+              <h6>Observaciones
+              </h6>
+              <input class="form-control" type="text" placeholder="Ingrese Observacion" id="inputObs">
+              <button type="button" id="btnLogin" class="btn-md btnLogIn" onclick="saveIntrust()">Ingresar Encomienda</button>
+            </div>
+            </section>
+          </span>
         </div>
         <div class="col-10" id="historyReserva">
-          <table class="table table-dark" id="tableTwo">
-            <thead>
-              <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Rut</th>
-                <th scope="col">Patente</th>
-                <th scope="col">Espacio</th>
-                <th scope="col">Numero de presonas</th>
-                <th scope="col">Observaciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-            </tbody>
-          </table>
-          <button type="button" id="btnAtras" class="btn-md btnLogIn" onclick="atras()"> Volver a Inicio</button>
+            <section id="seccionEnHistorial" class="seccion2">
+                <table class="table table-dark" id="tableThre">
+                    <thead>
+                      <tr>
+                        <th scope="col">Email Empresa</th>
+                        <th scope="col">Empresa</th>
+                        <th scope="col">Encomienda</th>
+                        <th scope="col">Observaciones</th>                    
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>                      
+                      </tr>                              
+                    </tbody>
+                  </table>
+            </section>
         </div>
       </div>
-    </section>
-    <!--Vinculación Firebase-->
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyCN0GTXNWlTi5I3KYyZa6DdD6wVTRfJ-zY",
-        authDomain: "myvisitor-6dccf.firebaseapp.com",
-        databaseURL: "https://myvisitor-6dccf.firebaseio.com",
-        projectId: "myvisitor-6dccf",
-        storageBucket: "myvisitor-6dccf.appspot.com",
-        messagingSenderId: "23998941895"
-      };
-      firebase.initializeApp(config);
-    </script>
-    <!-- Vinculación Jquery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-      crossorigin="anonymous"></script>
-    <!-- Vinculación a Fontawesome -->
-    <script src="https://use.fontawesome.com/7873633050.js"></script>
-    <!-- Vinculación a libreria de envio emails -->
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <!--Vinculación archivos JS-->
-    <script src="main.js"></script>
-    <script src="data.js"></script>
+      </section>
+  <!-- Sección Reserva de Espacios -->
+  <section class="login" id="sectionEspacios">
+    <h1 class="title">
+      <i class="fas fa-arrow-left" id="arrows"></i> RESERVA ESPACIOS
+      <i class="fas fa-map-marked-alt"></i>
+    </h1>
+    <div class="row justify-content-center">
+      <span>
+        <button type="button" id="btnIngresoRva" class="btn-md btnPestaña">Ingreso</button>
+        <button type="button" id="btnHistoryRva" class="btn-md btnPestaña">Historial</button>
+      </span>
+      <div class="col-10" id="ingresoReserva">
+        <span>
+          <div class="textRva">
+            <h6>RUT
+              <span class=space></span>
+              <img class="photoMenu" src="icono/RESERVAS/Rut (reservas).svg">
+            </h6>
+            <input class="form-control inputRva" type="text" placeholder="Ingrese RUT" id="inputRutReserva">
+          </div>
+          <div class="textRva">
+            <h6>Nombre y Apellido
+              <span class=space></span>
+              <img class="photoMenu" src="icono/RESERVAS/nombre y apellido (reservas).svg">
+            </h6>
+            <input class="form-control inputRva" type="text" placeholder="Nombre y Apellido" id="inputNameReserva">
+          </div>
+          <div class="textRva">
+            <h6>Patente
+              <span class=space></span>
+              <img class="photoMenu" src="icono/VISITAS/Patente (visitas).svg">
+            </h6>
+            <input class="form-control inputRva" type="text" placeholder="Patente" id="inputPatenteReserva">
+          </div>
+        </span>
+        <div class="textRva">
+          <h6>Espacio Reservado
+            <span class=space></span>
+            <img class="photoMenu" src="icono/RESERVAS/Reserva de espasios (reservas).svg">
+          </h6>
+          <select class="form-control inputRva" id="inputEspacioReserva">
+            <option class="optionEspacio">
+              Sala Blanco
+            </option>
+            <option class="optionEspacio">
+              Patio de Galpón
+            </option>
+            <option class="optionEspacio">
+              Hall Galpón
+            </option>
+          </select>
+        </div>
+        <div class="textRva">
+          <h6>N° de Personas
+            <span class=space></span>
+            <img class="photoMenu" src="icono/RESERVAS/n de personas (reservas).svg">
+          </h6>
+          <input class="form-control inputRva" type="text" placeholder="# personas" id="inputPersonasReserva">
+        </div>
+        <input class="form-control" type="text" id="inputVacio">
+        <input class="form-control" type="text" placeholder="Observaciones" id="inputObservaciones">
+        <button type="button" id="btnReservar" class="btn-md btnLogIn" onclick="reservarEspacio()">Ingresar Reserva</button>
+
+      </div>
+      <div class="col-10" id="historyReserva">
+        <table class="table table-dark" id="tableTwo">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Rut</th>
+              <th scope="col">Patente</th>
+              <th scope="col">Espacio</th>
+              <th scope="col">Numero de presonas</th>
+              <th scope="col">Observaciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <!--Vinculación Firebase-->
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCN0GTXNWlTi5I3KYyZa6DdD6wVTRfJ-zY",
+      authDomain: "myvisitor-6dccf.firebaseapp.com",
+      databaseURL: "https://myvisitor-6dccf.firebaseio.com",
+      projectId: "myvisitor-6dccf",
+      storageBucket: "myvisitor-6dccf.appspot.com",
+      messagingSenderId: "23998941895"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <!-- Vinculación Jquery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <!-- Vinculación a Fontawesome -->
+  <script src="https://use.fontawesome.com/7873633050.js"></script>
+  <!-- Vinculación a libreria de envio emails -->
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <!--Vinculación archivos JS-->
+  <script src="main.js"></script>
+  <script src="data.js"></script>
 
 </body>
 

@@ -45,16 +45,15 @@
 
 .inputLogin{
 	border-radius: 0%;
-  border: 0px; 
-	display: inline;	
-	margin-top: 2%;
-	width: 10em;
-	margin: 20%;
+  border: 0px;
+  width: 20vw;
+	display: inline-block;
+	margin-left: 1%;
+	margin-top: 1%;
+	text-align: left;
+}
 
-}
-.seccion2{
-  background-color: #e6e6e5;
-}
+
 
 .btnYes {
 	background-color: #202A37;
@@ -163,12 +162,24 @@ p{
 	display: inline-block;
 	
 }
+
+#inputObs{
+	border-radius: 0%;
+  border: 0px;
+	width: 50vw;
+	height: 10vh;
+	display: inline-block;
+}
 #logo{
 	text-align: center;
 	width:10vw;
 	
 }
 
+#titulo{
+	padding: 3%;
+	
+}
 .textRva{
 	text-align: left;
 	display: inline-block;
@@ -226,3 +237,10 @@ p{
 	padding: 5%;
 }
 
+#inputEncargo{
+	margin-right: 10%;
+}
+
+h6{
+	display: block;
+}
