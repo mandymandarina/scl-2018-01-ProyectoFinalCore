@@ -29,7 +29,8 @@ Para comenzar con el proceso de Diseño y definir nuestro producto minimo viable
 A través de las entrevistas realizadas a los distintos actores involucrados en el proceso de inscripción de registro de datos para realizar el ingreso al IF Blanco, pudimos comprender las necesidades de cada uno.
 Según la entrevista a los recepcionistas, que se encuentran en porteria del IF, nos indicaron los datos que actualmente anotan: RUT, nombre de quien ingresa, Patente, a quien visita y a qué empresa se dirige, por otro lado estan los proveedores o repartidores, quienes entregan sus datos de a qué empresa o a qué persona van a hacer entrega. Como datos a considerar estaban, la rapidez que necesitaban en el proceso, la legivilidad de la app, el que fuese un proceso sencillo ya que no son usuarios habituales de aplicaciones y por ultimo que fuese apto para desktop ya que anteriormente utilizaban computador.
 
-Por otro lado encontramos 
+Por otro lado entrevistamos a Pilar Lopez, Administradora del IF, en donde pudimos rescatar su interes por ver el historial de la información de los visitantes, pero en sobremanera el obtener como dato el cargo y mail de la persona, por otro lado comento su nulo interes en la app tomara fotos de la visita, ya que no es relevante para ella.
+
 Si quieres escuchar las entrevistas haz click en el siguiente link  [aquí](https://drive.google.com/open?id=1z2LvZOBc-ML2WTWoDIy-x3CYHbehNPaE)
 
 ![alt text](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/Obsevacion%20en%20terreno.jpg)
@@ -40,8 +41,6 @@ Si quieres escuchar las entrevistas haz click en el siguiente link  [aquí](http
 Para poder realizar el proyecto se realizo un estudio sobre diferentes aplicaciones y paginas web, cuyo contenido se asemejara al del proyecto que se quiere realizar. Por medio de este Benchmark, nos dimos cuenta de los contenidos de estas páginas y de sus posibles falencias, para considerarlo dentro de nuestra aplicación. 
 
 ![alt text](https://github.com/VanessaAzocar/scl-2018-01-ProyectoFinalCore/blob/master/docs/readme/Benchmark.png)
-
-
 
 
 ## Proceso de diseño.
